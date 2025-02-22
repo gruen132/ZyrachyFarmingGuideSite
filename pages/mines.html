@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minefield Guide | ZYRACHY HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/subpages.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-time">11:49:16</span>
+                <span class="status-date">2025-02-21</span>
+            </div>
+            <div class="status-center">
+                <div class="status-indicator">LIVE DATA</div>
+            </div>
+            <div class="status-right">
+                <span class="status-user">gruen132</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <div class="logo-reticle"></div>
+                    <span>ZYRACHY</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Overview</a></li>
+                <li><a href="equipment.html">Loadout</a></li>
+                <li><a href="spawns.html">Locations</a></li>
+                <li><a href="tactics.html">Tactics</a></li>
+                <li><a href="loot.html">Loot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header danger-header">
+            <div class="danger-banner">
+                <span class="danger-icon"></span>
+                <h1>Minefield Safety Guide</h1>
+            </div>
+            <div class="page-meta">
+                <span class="update-time">Last updated: 2025-02-21 11:49:16 UTC</span>
+                <span class="patch-version">Patch: 0.13.5.0.26115</span>
+            </div>
+        </div>
+
+        <!-- Warning Section -->
+        <section class="warning-section">
+            <div class="warning-box">
+                <h2>CRITICAL INFORMATION</h2>
+                <p>Mines are lethal and will result in immediate death. There are NO exceptions.</p>
+                <ul class="warning-list">
+                    <li>No armor can protect against mines</li>
+                    <li>Mines cannot be disabled or removed</li>
+                    <li>Sound cues indicate proximity to mines</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="minefield-map">
+            <h2>Bridge Minefield Layout</h2>
+            <div class="map-container">
+                <div class="map-interactive">
+                    <img src="../assets/placeholder/bridge-map.png" alt="Bridge Layout">
+                    <div class="danger-zones">
+                        <!-- Interactive danger markers -->
+                        <div class="mine-marker" style="top: 30%; left: 45%;">
+                            <span class="marker-dot"></span>
+                            <div class="marker-info">Confirmed Mine Location</div>
+                        </div>
+                        <!-- More markers -->
+                    </div>
+                </div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-marker confirmed"></span>
+                        <span>Confirmed Mine</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-marker suspected"></span>
+                        <span>Suspected Area</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-marker safe"></span>
+                        <span>Safe Path</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safe Routes -->
+        <section class="safe-routes">
+            <h2>Verified Safe Paths</h2>
+            <div class="routes-grid">
+                <div class="route-card safe-route">
+                    <h3>Northern Bridge Crossing</h3>
+                    <div class="route-visual">
+                        <img src="../assets/placeholder/route-north.png" alt="Northern Route">
+                        <div class="waypoints">
+                            <!-- Interactive waypoints -->
+                        </div>
+                    </div>
+                    <ol class="route-steps">
+                        <li>Start at northern checkpoint</li>
+                        <li>Follow the concrete barriers</li>
+                        <li>Stay within 1m of the bridge edge</li>
+                        <li>Cross diagonally at the marked point</li>
+                    </ol>
+                </div>
+                <!-- More route cards -->
+            </div>
+        </section>
+
+        <!-- Visual Guides -->
+        <section class="visual-guides">
+            <h2>Recognition Guide</h2>
+            <div class="guides-grid">
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="../assets/placeholder/mine-indicator.png" alt="Mine Indicators">
+                    </div>
+                    <div class="guide-info">
+                        <h3>Visual Indicators</h3>
+                        <ul class="indicator-list">
+                            <li>Disturbed soil patterns</li>
+                            <li>Warning signs and markers</li>
+                            <li>Damaged fence sections</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- More guide cards -->
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section class="updates">
+            <h2>Recent Changes</h2>
+            <div class="update-video">
+                <div class="video-container">
+                    <img src="../assets/placeholder/update-video.png" alt="Mine Update Video">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+            <div class="update-notes">
+                <h3>Patch Notes</h3>
+                <ul class="changelog">
+                    <li>New mine patterns implemented</li>
+                    <li>Additional warning signs added</li>
+                    <li>Sound indicator range increased</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="credits.html">Credits</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 ZYRACHY HUNT. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

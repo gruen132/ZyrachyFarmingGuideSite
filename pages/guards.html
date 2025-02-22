@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guard Information | ZYRACHY HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/subpages.css">
+</head>
+<body>
+    <header>
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-time">16:23:43</span>
+                <span class="status-date">2025-02-21</span>
+            </div>
+            <div class="status-center">
+                <div class="status-indicator">LIVE DATA</div>
+            </div>
+            <div class="status-right">
+                <span class="status-user">gruen132</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <div class="logo-reticle"></div>
+                    <span>ZYRACHY</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Overview</a></li>
+                <li><a href="equipment.html">Loadout</a></li>
+                <li><a href="spawns.html">Spawns</a></li>
+                <li><a href="tactics.html">Tactics</a></li>
+                <li><a href="loot.html">Loot</a></li>
+                <li><a href="mines.html">Mines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Guard Information</h1>
+            <div class="page-meta">
+                <span class="update-time">Last updated: 2025-02-21 16:23:43 UTC</span>
+                <span class="patch-version">Patch: 0.13.5.0.26115</span>
+            </div>
+        </div>
+
+        <!-- Guard Overview -->
+        <section class="guard-overview">
+            <div class="guard-stats">
+                <div class="stat-card">
+                    <h3>Guard Count</h3>
+                    <span class="value">6-8</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Difficulty</h3>
+                    <span class="value">High</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Equipment Level</h3>
+                    <span class="value">Class 5-6</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guard Types -->
+        <section class="guard-types">
+            <h2>Guard Classifications</h2>
+            <div class="guard-grid">
+                <div class="guard-card">
+                    <img src="../assets/placeholder/assault-guard.png" alt="Assault Guard">
+                    <div class="guard-info">
+                        <h3>Assault Guard</h3>
+                        <div class="guard-details">
+                            <span class="equipment">SCAR-H / M4A1</span>
+                            <span class="armor">THOR Armor (Class 5)</span>
+                        </div>
+                        <ul class="behavior-list">
+                            <li>Aggressive push tactics</li>
+                            <li>Uses grenades frequently</li>
+                            <li>Travels in pairs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="guard-card">
+                    <img src="../assets/placeholder/marksman-guard.png" alt="Marksman Guard">
+                    <div class="guard-info">
+                        <h3>Marksman Guard</h3>
+                        <div class="guard-details">
+                            <span class="equipment">SR-25 / M1A</span>
+                            <span class="armor">THOR Armor (Class 5)</span>
+                        </div>
+                        <ul class="behavior-list">
+                            <li>Long-range engagement</li>
+                            <li>Provides overwatch</li>
+                            <li>Uses thermal optics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="guard-card">
+                    <img src="../assets/placeholder/commander-guard.png" alt="Commander Guard">
+                    <div class="guard-info">
+                        <h3>Squad Commander</h3>
+                        <div class="guard-details">
+                            <span class="equipment">ASH-12 / Vector</span>
+                            <span class="armor">THOR Armor (Class 6)</span>
+                        </div>
+                        <ul class="behavior-list">
+                            <li>Coordinates guard movements</li>
+                            <li>Enhanced health pool</li>
+                            <li>Carries high-tier loot</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patrol Routes -->
+        <section class="patrol-routes">
+            <h2>Patrol Patterns</h2>
+            <div class="route-map">
+                <img src="../assets/placeholder/patrol-map.png" alt="Guard Patrol Routes">
+                <div class="route-overlay">
+                    <!-- Interactive patrol route markers -->
+                </div>
+            </div>
+            <div class="route-legend">
+                <div class="legend-item">
+                    <span class="route-color assault"></span>
+                    <span>Assault Team Routes</span>
+                </div>
+                <div class="legend-item">
+                    <span class="route-color marksman"></span>
+                    <span>Marksman Positions</span>
+                </div>
+                <div class="legend-item">
+                    <span class="route-color commander"></span>
+                    <span>Commander Path</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combat Tactics -->
+        <section class="guard-tactics">
+            <h2>Guard Behaviors</h2>
+            <div class="tactics-grid">
+                <div class="tactic-card">
+                    <h3>Alert States</h3>
+                    <ul class="state-list">
+                        <li>
+                            <span class="state-name">Patrol</span>
+                            <p>Regular movement patterns, standard spacing</p>
+                        </li>
+                        <li>
+                            <span class="state-name">Suspicious</span>
+                            <p>Increased awareness, tighter formations</p>
+                        </li>
+                        <li>
+                            <span class="state-name">Combat</span>
+                            <p>Aggressive flanking, coordinated attacks</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tactic-card">
+                    <h3>Response Protocols</h3>
+                    <ul class="protocol-list">
+                        <li>
+                            <span class="protocol-name">Contact</span>
+                            <p>Immediate area lockdown and reinforcement</p>
+                        </li>
+                        <li>
+                            <span class="protocol-name">Casualties</span>
+                            <p>Aggressive push towards last known position</p>
+                        </li>
+                        <li>
+                            <span class="protocol-name">Retreat</span>
+                            <p>Tactical fallback to fortified positions</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Counter Tactics -->
+        <section class="counter-tactics">
+            <h2>Recommended Approaches</h2>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h3>Solo Strategy</h3>
+                    <ul class="strategy-list">
+                        <li>Pick off isolated guards</li>
+                        <li>Use sound masking</li>
+                        <li>Avoid multiple engagements</li>
+                    </ul>
+                </div>
+                <div class="approach-card">
+                    <h3>Team Strategy</h3>
+                    <ul class="strategy-list">
+                        <li>Coordinated pushes</li>
+                        <li>Crossfire positions</li>
+                        <li>Designated roles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="credits.html">Credits</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 ZYRACHY HUNT. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

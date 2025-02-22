@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="components/map/map-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYRACHY HUNT | EFT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/layout.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    
+    <div class="status-bar">
+        <div class="status-left">
+            <span class="status-time">13:51:54 UTC</span>
+            <span class="status-date">2025-02-21</span>
+        </div>
+        <div class="status-center">
+            <div class="status-indicator">LIVE DATA</div>
+        </div>
+        <div class="status-right">
+            <span class="status-user">gruen132</span>
+        </div>
+    </div>
+    <nav class="main-nav">
+        <div class="nav-logo">
+            <a href="index.html" class="logo-link">
+                <div class="logo-reticle">
+                    <img src="assets/zyrachiy-face.png" alt="Zryachiy" class="logo-image">
+                </div>
+                <span>ZYRACHY</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="dropdown-trigger">Guides</a>
+                <ul class="dropdown-content">
+                    <li><a href="pages/equipment.html">Loadout</a></li>
+                    <li><a href="pages/spawns.html">Spawns</a></li>
+                    <li><a href="pages/tactics.html">Tactics</a></li>
+                    <li><a href="pages/guards.html">Guards</a></li>
+                    <li><a href="pages/loot.html">Loot</a></li>
+                </ul>
+            </li>
+            <li><a href="pages/mines.html" class="danger-link">Mines</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">ZYRACHY HUNT</h1>
+                <p class="hero-subtitle">Master the art of hunting Tarkov's deadliest sniper</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">750m</span>
+                        <span class="stat-label">Kill Range</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">1655</span>
+                        <span class="stat-label">Total HP</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">98%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+        <!-- Quick Stats Grid -->
+        <section class="stats-grid">
+            <a href="pages/equipment.html" class="stat-card">
+                <div class="stat-icon loadout"></div>
+                <h3>Recommended Loadout</h3>
+                <p>Optimal gear setup</p>
+                <span class="card-cta">View Details →</span>
+            </a>
+            <a href="pages/spawns.html" class="stat-card">
+                <div class="stat-icon location"></div>
+                <h3>Player Spawns</h3>
+                <p>Avoid other players</p>
+                <span class="card-cta">View Details →</span>
+            </a>
+            <a href="pages/tactics.html" class="stat-card">
+                <div class="stat-icon strategy"></div>
+                <h3>Killing Zyrachy & Guards</h3>
+                <p>Combat strategies</p>
+                <span class="card-cta">View Details →</span>
+            </a>
+            <a href="pages/mines.html" class="stat-card danger-card">
+                <div class="stat-icon mines"></div>
+                <h3>Minefield Guide</h3>
+                <p>Critical safety information</p>
+                <span class="card-cta">View Details →</span>
+                <div class="danger-badge">CRITICAL</div>
+            </a>
+            <a href="pages/loot.html" class="stat-card">
+                <div class="stat-icon rewards"></div>
+                <h3>Potential Loot</h3>
+                <p>Expected rewards</p>
+                <span class="card-cta">View Details →</span>
+            </a>
+            <a href="pages/guards.html" class="stat-card">
+                <div class="stat-icon guards"></div>
+                <h3>Guard Patterns</h3>
+                <p>Spawns & Bugs</p>
+                <span class="card-cta">View Details →</span>
+            </a>
+        </section>
+
+        <section id="locations" class="map-section">
+            <div class="section-header">
+                <h2>Hunting Grounds</h2>
+                <div class="map-controls">
+                    <button class="map-btn active">Spawns</button>
+                   
+                    <button class="map-btn active">Extracts</button>
+                    <button class="map-btn active">Mines</button>
+                </div>
+            </div>
+            <div class="map-container">
+                <!-- Map layers will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/script.js"></script>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="pages/credits.html">Credits</a>
+                <a href="pages/contact.html">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 ZYRACHY HUNT. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="components/map/map.js"></script>
+</body>
+</html>

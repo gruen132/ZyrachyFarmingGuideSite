@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head section remains the same until the style block -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Guide | ZYRACHY HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/subpages.css">
+   <style>
+    .setup-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .setup-button {
+        padding: 0.75rem 1.5rem;
+        border: 1px solid var(--accent-green);
+        background: var(--dark-base);
+        color: var(--text-primary);
+        cursor: pointer;
+        font-family: 'JetBrains Mono', monospace;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .setup-button:hover {
+        background: var(--dark-green);
+        border-color: var(--light-green);
+        color: var(--text-primary);
+    }
+
+    .setup-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(88, 113, 84, 0.2),
+            transparent
+        );
+        transition: 0.5s;
+    }
+
+    .setup-button:hover::before {
+        left: 100%;
+    }
+
+    .setup-button:active {
+        transform: scale(0.97);
+        background: var(--medium-green);
+    }
+
+    .setup-button.active {
+        background: var(--medium-green);
+        border-color: var(--accent-green);
+        color: var(--text-primary);
+    }
+
+    .setup-button.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-green);
+    }
+</style>
+    
+</head>
+<body>
+    <header>
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-time">10:43:27</span>
+                <span class="status-date">2025-02-22</span>
+            </div>
+            <div class="status-center">
+                <div class="status-indicator">LIVE DATA</div>
+            </div>
+            <div class="status-right">
+                <span class="status-user">gruen132</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <div class="logo-reticle">
+                        <img src="../assets/zyrachiy-face.png" alt="Zryachiy">
+                    </div>
+                    <span>ZYRACHY</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Overview</a></li>
+                <li><a href="spawns.html">Spawns</a></li>
+                <li><a href="tactics.html">Tactics</a></li>
+                <li><a href="guards.html">Guards</a></li>
+                <li><a href="loot.html">Loot</a></li>
+                <li><a href="mines.html">Mines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Required Equipment</h1>
+            <div class="page-meta">
+                <span class="update-time">Last updated: 2025-02-21 20:08:41 UTC</span>
+                <span class="patch-version">Patch: 0.13.5.0.26115</span>
+            </div>
+            <!-- Add view switching buttons -->
+            <div class="view-switcher">
+                <button class="view-button active" data-view="budget">Budget Setup</button>
+                <button class="view-button" data-view="advanced">Advanced Setup</button>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Budget View Content -->
+            <div class="view-content budget-view active">
+                <section class="equipment-section">
+                    <h2>Budget Loadout</h2>
+                    <div class="weapon-showcase">
+                        <img src="../assets/placeholder/mosin.png" alt="Mosin Basic Build">
+                        <div class="weapon-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">Primary:</span>
+                                <span class="stat-value">Stock Mosin</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Ammunition:</span>
+                                <span class="stat-value">LPS Gzh</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="protection-info">
+                        <h3>Budget Protection</h3>
+                        <ul class="protection-notes">
+                            <li>No armor required</li>
+                            <li>No helmet needed</li>
+                            <li>Basic headset (optional)</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Advanced View Content -->
+            <div class="view-content advanced-view">
+                <section class="equipment-section">
+                    <h2>Advanced Loadout</h2>
+                    <!-- Original Primary Weapon Section -->
+                    <div class="weapon-showcase">
+                        <img src="../assets/placeholder/sr25.png" alt="Mosin Recommended Build">
+                        <div class="weapon-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">Recommended:</span>
+                                <span class="stat-value">Mosin</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Alternative:</span>
+                                <span class="stat-value">ADAR</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Min. Accuracy:</span>
+                                <span class="stat-value">MOA 1.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="build-details">
+                        <h3>Recommended Build</h3>
+                        <ul class="mod-list">
+                            <li>Scope: Schmidt & Bender PM II 3-20x50</li>
+                            <li>Barrel: 730mm barrel</li>
+                            <li>Muzzle: WT1052 + DTK-4M</li>
+                            <li>Ammunition: HP-BT</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Original Secondary Weapon Section -->
+                    <h3>Secondary Weapon</h3>
+                    <div class="weapon-showcase">
+                        <img src="../assets/placeholder/kedr.png" alt="PP-91 Kedr">
+                        <div class="weapon-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">Weapon:</span>
+                                <span class="stat-value">PP-91 Kedr</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Ammunition:</span>
+                                <span class="stat-value">PM BZHT 9x18mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+                <!-- Protection Information -->
+                <section class="equipment-section">
+                    <h2>Protection Notes (Advanced)</h2>
+                    <div class="info-panel">
+                        <div class="info-content">
+                            <ul class="protection-notes">
+                                <li>Level 4 armor recommended</li>
+                                <li>High-end headset (Sordin/XCEL)</li>
+                                <li>Raid backpack recommended</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Always Visible Sections -->
+            <!-- Essential Items Section - Always Visible with Dynamic Content -->
+            <section class="equipment-section always-visible">
+                <h2>Essential Items</h2>
+                <details class="container-section">
+                    <summary>Alpha Container (2x2)</summary>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="../assets/placeholder/painkillers.png" alt="Painkillers">
+                            <h4>Painkillers</h4>
+                            <p>Required for long engagement stability</p>
+                        </div>
+                        <div class="item-card">
+                            <img src="../assets/placeholder/splint.png" alt="Splint">
+                            <h4>Aluminum Splint</h4>
+                            <p>For fracture treatment</p>
+                        </div>
+                    </div>
+                </details>
+            
+                <details class="container-section">
+                    <summary>Epsilon Container (1x2)</summary>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="../assets/placeholder/meds.png" alt="Medical Supplies">
+                            <h4>Compact Meds</h4>
+                            <p>Optimized for 1x2 space</p>
+                        </div>
+                    </div>
+                </details>
+            
+                <details class="container-section">
+                    <summary>Gamma Container (3x3)</summary>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="../assets/placeholder/surv12.png" alt="Surgical Kit">
+                            <h4>Surgical Kit</h4>
+                            <p>For extended raid survivability</p>
+                        </div>
+                        <div class="item-card">
+                            <img src="../assets/placeholder/ammo-case.png" alt="Ammo Case">
+                            <h4>Small Ammo Case</h4>
+                            <p>Extra ammo storage</p>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <!-- Advanced Tips Section - Always Visible -->
+            <section class="equipment-section always-visible">
+                <h2>Advanced Tips</h2>
+                <div class="tip-container">
+                    <div class="tip-card">
+                        <p>Load one SNB round last in your magazine. This provides a guaranteed penetration option against heavily armored targets when you have a clear headshot opportunity.</p>
+                    </div>
+                    <div class="tip-card">
+                        <p>For both budget and advanced setups, always position yourself with good sightlines to exfil routes.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+   
+<!-- Update the script block -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all buttons and content sections
+        const setupButtons = document.querySelectorAll('.setup-button');
+        const setupContents = document.querySelectorAll('.setup-content:not(.always-visible)');
+        
+        // Initialize state - ensure budget is active by default
+        const defaultSetup = 'budget';
+        document.getElementById(`${defaultSetup}-setup`).classList.add('active');
+        setupButtons.forEach(btn => {
+            if (btn.getAttribute('data-setup') === defaultSetup) {
+                btn.classList.add('active');
+            }
+        });
+    
+        // Add click handlers
+        setupButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const setupType = button.getAttribute('data-setup');
+                
+                // Update buttons
+                setupButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Update content with fade effect
+                setupContents.forEach(content => {
+                    if (content.id === `${setupType}-setup`) {
+                        content.style.opacity = '0';
+                        content.classList.add('active');
+                        setTimeout(() => {
+                            content.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+    </script>
+    
+    
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

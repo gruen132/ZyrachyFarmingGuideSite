@@ -1,0 +1,124 @@
+/* Add more space before the map section */
+.map-section {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 6rem auto; /* Increased from 2rem to 6rem */
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: #1a1a1a;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+.map-container:active {
+    cursor: grabbing;
+}
+
+.map-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    transition: transform 0.1s ease-out;
+}
+
+.map-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.map-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Center the section header */
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Style the map controls */
+.map-controls {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.map-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.map-btn.active {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.4);
+}
+
+.zoomable-map {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.zoom-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+    padding-left: 1rem;
+}
+
+.zoom-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+}
+
+#resetZoom {
+    font-size: 0.8rem;
+    width: auto;
+    padding: 0 0.5rem;
+}

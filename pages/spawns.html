@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spawn Locations | ZYRACHY HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/subpages.css">
+    <link rel="stylesheet" href="../components/map/map-styles.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-time">21:05:25</span>
+                <span class="status-date">2025-02-21</span>
+            </div>
+            <div class="status-center">
+                <div class="status-indicator">LIVE DATA</div>
+            </div>
+            <div class="status-right">
+                <span class="status-user">gruen132</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <div class="logo-reticle"></div>
+                    <span>ZYRACHY</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Overview</a></li>
+                <li><a href="equipment.html">Loadout</a></li>
+                <li><a href="tactics.html">Tactics</a></li>
+                <li><a href="guards.html">Guards</a></li>
+                <li><a href="loot.html">Loot</a></li>
+                <li><a href="mines.html">Mines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Spawn Locations & Routes</h1>
+            <div class="page-meta">
+                <span class="update-time">Last updated: 2025-02-21 21:05:25 UTC</span>
+                <span class="patch-version">Patch: 0.13.5.0.26115</span>
+            </div>
+        </div>
+
+        <!-- Update the map section in spawns.html -->
+        <section class="map-section">
+            <div class="map-controls">
+                <button class="map-btn active" data-layer="spawns">Player Spawns</button>
+                <button class="map-btn" data-layer="routes">Safe Routes</button>
+                <button class="map-btn" data-layer="zyrachy">Zyrachy Spawns</button>
+                <button class="map-btn" data-layer="extracts">Extraction Points</button>
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoomIn">+</button>
+                    <button class="zoom-btn" id="zoomOut">-</button>
+                    <button class="zoom-btn" id="resetZoom">Reset</button>
+                </div>
+            </div>
+            
+            <div class="map-container" id="mapContainer">
+                <div class="map-wrapper" id="mapWrapper">
+                    <div class="map-layer" data-layer="spawns">
+                        <img src="../assets/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
+                        <div class="map-overlay" id="spawnsOverlay">
+                            <!-- Spawn markers will be added here -->
+                        </div>
+                    </div>
+                    <div class="map-layer" data-layer="routes" style="opacity: 0;">
+                        <img src="../assets/SafePaths.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
+                        <div class="map-overlay" id="routesOverlay">
+                            <!-- Route lines will be added here -->
+                        </div>
+                    </div>
+                    <div class="map-layer" data-layer="zyrachy" style="opacity: 0;">
+                        <img src="../assets/placeholder/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
+                        <div class="map-overlay" id="zyrachyOverlay">
+                            <!-- Zyrachy spawn markers will be added here -->
+                        </div>
+                    </div>
+                    <div class="map-layer" data-layer="extracts" style="opacity: 0;">
+                        <img src="../assets/placeholder/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
+                        <div class="map-overlay" id="extractsOverlay">
+                            <!-- Extract markers will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spawn Points Details -->
+        <section class="spawn-details">
+            <h2>Special Spawn Points</h2>
+            <div class="spawn-grid">
+                <div class="spawn-card">
+                    <img src="../assets/placeholder/spawn1.png" alt="Northern Spawn">
+                    <div class="spawn-info">
+                        <h3>Lonely House</h3>
+                        <p>High-risk, high-reward spawn point with direct line of sight to bridge.</p>
+                        <ul class="spawn-tips">
+                            <li>Move into the house and lay down in the right room</li>
+                            <li>Check for PMCs climbing up the rocky ridge all the way to the right</li>
+                            <li>When they are standing 100% still zero scope to 150m and take a shot</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- More spawn cards -->
+            </div>
+        </section>
+
+        <!-- Reset Points -->
+        <section class="reset-points">
+            <h2>Reset Locations</h2>
+            <div class="reset-grid">
+                <div class="reset-card">
+                    <img src="../assets/WesternSpawns.png" alt="Reset Point A">
+                    <div class="reset-info">
+                        <h3>Spawns furthest from the Bridge</h3>
+                        <p>When spawning very far from the bridge it makes sense to go for a safe reset at the Path to Shoreline extract</p>
+                        <div class="coverage-map">
+                            <!-- Small coverage map showing angles -->
+                        </div>
+                    </div>
+                </div>
+                <!-- More reset points -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="credits.html">Credits</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 ZYRACHY HUNT. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapButtons = document.querySelectorAll('.map-btn');
+            const mapLayers = document.querySelectorAll('.map-layer');
+
+            mapButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const layerName = button.getAttribute('data-layer');
+                    
+                    // Update button states
+                    mapButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Update layer visibility
+                    mapLayers.forEach(layer => {
+                        if (layer.getAttribute('data-layer') === layerName) {
+                            layer.style.opacity = '1';
+                        } else {
+                            layer.style.opacity = '0';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="../scripts/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapContainer = document.getElementById('mapContainer');
+            const mapWrapper = document.getElementById('mapWrapper');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+            const resetZoomBtn = document.getElementById('resetZoom');
+
+            let scale = 1;
+            let panning = false;
+            let pointX = 0;
+            let pointY = 0;
+            let start = { x: 0, y: 0 };
+
+            const MIN_SCALE = 1;
+            const MAX_SCALE = 4;
+            const ZOOM_SPEED = 0.5;
+
+            function setTransform() {
+                requestAnimationFrame(() => {
+                    mapWrapper.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+                });
+            }
+
+            function zoom(e) {
+                e.preventDefault();
+                
+                // Get mouse coordinates relative to map container
+                const rect = mapContainer.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate new scale
+                const oldScale = scale;
+                const delta = -Math.sign(e.deltaY) * ZOOM_SPEED;
+                scale = Math.min(Math.max(MIN_SCALE, scale + delta), MAX_SCALE);
+                
+                if (scale === oldScale) return;
+
+                // Calculate the point on the map where we want to zoom
+                const zoomPointX = (mouseX - pointX) / oldScale;
+                const zoomPointY = (mouseY - pointY) / oldScale;
+
+                // Adjust the position to keep the zoom point fixed
+                pointX = mouseX - zoomPointX * scale;
+                pointY = mouseY - zoomPointY * scale;
+
+                setTransform();
+            }
+
+            function buttonZoom(isZoomIn) {
+                const rect = mapContainer.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const oldScale = scale;
+                const delta = isZoomIn ? ZOOM_SPEED : -ZOOM_SPEED;
+                scale = Math.min(Math.max(MIN_SCALE, scale + delta), MAX_SCALE);
+
+                if (scale === oldScale) return;
+
+                // Zoom from center for buttons
+                const zoomPointX = (centerX - pointX) / oldScale;
+                const zoomPointY = (centerY - pointY) / oldScale;
+
+                pointX = centerX - zoomPointX * scale;
+                pointY = centerY - zoomPointY * scale;
+
+                setTransform();
+            }
+
+            zoomInBtn.addEventListener('click', () => buttonZoom(true));
+            zoomOutBtn.addEventListener('click', () => buttonZoom(false));
+            resetZoomBtn.addEventListener('click', () => {
+                scale = 1;
+                pointX = 0;
+                pointY = 0;
+                setTransform();
+            });
+
+            mapContainer.addEventListener('wheel', zoom);
+
+            mapContainer.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                start = {
+                    x: e.clientX - pointX,
+                    y: e.clientY - pointY
+                };
+                panning = true;
+                mapContainer.style.cursor = 'grabbing';
+            });
+
+            mapContainer.addEventListener('mousemove', (e) => {
+                if (!panning) return;
+                e.preventDefault();
+                pointX = e.clientX - start.x;
+                pointY = e.clientY - start.y;
+                setTransform();
+            });
+
+            function stopPanning() {
+                panning = false;
+                mapContainer.style.cursor = 'grab';
+            }
+
+            mapContainer.addEventListener('mouseup', stopPanning);
+            mapContainer.addEventListener('mouseleave', stopPanning);
+            mapContainer.addEventListener('dragstart', (e) => e.preventDefault());
+
+            // Layer switching functionality
+            const mapButtons = document.querySelectorAll('.map-btn');
+            const mapLayers = document.querySelectorAll('.map-layer');
+
+            mapButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const layerName = button.getAttribute('data-layer');
+                    mapButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    mapLayers.forEach(layer => {
+                        layer.style.opacity = layer.getAttribute('data-layer') === layerName ? '1' : '0';
+                    });
+                });
+            });
+
+            // Initialize grab cursor
+            mapContainer.style.cursor = 'grab';
+        });
+    </script>
+</body>
+</html>

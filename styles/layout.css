@@ -1,0 +1,772 @@
+:root {
+    /* Color Scheme */
+    --dark-base: #0a0c0a;
+    --dark-green: #1a2419;
+    --medium-green: #2a3828;
+    --light-green: #465644;
+    --accent-green: #587154;
+    --text-primary: #9da994;
+    --text-secondary: #718268;
+    --highlight: #647a5d;
+    --shadow-color: rgba(0, 0, 0, 0.75);
+    
+    /* Layout */
+    --header-height: 60px;
+    --status-height: 30px;
+    --content-width: 1440px;
+    --grid-gap: 1.5rem;
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--dark-base);
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;
+}
+
+/* Status Bar */
+.status-bar {
+    height: var(--status-height);
+    background: var(--dark-green);
+    border-bottom: 1px solid var(--accent-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-center {
+    display: flex;
+    align-items: center;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-time,
+.status-date {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-green);
+}
+
+.status-indicator::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.status-user {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    font-size: 0.85rem;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+/* Main Navigation */
+.main-nav {
+    height: var(--header-height);
+    background: var(--dark-base);
+    border-bottom: 1px solid var(--accent-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: fixed;
+    top: var(--status-height);
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 900;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+}
+
+.logo-reticle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-green);
+    border: 1px solid var(--accent-green);
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: add a slight darkening overlay to match theme */
+    filter: brightness(0.9);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem; /* Reduced from 2rem to 1.5rem for closer spacing */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
+
+/* Update the nav links container to better control positioning */
+.nav-links li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative; /* Add this to help with absolute positioning */
+}
+
+/* Update the link styling */
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    position: relative;
+    height: 40px; /* Set explicit height */
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* Completely revise the underline effect positioning */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 15px; /* Use a fixed pixel value instead of percentage */
+    left: 10px; /* Add left offset to match padding */
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    height: 1px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+.site-footer {
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Contact page specific styles */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.contact-card {
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.contact-info {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    margin: 1rem 0;
+}
+
+.contact-label {
+    color: var(--text-secondary);
+    margin-right: 1rem;
+}
+
+.contact-value {
+    color: var(--text-primary);
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+    background: var(--accent-color-hover);
+}
+
+/* Credits page specific styles */
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.credit-card {
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.credit-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.credit-list li {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.credit-role {
+    color: var(--text-secondary);
+}
+
+.credit-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Dropdown Styling */
+.nav-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+.dropdown-trigger::after {
+    content: '▾';
+    font-size: 0.8rem;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dark-base);
+    border: 1px solid var(--accent-green);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content li {
+    padding: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.dropdown-content a:hover {
+    background: rgba(88, 113, 84, 0.2);
+}
+
+/* Danger Link Styling */
+.danger-link {
+    color: #ff4444 !important;
+}
+
+.danger-link::after {
+    background: #ff4444 !important;
+}
+
+/* Underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+/* Status Bar Updates */
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-time,
+.status-date {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.status-user {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .dropdown-content {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        border-top: none;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+}
+/* Main Content */
+.main-content {
+    
+    margin-top: calc(var(--status-height) + var(--header-height));
+    padding: 2rem;
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    height: calc(100vh - var(--status-height) - var(--header-height));
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 100%;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin: 0;
+    letter-spacing: 4px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 1rem 0 2rem;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    color: var(--accent-green);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+    margin: 4rem auto;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin-bottom: 6rem; /* Add explicit bottom margin */
+}
+
+.stat-card {
+    height: 200px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Add icon styles for the new guard icon */
+.stat-icon.guards {
+    /* Add your guard icon styling here */
+    background-image: url('assets/guards.svg');
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* Map Section */
+.map-section {
+    margin: 4rem 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+.map-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    min-width: 100px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.map-btn::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.4);
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.map-btn.active {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    padding-left: 1.5rem; /* Make room for the indicator dot */
+}
+
+.map-btn.active::before {
+    background: rgb(0, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.map-btn:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    padding-left: 1.5rem;
+}
+
+.map-btn:not(.active)::before {
+    background: rgba(255, 0, 0, 0.4);
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Update the controls container */
+.map-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+.map-legend {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--dark-base);
+    padding: 1rem;
+    border: 1px solid var(--accent-green);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+/* Add these new styles to your existing layout.css */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.logo-link:hover {
+    color: var(--accent-green);
+}
+
+.stat-card {
+    text-decoration: none;
+    color: var(--text-primary);
+    background: var(--dark-green);
+    padding: 1.5rem;
+    border: 1px solid var(--accent-green);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: var(--medium-green);
+}
+
+.card-cta {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--accent-green);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .card-cta {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Update the status bar to include timestamp and user info */
+.status-left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.status-time,
+.status-date {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+}
+
+.status-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-user::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+}
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    :root {
+        --content-width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Enhanced danger card styling */
+.danger-card {
+    background: linear-gradient(
+        135deg,
+        var(--dark-green) 0%,
+        rgba(255, 68, 68, 0.1) 100%
+    );
+}
+
+.danger-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff4444;
+    color: var(--dark-base);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
