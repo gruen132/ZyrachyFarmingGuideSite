@@ -520,7 +520,7 @@ body {
 /* Add icon styles for the new guard icon */
 .stat-icon.guards {
     /* Add your guard icon styling here */
-    background-image: url('assets/guards.svg');
+    background-image: url('icons/guards.svg');
 }
 
 .stat-card:hover {
@@ -769,4 +769,43 @@ body {
     border-radius: 2px;
     font-weight: 500;
     letter-spacing: 1px;
+}
+.item-description {
+    margin-bottom: 1rem;
+}
+
+.item-description h5 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.item-description h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.3;
+}
+
+/* Keep existing styles for other elements */
+.container-section {
+    margin-bottom: 1.5rem;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.item-card {
+    padding: 0.5rem;
+}
+
+.item-card img {
+    max-width: 100%;
+    height: auto;
 }
