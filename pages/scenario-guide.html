@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Guide | ZYRACHY HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/scenario-guide.css">
+</head>
+<body>
+    <header>
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-time">18:11:08</span>
+                <span class="status-date">2025-02-22</span>
+            </div>
+            <div class="status-center">
+                <div class="status-indicator">LIVE DATA</div>
+            </div>
+            <div class="status-right">
+                <span class="status-user">gruen132</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <div class="logo-reticle"></div>
+                    <span>ZYRACHY</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Overview</a></li>
+                <li><a href="equipment.html">Loadout</a></li>
+                <li><a href="spawns.html">Spawns</a></li>
+                <li><a href="guards.html">Guards</a></li>
+                <li><a href="scenario-guide.html" class="active">Scenario Guide</a></li>
+                <li><a href="loot.html">Loot</a></li>
+                <li><a href="mines.html">Mines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Interactive Scenario Guide</h1>
+            <div class="page-meta">
+                <span class="update-time">Last updated: 2025-02-22 18:11:08 UTC</span>
+                <span class="patch-version">Patch: 0.13.5.0.26115</span>
+            </div>
+        </div>
+
+        <section class="scenario-guide">
+            <div class="guide-container">
+                <div class="guide-sidebar">
+                    <div id="pathDisplay" class="path-display">
+                        <h3>Navigation Path</h3>
+                        <div class="path-content">Start</div>
+                    </div>
+                    
+                    <div class="guide-controls">
+                        <button id="resetBtn" class="control-btn reset">
+                            <span class="btn-icon">↺</span>
+                            Reset Guide
+                        </button>
+                        <button id="backBtn" class="control-btn back">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                    </div>
+
+                    <div class="quick-info">
+                        <div class="info-box">
+                            <h4>Remember</h4>
+                            <p>Zyrachy is always visible in all scenarios</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-main">
+                    <div id="scenarioContent" class="scenario-content">
+                        <!-- Content dynamically populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-help">
+            <div class="help-header">
+                <h2>Guide Instructions</h2>
+                <button class="help-toggle">Show Help</button>
+            </div>
+            <div class="help-content" style="display: none;">
+                <div class="help-grid">
+                    <div class="help-item">
+                        <h3>How to Use</h3>
+                        <ul>
+                            <li>Start at the beginning and answer questions about what you see</li>
+                            <li>Click the options that match your observations</li>
+                            <li>Use the Back button to change previous choices</li>
+                            <li>Reset to start over at any time</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h3>Final Scenarios</h3>
+                        <ul>
+                            <li>When you reach a final scenario, click to expand details</li>
+                            <li>Review tactical information and recommended approaches</li>
+                            <li>Check the included maps for optimal positions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="credits.html">Credits</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 ZYRACHY HUNT. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/scenario-guide.js"></script>
+    <script>
+        document.querySelector('.help-toggle').addEventListener('click', function() {
+            const helpContent = document.querySelector('.help-content');
+            const isHidden = helpContent.style.display === 'none';
+            helpContent.style.display = isHidden ? 'block' : 'none';
+            this.textContent = isHidden ? 'Hide Help' : 'Show Help';
+        });
+    </script>
+</body>
+</html>

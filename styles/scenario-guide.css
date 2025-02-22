@@ -1,0 +1,337 @@
+:root {
+    --node-bg: #1a1a1a;
+    --node-border: #2f2f2f;
+    --node-active: #3a3a3a;
+    --path-color: #4CAF50;
+    --warning-color: #ff4444;
+}
+
+.scenario-guide {
+    padding: 1rem;
+    background: var(--dark-green);
+    border: 1px solid var(--accent-green);
+    margin: 1rem 0;
+}
+
+.guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+}
+
+.guide-sidebar {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.guide-main {
+    grid-column: 2 / -1;
+}
+
+.path-display {
+    background: var(--node-bg);
+    padding: 0.75rem;
+    border-left: 4px solid var(--path-color);
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.path-display h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-green);
+}
+
+.path-content {
+    word-break: break-word;
+}
+
+.scenario-content {
+    background: var(--node-bg);
+    padding: 1rem;
+    border: 1px solid var(--node-border);
+    margin-bottom: 1rem;
+    min-height: 300px;
+}
+
+.node {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+}
+
+.node-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: var(--node-active);
+}
+
+.node-id {
+    background: var(--path-color);
+    color: var(--node-bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.node-title {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.node-content {
+    margin-bottom: 1rem;
+}
+
+.node-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--node-border);
+    grid-column: 1 / 2;
+}
+
+.node-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    grid-column: 2 / 3;
+}
+
+.option-btn {
+    background: var(--node-bg);
+    border: 1px solid var(--node-border);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background: var(--node-active);
+    border-color: var(--path-color);
+}
+
+.guide-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn.reset {
+    background: var(--warning-color);
+    color: white;
+}
+
+.control-btn.back {
+    background: var(--node-active);
+    color: var(--text-primary);
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+}
+
+.quick-info {
+    margin-top: 1rem;
+}
+
+.info-box {
+    background: var(--node-bg);
+    padding: 1rem;
+    border-left: 4px solid var(--path-color);
+}
+
+.info-box h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-green);
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.guide-help {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--dark-green);
+    border: 1px solid var(--accent-green);
+}
+
+.help-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.help-toggle {
+    padding: 0.5rem 1rem;
+    background: var(--node-bg);
+    border: 1px solid var(--node-border);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    background: var(--node-bg);
+}
+
+.help-item {
+    padding: 1rem;
+    border-left: 2px solid var(--accent-green);
+}
+
+.help-item h3 {
+    margin: 0 0 1rem 0;
+    color: var(--accent-green);
+}
+
+.help-item ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.help-item li {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.scenario-details {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    background: var(--node-bg);
+    border: 1px solid var(--node-border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.scenario-details.expanded {
+    margin-bottom: 1rem;
+}
+
+.scenario-details-header {
+    padding: 1rem;
+    background: var(--node-active);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scenario-details-content {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.scenario-description {
+    padding: 1rem;
+    background: var(--node-bg);
+    border-left: 4px solid var(--path-color);
+}
+
+.scenario-tactical {
+    padding: 1rem;
+}
+
+.scenario-tactical img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--node-border);
+}
+
+.scenario-checkpoints {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--node-active);
+}
+
+.scenario-checkpoints h4 {
+    margin: 0 0 1rem 0;
+    color: var(--accent-green);
+}
+
+.scenario-checkpoints ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.scenario-checkpoints li {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .guide-container {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-sidebar {
+        grid-column: 1 / -1;
+        order: 2;
+    }
+
+    .guide-main {
+        grid-column: 1 / -1;
+        order: 1;
+    }
+
+    .node {
+        grid-template-columns: 1fr;
+    }
+
+    .node-options {
+        grid-column: 1 / -1;
+    }
+
+    .help-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scenario-details-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .path-display {
+        font-size: 0.8rem;
+    }
+
+    .guide-controls {
+        flex-direction: column;
+    }
+
+    .control-btn {
+        width: 100%;
+    }
+}
