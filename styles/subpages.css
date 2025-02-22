@@ -1,4 +1,11 @@
 /* Subpage Specific Styles */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
 .page-header {
     margin-bottom: 3rem;
     border-bottom: 1px solid var(--accent-green);
@@ -11,7 +18,6 @@
     font-size: 0.8rem;
     color: var(--text-secondary);
 }
-
 
 .content-grid {
     display: grid;
@@ -42,7 +48,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Optional: add a slight darkening overlay to match theme */
     filter: brightness(0.9);
 }
 
@@ -103,34 +108,51 @@
     border-left: 2px solid var(--accent-green);
 }
 
-/* Spawn Page Styles */
-.map-container {
-    position: relative;
-    margin-bottom: 3rem;
+/* Map Section Styles */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 2rem auto;
 }
 
-.interactive-map {
+.map-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
     width: 100%;
-    height: 600px;
+}
+
+.map-container {
+    width: 100%;
+    position: relative;
     background: var(--dark-green);
     border: 1px solid var(--accent-green);
+}
+
+.map-wrapper {
+    width: 100%;
+    height: 600px;
     position: relative;
     overflow: hidden;
 }
 
-.interactive-map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.map-overlay {
+.map-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.map-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .spawn-grid,
@@ -275,7 +297,7 @@
 /* Video Section */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
 }
@@ -337,6 +359,8 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
+/* Danger Styles */
 .danger-header {
     border-bottom: 2px solid #ff4444;
 }
@@ -488,6 +512,8 @@
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(255, 68, 68, 0.2);
 }
+
+/* Footer Styles */
 .site-footer {
     background-color: var(--bg-dark);
     border-top: 1px solid var(--border-color);
@@ -607,7 +633,6 @@
     color: var(--text-primary);
     font-weight: 500;
 }
-/* Add these styles to your existing subpages.css */
 
 /* View Switcher Styles */
 .view-switcher {
@@ -645,6 +670,8 @@
     display: block;
 }
 
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .weapon-showcase {
@@ -654,5 +681,124 @@
     .spawn-grid,
     .reset-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .map-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .map-btn {
+        width: 100%;
+    }
+}
+/* Guard Section - Compact Design */
+.guard-section {
+    margin: 0.5rem 0;
+}
+
+.guard-card {
+    background: var(--dark-green);
+    border: 1px solid var(--accent-green);
+    border-radius: 4px;
+    padding: 0.75rem;
+}
+
+.guard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(88, 113, 84, 0.2);
+}
+
+.guard-header h2 {
+    font-size: 1.1rem;
+    color: var(--accent-green);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.guard-quick-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.guard-count {
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 0.2rem 0.5rem;
+    background: rgba(88, 113, 84, 0.2);
+    border-radius: 3px;
+}
+
+.threat-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.threat-dots {
+    display: flex;
+    gap: 3px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dot.active {
+    background: var(--accent-green);
+}
+
+.guard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.compact-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.compact-stat:hover {
+    background: rgba(88, 113, 84, 0.2);
+}
+
+.compact-stat .stat-value {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.compact-stat .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 480px) {
+    .guard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .guard-quick-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.3rem;
     }
 }
