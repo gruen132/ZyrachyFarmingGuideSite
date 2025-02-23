@@ -1,0 +1,10 @@
+lighthouse-map.png filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+extracts.png filter=lfs diff=lfs merge=lfs -text
+mines.png filter=lfs diff=lfs merge=lfs -text
+SafePaths.png filter=lfs diff=lfs merge=lfs -text
+spawns.png filter=lfs diff=lfs merge=lfs -text
+WesternSpawns.png filter=lfs diff=lfs merge=lfs -text
+ZyrachiyHealth.png filter=lfs diff=lfs merge=lfs -text
+zyrachiy-face.png filter=lfs diff=lfs merge=lfs -text
+videos/mine-route.mp4 filter=lfs diff=lfs merge=lfs -text
