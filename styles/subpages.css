@@ -790,6 +790,30 @@
     color: var(--text-secondary);
     margin-top: 0.2rem;
 }
+.nav-links a.active {
+    color: var(--accent-color, #00ff00); /* Use your site's accent color */
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 2px currentColor;
+    }
+    to {
+        box-shadow: 0 0 8px currentColor;
+    }
+}
 
 @media (max-width: 480px) {
     .guard-stats {
@@ -801,4 +825,37 @@
         align-items: flex-end;
         gap: 0.3rem;
     }
+}
+.mine-route-video {
+    margin: 2rem 0;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.mine-route-video h2 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.mine-route-video .video-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mine-route-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.video-caption {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }

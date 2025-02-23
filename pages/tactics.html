@@ -8,13 +8,113 @@
     <link rel="stylesheet" href="../styles/animations.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/subpages.css">
+    <style>
+        .scenario-container {
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-secondary);
+        }
+
+        .collapsible {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            padding-right: 40px;
+        }
+        .collapsible::after {
+        content: '›';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        font-size: 24px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        color: var(--text-primary);
+        }
+        .collapsible.active::after {
+        transform: translateY(-50%) rotate(270deg);
+        }
+        .collapsible:hover::after {
+        color: var(--accent-color);
+        }
+
+        .active, .collapsible:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .scenario-content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: var(--bg-primary);
+        }
+
+        .location-section {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: var(--bg-secondary);
+            border-radius: 5px;
+        }
+
+        .quick-guide-link {
+            display: block;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 18px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .quick-guide-link:hover {
+            background-color: var(--accent-color-hover);
+            transform: scale(1.02);
+        }
+
+        .image-container {
+            margin: 15px 0;
+        }
+
+        .video-container {
+            margin: 15px 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scenarios-section {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-time">16:18:31</span>
-                <span class="status-date">2025-02-21</span>
+                <span class="status-time">18:57:38</span>
+                <span class="status-date">2025-02-22</span>
             </div>
             <div class="status-center">
                 <div class="status-indicator">LIVE DATA</div>
@@ -35,11 +135,12 @@
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Overview</a></li>
-                <li><a href="equipment.html">Loadout</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="equipment.html" >Loadout</a></li>
                 <li><a href="spawns.html">Spawns</a></li>
-                <li><a href="guards.html">Guards</a></li>
-                <li><a href="loot.html">Loot</a></li>
                 <li><a href="mines.html">Mines</a></li>
+                <li><a href="tactics.html"class="active">Tactics</a></li>
+                <li><a href="loot.html">Loot</a></li>
             </ul>
         </nav>
     </header>
@@ -48,10 +149,15 @@
         <div class="page-header">
             <h1>Combat Tactics</h1>
             <div class="page-meta">
-                <span class="update-time">Last updated: 2025-02-22 14:40:20 UTC</span>
+                <span class="update-time">Last updated: 2025-02-22 18:57:38 UTC</span>
                 <span class="patch-version">Patch: 0.16.1.2</span>
             </div>
         </div>
+
+        <!-- Quick Access Link -->
+        <a href="scenario-guide.html" class="quick-guide-link">
+            ⚡ QUICK ACCESS: Interactive Scenario Guide - Find Your Exact Situation! ⚡
+        </a>
 
         <!-- Zyrachy Info Section -->
         <section class="boss-section">
@@ -84,14 +190,14 @@
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Detection Range</span>
-                            <span class="stat-value">300m</span>
+                            <span class="stat-value">750m</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-       <!-- Guard Info Section -->
-       <!-- Guard Info Section -->
+
+        <!-- Guard Info Section -->
         <section class="guard-section">
             <div class="guard-card">
                 <div class="guard-header">
@@ -128,8 +234,154 @@
                 </div>
             </div>
         </section>
-        
+
+        <!-- Combat Scenarios Section -->
+        <section class="scenarios-section">
+            <h2>Combat Scenarios</h2>
+            <p class="scenario-note">Note: Zyrachy is ALWAYS visible in all scenarios</p>
+
+            <!-- Scenario 1 -->
+            <div class="scenario-container">
+                <button type="button" class="collapsible">Scenario 1: Only Right Guard and Zyrachy Visible</button>
+                <div class="scenario-content">
+                    <div class="location-section">
+                        <h3>On Bridge</h3>
+                        <div class="image-container">
+                            [Add images for bridge scenario 1]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for bridge scenario 1]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for bridge scenario]</p>
+                    </div>
+                    
+                    <div class="location-section">
+                        <h3>On Island</h3>
+                        <div class="image-container">
+                            [Add images for island scenario 1]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for island scenario 1]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for island scenario]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2 -->
+            <div class="scenario-container">
+                <button type="button" class="collapsible">Scenario 2: Both Guards and Zyrachy Visible</button>
+                <div class="scenario-content">
+                    <div class="location-section">
+                        <h3>On Bridge</h3>
+                        <div class="image-container">
+                            [Add images for bridge scenario 2]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for bridge scenario 2]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for bridge scenario]</p>
+                    </div>
+                    
+                    <div class="location-section">
+                        <h3>On Island</h3>
+                        <div class="image-container">
+                            [Add images for island scenario 2]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for island scenario 2]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for island scenario]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3 -->
+            <div class="scenario-container">
+                <button type="button" class="collapsible">Scenario 3: Only Left Guard and Zyrachy Visible</button>
+                <div class="scenario-content">
+                    <div class="location-section">
+                        <h3>On Bridge</h3>
+                        <div class="image-container">
+                            [Add images for bridge scenario 3]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for bridge scenario 3]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for bridge scenario]</p>
+                    </div>
+                    
+                    <div class="location-section">
+                        <h3>On Island</h3>
+                        <div class="image-container">
+                            [Add images for island scenario 3]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for island scenario 3]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for island scenario]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 4 -->
+            <div class="scenario-container">
+                <button type="button" class="collapsible">Scenario 4: Only Zyrachy Visible</button>
+                <div class="scenario-content">
+                    <div class="location-section">
+                        <h3>On Bridge</h3>
+                        <div class="image-container">
+                            [Add images for bridge scenario 4]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for bridge scenario 4]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for bridge scenario]</p>
+                    </div>
+                    
+                    <div class="location-section">
+                        <h3>On Island</h3>
+                        <div class="image-container">
+                            [Add images for island scenario 4]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for island scenario 4]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for island scenario]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 5 -->
+            <div class="scenario-container">
+                <button type="button" class="collapsible">Scenario 5: Left Guard Bugged Behind Rock</button>
+                <div class="scenario-content">
+                    <div class="location-section">
+                        <h3>On Bridge</h3>
+                        <div class="image-container">
+                            [Add images for bridge scenario 5]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for bridge scenario 5]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for bridge scenario]</p>
+                    </div>
+                    
+                    <div class="location-section">
+                        <h3>On Island</h3>
+                        <div class="image-container">
+                            [Add images for island scenario 5]
+                        </div>
+                        <div class="video-container">
+                            [Add video embed for island scenario 5]
+                        </div>
+                        <p>[Add 500+ characters of tactical description for island scenario]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -141,7 +393,23 @@
             </div>
         </div>
     </footer>
-    <script src="../scripts/script.js"></script>
-</body>
 
+    <script src="../scripts/script.js"></script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
 </html>

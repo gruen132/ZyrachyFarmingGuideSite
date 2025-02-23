@@ -8,13 +8,200 @@
     <link rel="stylesheet" href="../styles/animations.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/subpages.css">
+    <style>
+        .hex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            perspective: 1000px;
+        }
+
+        .hex-item {
+            position: relative;
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hex-item:hover {
+            transform: translateZ(20px);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .loot-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            max-width: 1200px;
+            max-height: 90vh;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-color);
+            padding: 1.5rem;
+            z-index: 1000;
+            overflow-y: auto;
+            animation: panelSlideIn 0.3s ease-out;
+        }
+
+        .loot-panel.active {
+            display: block;
+        }
+
+        .loot-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .loot-table th, .loot-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .loot-table th {
+            background: var(--bg-secondary);
+        }
+
+        .close-panel {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        @keyframes panelSlideIn {
+            from {
+                transform: translate(-50%, -45%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .item-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .weapon-mods {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .weapon-mods li {
+            position: relative;
+            padding:  0.25rem 0;
+        }
+
+        .weapon-mods li::before {
+            content: '›';
+            position: absolute;
+            left: -1rem;
+            color: var(--accent-color);
+        }
+        
+
+        .item-properties {
+            list-style: none;
+            padding-left: 1rem;
+            margin: 0;
+        }
+
+        .item-properties li {
+            position: relative;
+            padding:  0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .item-properties li::before {
+            content: '•';
+            position: absolute;
+            left: -1rem;
+            color: var(--accent-color);
+        }
+
+        .loot-table tr:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .panel-content h3 {
+            margin:  1rem 0 0.5rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .panel-content h3:first-child {
+            margin-top: 0;
+        }
+        .main-content {
+            padding: 1rem;  /* Adjust if needed */
+        }
+
+        /* Make page header more compact */
+        .page-header {
+            margin-bottom: 1rem;  /* Reduce if needed */
+        }
+
+        /* Reduce section spacing */
+        section {
+            margin-bottom: 1.5rem;  /* Reduced spacing between sections */
+        }
+
+        /* Make panel content more compact */
+        .panel-content {
+            margin-top: 0.5rem;  /* Reduced from 1rem */
+        }
+
+        /* Update status bar time to current */
+        .status-time {
+            content: "20:34";
+        }
+
+        .status-date {
+            content: "2025-02-22";
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-time">16:18:31</span>
-                <span class="status-date">2025-02-21</span>
+                <span class="status-time">20:26:28</span>
+                <span class="status-date">2025-02-22</span>
             </div>
             <div class="status-center">
                 <div class="status-indicator">LIVE DATA</div>
@@ -35,25 +222,25 @@
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Overview</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
                 <li><a href="equipment.html">Loadout</a></li>
                 <li><a href="spawns.html">Spawns</a></li>
-                <li><a href="tactics.html">Tactics</a></li>
-                <li><a href="guards.html">Guards</a></li>
                 <li><a href="mines.html">Mines</a></li>
+                <li><a href="tactics.html">Tactics</a></li>
+                <li><a href="loot.html" class="active">Loot</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main-content">
+        <!-- Existing first section kept as is -->
         <div class="page-header">
             <h1>Loot Guide</h1>
             <div class="page-meta">
-                <span class="update-time">Last updated: 2025-02-22 14:40:20 UTC</span>
+                <span class="update-time">Last updated: 2025-02-22 20:26:28 UTC</span>
                 <span class="patch-version">Patch: 0.16.1.2</span>
             </div>
         </div>
-
-        <!-- Loot Overview -->
         <section class="loot-overview">
             <div class="loot-stats">
                 <div class="stat-card">
@@ -71,61 +258,268 @@
             </div>
         </section>
 
-        <!-- Guaranteed Loot -->
-        <section class="guaranteed-loot">
-            <h2>Guaranteed Drops</h2>
-            <div class="loot-grid">
-                <div class="loot-card">
-                    <img src="../assets/placeholder/loot1.png" alt="Special Item">
-                    <div class="loot-info">
-                        <h3>Red Rebel Ice Pick</h3>
-                        <span class="rarity">Rare</span>
-                        <p>Market Value: ₽1,500,000</p>
-                    </div>
+        <section class="loot-categories">
+            <h2>Zyrachy's Guaranteed Drops</h2>
+            <div class="hex-grid">
+                <div class="hex-item" data-category="weapons">
+                    <h3>Weapons</h3>
                 </div>
-                <!-- More loot cards -->
+                <div class="hex-item" data-category="headwear">
+                    <h3>Headwear</h3>
+                </div>
+                <div class="hex-item" data-category="face-cover">
+                    <h3>Face Cover</h3>
+                </div>
+                <div class="hex-item" data-category="chest-rig">
+                    <h3>Chest Rig</h3>
+                </div>
+                <div class="hex-item" data-category="items">
+                    <h3>Items</h3>
+                </div>
+            </div>
+        </section>
+        <section class="loot-categories">
+            <h2>Guard's Guaranteed Drops</h2>
+            <div class="hex-grid">
+                <div class="hex-item" data-category="weapons">
+                    <h3>Weapons</h3>
+                </div>
+                <div class="hex-item" data-category="headwear">
+                    <h3>Headwear</h3>
+                </div>
+                <div class="hex-item" data-category="face-cover">
+                    <h3>Face Cover</h3>
+                </div>
+                <div class="hex-item" data-category="chest-rig">
+                    <h3>Chest Rig</h3>
+                </div>
+                <div class="hex-item" data-category="items">
+                    <h3>Items</h3>
+                </div>
             </div>
         </section>
 
-        <!-- Loot Routes -->
-        <section class="loot-routes">
-            <h2>Optimal Routes</h2>
-            <div class="route-map">
-                <!-- Interactive map with routes -->
-                <img src="../assets/placeholder/loot-map.png" alt="Loot Map">
-                <div class="route-overlay">
-                    <!-- Route markers and paths -->
-                </div>
-            </div>
-            <div class="route-cards">
-                <div class="route-card">
-                    <h3>Route A - High Risk</h3>
-                    <div class="route-stats">
-                        <span>Time: 12 min</span>
-                        <span>Value: ₽900,000+</span>
-                    </div>
-                    <ul class="route-steps">
-                        <li>Start at Northern Spawn</li>
-                        <li>Clear Watchtower</li>
-                        <li>Loot Main Building</li>
-                        <li>Extract via Path to Lighthouse</li>
-                    </ul>
-                </div>
-                <!-- More route cards -->
-            </div>
-        </section>
 
-        <!-- Mine Locations -->
-        <section class="mines-warning">
-            <h2>Hazard Zones</h2>
-            <div class="warning-grid">
-                <div class="warning-card danger">
-                    <h3>⚠️ Minefield Alert</h3>
-                    <p>High-value loot areas are surrounded by minefields. Consult the <a href="mines.html">Minefield Guide</a> before attempting any routes.</p>
-                </div>
+        <!-- Overlay for panels -->
+        <div class="overlay"></div>
+
+        <!-- Weapons Panel -->
+        <div class="loot-panel" id="weapons-panel">
+            <button class="close-panel">×</button>
+            <h2>Weapons</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Weapons</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Weapon</th>
+                            <th>Ammunition</th>
+                            <th>Modifications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/SVDS.png" alt="SVDS" class="item-image">
+                                SVDS 7.62x54R sniper rifle
+                            </td>
+                            <td>7N37, SNB, T46M</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>AK Magpul MOE pistol grip (Black)</li>
+                                    <li>SVDS 7.62x54R 22 inch barrel</li>
+                                    <li>SVDS 7.62x54R muzzle brake-compensator with Rotor 43 suppressor</li>
+                                    <li>SVD SAG MK1 chassis</li>
+                                    <li>Strike Industries Cobra Tactical foregrip</li>
+                                    <li>March Tactical 3-24x42 FFP 30mm riflescope</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/AKS74U.png" alt="AKS-74U" class="item-image">
+                                AKS-74U 5.45x39
+                            </td>
+                            <td>74T</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>AK-74 5.45x39 6L31 60-round magazine</li>
+                                    <li>AKS-74U 5.45x39 muzzle brake</li>
+                                    <li>AKS-74U Zenit B-18 Mount</li>
+                                    <li>BelOMO PK-06 reflex sight</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
+        </div>
+
+        <!-- Headwear Panel -->
+        <div class="loot-panel" id="headwear-panel">
+            <button class="close-panel">×</button>
+            <h2>Headwear</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Headwear</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Class</th>
+                            <th>Properties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/helmet1.png" alt="Tactical Helmet" class="item-image">
+                                Black Ops Fast MT
+                            </td>
+                            <td>4</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>High ricochet chance</li>
+                                    <li>-5% movement speed</li>
+                                    <li>-10% turn speed</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Face Cover Panel -->
+        <div class="loot-panel" id="face-cover-panel">
+            <button class="close-panel">×</button>
+            <h2>Face Cover</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Face Protection</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Protection</th>
+                            <th>Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/face1.png" alt="Face Shield" class="item-image">
+                                FAST Face Shield
+                            </td>
+                            <td>Class 3</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Compatible with NVGs</li>
+                                    <li>90% visibility</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Chest Rig Panel -->
+        <div class="loot-panel" id="chest-rig-panel">
+            <button class="close-panel">×</button>
+            <h2>Chest Rig</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Armor</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Class</th>
+                            <th>Specifications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/armor1.png" alt="Armor" class="item-image">
+                                FORT Defender-2
+                            </td>
+                            <td>5</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Durability: 80/80</li>
+                                    <li>Material: Combined</li>
+                                    <li>-15% movement speed</li>
+                                    <li>2x2 storage space</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Items Panel -->
+        <div class="loot-panel" id="items-panel">
+            <button class="close-panel">×</button>
+            <h2>Items</h2>
+            <div class="panel-content">
+                <h3>Common Loot</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Type</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/item1.png" alt="Medical" class="item-image">
+                                Combat Stimulant Injector
+                            </td>
+                            <td>Medical</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Combat stim</li>
+                                    <li>+20% strength for 300s</li>
+                                    <li>-10 health after effect</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/item2.png" alt="Key" class="item-image">
+                                Secure Area Access Card
+                            </td>
+                            <td>Key</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Limited use (5/5)</li>
+                                    <li>Opens secured containers</li>
+                                    <li>Required for specific quest</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/icons/item3.png" alt="Special" class="item-image">
+                                Intelligence Folder
+                            </td>
+                            <td>Quest Item</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Required for Trader quest</li>
+                                    <li>High value item</li>
+                                    <li>Can be found in special room</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </main>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -137,6 +531,47 @@
             </div>
         </div>
     </footer>
+
     <script src="../scripts/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update status bar time
+            const statusTime = document.querySelector('.status-time');
+            const statusDate = document.querySelector('.status-date');
+            const currentTime = '20:28:51';
+            const currentDate = '2025-02-22';
+            
+            statusTime.textContent = currentTime;
+            statusDate.textContent = currentDate;
+
+            // Panel functionality
+            const hexItems = document.querySelectorAll('.hex-item');
+            const overlay = document.querySelector('.overlay');
+            const panels = document.querySelectorAll('.loot-panel');
+            const closeButtons = document.querySelectorAll('.close-panel');
+
+            hexItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const category = item.dataset.category;
+                    const panel = document.getElementById(`${category}-panel`);
+                    panel.classList.add('active');
+                    overlay.classList.add('active');
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const panel = button.closest('.loot-panel');
+                    panel.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            });
+
+            overlay.addEventListener('click', () => {
+                panels.forEach(panel => panel.classList.remove('active'));
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
