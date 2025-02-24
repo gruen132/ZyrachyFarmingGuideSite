@@ -1,27 +1,77 @@
-/* Add more space before the map section */
+/* Base map section styles */
 .map-section {
     position: relative;
-    width: 100%; /* Take full width */
+    width: 100%;
     max-width: 1200px;
-    margin: 6rem auto; /* Center horizontally with auto margins */
+    margin: 6rem auto;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 
+/* Container styles */
 .map-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 600px;
     overflow: hidden;
     background: #000000;
     border-radius: 4px;
     cursor: grab;
-  
 }
+.main-content > .map-section {
+    padding: 2rem; /* Extra padding only on index page */
+    margin-left: 7rem ; /* Extra left margin only on index page */
+}
+
+/* Specific styles for spawns.html - will use the default centered layout */
+.spawn-page .map-section {
+    padding: 1rem; /* Regular padding for spawn page */
+    margin: 6rem auto; /* Keep it centered */
+}
+
+
+/* Section header specific styles */
+.section-header {
+    width: 100%; /* Add full width */
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Map controls container */
+.map-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add center alignment */
+    gap: 1rem; /* Add consistent spacing */
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    width: 100%; /* Take full width of parent */
+    box-sizing: border-box;
+}
+
+
+
+/* Specific styles for index.html map */
+.home-page .map-section {
+    margin: 4rem 2rem; /* Add horizontal margin for index page */
+}
+
+/* Specific styles for spawns.html map */
+.spawn-page .map-section {
+    margin: 2rem auto; /* Center the map on spawns page */
+}
+
+
 
 
 .map-container:active {
@@ -37,6 +87,7 @@
     transform-origin: 0 0;
     transition: transform 0.1s ease-out;
 }
+
 
 .map-layer {
     position: absolute;
@@ -59,15 +110,8 @@
     margin-bottom: 2rem;
 }
 
-/* Style the map controls */
-.map-controls {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
-    margin-bottom: 1rem;
-}
+
+
 
 .map-btn {
     padding: 0.5rem 1rem;
@@ -124,4 +168,58 @@
     font-size: 0.8rem;
     width: auto;
     padding: 0 0.5rem;
+}
+.section-header .map-controls {
+    margin-top: 1rem;
+    width: auto; /* Allow controls to take natural width */
+    min-width: 300px; /* Set minimum width */
+}
+
+/* Ensure consistent map container sizing */
+.map-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    transition: transform 0.1s ease-out;
+    display: flex;
+    justify-content: center;
+}
+
+.map-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+
+.map-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+    .map-section {
+        margin: 4rem 1rem;
+        width: calc(100% - 2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .map-section {
+        margin: 3rem 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .map-controls {
+        flex-wrap: wrap;
+    }
 }

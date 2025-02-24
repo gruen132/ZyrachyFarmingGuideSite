@@ -306,6 +306,12 @@ body {
     padding: 0;
     margin: 1rem 0;
 }
+.responsive-container {
+    max-width: 2560px; /* Maximum width for ultra-wide screens */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 
 .credit-list li {
     margin: 1rem 0;
@@ -458,37 +464,49 @@ body {
 
 /* Hero Section */
 .hero-section {
-    height: calc(100vh - var(--status-height) - var(--header-height));
+    min-height: min(80vh, 800px); 
+    height: auto; 
+    padding: 4rem 0; 
     display: flex;
     align-items: center;
     position: relative;
+    margin-bottom: 2rem; /* Add margin to reduce vertical space */
     overflow: hidden;
 }
+
 
 .hero-content {
     width: 100%;
     padding: 0 2rem;
     position: relative;
     z-index: 1;
+    max-width: min(90%, 1800px); /* Limit maximum width while staying responsive */
+    margin: 0 auto;
 }
 
 .hero-title {
-    font-size: 4rem;
+  
     margin: 0;
     letter-spacing: 4px;
     line-height: 1.2;
+    font-size: clamp(3rem, 5vw, 6rem); /* Responsive font size that won't get too large */
+    margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+   
     color: var(--text-secondary);
     margin: 1rem 0 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    max-width: 800px; /* Prevent text from stretching too wide */
 }
 
 .hero-stats {
     display: flex;
     gap: 3rem;
-    margin-top: 3rem;
+ 
+    margin-top: clamp(2rem, 4vh, 4rem); /* Responsive margin */
+    max-width: 1200px; /* Prevent stats from spreading too wide */
 }
 
 .stat {
@@ -819,4 +837,54 @@ body {
 .item-card img {
     max-width: 100%;
     height: auto;
+}
+/* Media Queries for Large Screens */
+@media (min-width: 1921px) {
+    :root {
+        --content-width: min(90%, 2000px);
+    }
+
+
+
+
+
+    .hero-stats {
+        gap: clamp(3rem, 4vw, 6rem);
+    }
+
+ 
+
+/* Ultra-wide screen optimizations */
+@media (min-width: 2561px) {
+    .main-content {
+        max-width: 2000px; /* Cap the maximum width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-section {
+        min-height: 600px; /* Fixed height for ultra-wide screens */
+    }
+}
+
+/* Map Section Optimization */
+.map-section {
+    max-width: min(90%, 1800px);
+    margin: 2rem auto;
+}
+
+/* Adjust status bar and navigation for larger screens */
+.status-bar, .main-nav {
+    max-width: 2560px;
+    margin: 0 auto;
+}
+
+
+
+.stat-icon {
+    width: clamp(40px, 3vw, 60px);
+    height: clamp(40px, 3vw, 60px);
+}
+
+/* Improved typography scaling */
 }
