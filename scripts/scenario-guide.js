@@ -18,7 +18,7 @@ class ScenarioGuide {
                 image: '../assets/scenarios/left-guard-check.jpg',
                 options: [
                     { text: 'Yes, visible normally', nextId: 'leftGuardNormal' },
-                    { text: 'Yes, but bugged behind rock', nextId: 'leftGuardBugged' },
+                    { text: 'Yes, but bugged behind rock', nextId: 'scenario5' },
                     { text: 'No, not visible', nextId: 'checkRightGuard' }
                 ]
             },
@@ -29,21 +29,6 @@ class ScenarioGuide {
                 image: '../assets/scenarios/left-guard-normal.jpg',
                 options: [
                     { text: 'Check right guard', nextId: 'checkRightGuardWithLeft' }
-                ]
-            },
-            leftGuardBugged: {
-                id: 'leftGuardBugged',
-                title: 'Bugged Left Guard Scenario',
-                content: `
-                    <div class="warning-box">
-                        Special Scenario (5): Left guard is bugged behind rock
-                        - Only gun is visible
-                        - Guard may be sitting or standing
-                    </div>
-                `,
-                image: '../assets/scenarios/bugged-guard.jpg',
-                options: [
-                    { text: 'Complete Scenario', nextId: 'scenario5' }
                 ]
             },
             checkRightGuard: {
@@ -68,91 +53,89 @@ class ScenarioGuide {
             },
             scenario1: {
                 id: 'scenario1',
-                title: 'Scenario 1',
-                content: 'Only right guard and Zyrachy are visible',
-                image: '../assets/scenarios/scenario1.jpg',
+                title: 'Scenario 1: Only Right Guard and Zyrachy Visible',
+                content: 'The easiest scenario to master',
                 isFinal: true,
                 details: {
-                    description: `In this scenario, you'll encounter Zyrachy alongside the right guard positioned near the bridge's eastern section. The absence of the left guard creates an optimal opportunity for engagement from the southern approach. The right guard typically maintains a patrol pattern between the bridge's midpoint and eastern checkpoint, while Zyrachy remains visible from multiple vantage points. Consider using the terrain elevation to your advantage, as the southern ridgeline provides excellent cover and clear sightlines to both targets. Be mindful of the right guard's regular scanning patterns, which often include checks towards the southern hills.`,
-                    tacticalImage: '../assets/scenarios/scenario1-tactical.jpg',
+                    description: 'Only right guard and Zyrachy are visible. This scenario offers a straightforward approach with clear steps to follow.',
+                    video: 'https://www.youtube.com/embed/LqIve_G3kpU',
                     checkpoints: [
-                        'Confirm left guard absence',
-                        'Track right guard patrol pattern',
-                        'Identify Zyrachy\'s position',
-                        'Scout southern approach routes',
-                        'Verify optimal sniping positions'
+                        'Lay down in the center where you can\'t be seen by the right guard',
+                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
+                        'Once Zyrachy is dead, stand up and immediately sprint while going prone to the left for cover',
+                        'At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up',
+                        'Once the right guard is down, navigate through the mines and reach the island',
+                        'Move immediately onto the designated rock mentioned in the video',
+                        'When the left guard moves along his path, unload your entire magazine into either his face or chest'
                     ]
                 }
             },
             scenario2: {
                 id: 'scenario2',
-                title: 'Scenario 2',
-                content: 'Both guards and Zyrachy are visible',
-                image: '../assets/scenarios/scenario2.jpg',
+                title: 'Scenario 2: Both Guards and Zyrachy Visible',
+                content: 'Most complex scenario requiring careful positioning and timing',
                 isFinal: true,
                 details: {
-                    description: `This scenario presents the most complex engagement, with both guards actively patrolling alongside Zyrachy. The guards maintain coordinated patrol routes, covering both bridge approaches and the central area. Your primary advantage lies in timing your approach between their patrol cycles. The eastern ridge offers the best vantage point for observing guard patterns while maintaining cover. Watch for moments when the guards separate, as this creates opportunities for isolated engagements. The western approach, while more exposed, can be viable during specific patrol configurations when both guards are focused on the eastern side.`,
-                    tacticalImage: '../assets/scenarios/scenario2-tactical.jpg',
+                    description: 'Both guards and Zyrachy are visible. This scenario requires precise positioning and careful timing.',
                     checkpoints: [
-                        'Monitor guard patrol synchronization',
-                        'Identify guard separation patterns',
-                        'Map Zyrachy\'s movement relative to guards',
-                        'Note cover positions along approach routes',
-                        'Plan primary and backup extraction paths'
+                        'Lay down to the right of the fence',
+                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zyrachy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
+                        'Once Zyrachy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
+                        'With the right left guard dead, stand up and immediately sprint while going prone to the left for cover',
+                        'At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up'
                     ]
                 }
             },
             scenario3: {
                 id: 'scenario3',
-                title: 'Scenario 3',
-                content: 'Only left guard and Zyrachy are visible',
-                image: '../assets/scenarios/scenario3.jpg',
+                title: 'Scenario 3: Only Left Guard and Zyrachy Visible',
+                content: 'Moderate difficulty scenario focusing on the western section',
                 isFinal: true,
                 details: {
-                    description: `With only the left guard and Zyrachy present, this scenario offers a moderate challenge focused on the western section of the area. The left guard follows a predictable patrol route between the western bridge entrance and the central checkpoint. Zyrachy's position remains constant, allowing for strategic positioning. The northern ridgeline provides excellent oversight of both targets while maintaining safe distance. Be particularly attentive to the left guard's frequent scanning of the northern approaches, as they tend to focus more attention on this direction compared to other scenarios.`,
-                    tacticalImage: '../assets/scenarios/scenario3-tactical.jpg',
+                    description: 'Only left guard and Zyrachy are visible. This scenario requires careful positioning and timing.',
                     checkpoints: [
-                        'Verify right guard absence',
-                        'Study left guard patrol timing',
-                        'Mark Zyrachy\'s static position',
-                        'Identify northern approach routes',
-                        'Plan counter-measures for guard scans'
+                        'Lay down to the right of the fence',
+                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zyrachy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
+                        'Once Zyrachy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
+                        'Once the left guard is down, navigate through the mines and reach the island',
+                        'Head toward the rocks where the left guard normally takes position',
+                        'Take cover behind a rock and wait for him to push toward you'
                     ]
                 }
             },
             scenario4: {
                 id: 'scenario4',
-                title: 'Scenario 4',
-                content: 'Only Zyrachy is visible',
-                image: '../assets/scenarios/scenario4.jpg',
+                title: 'Scenario 4: Only Zyrachy Visible',
+                content: 'Optimal scenario with maximum flexibility',
                 isFinal: true,
                 details: {
-                    description: `This represents the optimal scenario for engagement, with only Zyrachy present in the area. Without guard interference, you have maximum flexibility in choosing your approach and engagement timing. Zyrachy maintains their standard behavior patterns but without the additional security of guard patrols. The eastern high ground offers the best combination of cover and firing positions, though all approach vectors are viable. Despite the lack of guards, maintain awareness of other potential threats and always plan multiple extraction routes.`,
-                    tacticalImage: '../assets/scenarios/scenario4-tactical.jpg',
+                    description: 'Only Zyrachy is visible. This is the most straightforward scenario with the most tactical options.',
                     checkpoints: [
-                        'Confirm absence of both guards',
-                        'Track Zyrachy\'s isolated patterns',
-                        'Survey all possible approach routes',
-                        'Identify optimal firing positions',
-                        'Map multiple extraction paths'
+                        'Position yourself prone in any spot with a clear view of Zyrachy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
+                        'Once the Zyrachy is dead, navigate through the mines and reach the island',
+                        'Head toward the rocks where the left guard normally takes position',
+                        'Take cover behind a rock and wait for him to push toward you',
+                        'Move immediately onto the designated rock mentioned in the video of Scenario 1',
+                        'When the left guard moves along his path, unload your entire magazine into either his face or chest'
                     ]
                 }
             },
             scenario5: {
                 id: 'scenario5',
-                title: 'Scenario 5',
-                content: 'Bugged Left Guard Scenario',
-                image: '../assets/scenarios/scenario5.jpg',
+                title: 'Scenario 5: Left Guard Bugged Behind Rock',
+                content: 'Special bugged scenario - Reset recommended',
                 isFinal: true,
                 details: {
-                    description: `This unique scenario features a bugged left guard partially visible behind a rock, with only their weapon exposed. The guard's position remains fixed, but their stance may vary between sitting and standing. The right guard's presence is variable and should not affect your tactical approach. This scenario requires special attention to the bugged guard's limited visibility, as their actual threat radius may not match their visible profile. Maintain extra distance from the rock formation where the guard is bugged, as their attack patterns can be unpredictable despite their limited visibility.`,
-                    tacticalImage: '../assets/scenarios/scenario5-tactical.jpg',
+                    description: 'Left guard is bugged behind rock. Currently, no safe sniping spot has been found for the bugged left guard.',
+                    video: 'https://www.youtube.com/embed/tmFQVteYMR4',
                     checkpoints: [
-                        'Identify bugged guard\'s weapon position',
-                        'Note guard\'s current stance',
-                        'Check right guard presence/absence',
-                        'Mark safe distances from bugged guard',
-                        'Plan approach avoiding guard\'s attack radius'
+                        'If you notice the left guard is bugged, it\'s best to reset',
+                        'No safe sniping spot has been identified for this scenario',
+                        'The guard may be sitting or standing',
+                        'Only the gun is visible'
                     ]
                 }
             }
@@ -161,6 +144,7 @@ class ScenarioGuide {
         this.initializeEventListeners();
         this.renderCurrentNode();
     }
+
 
     initializeEventListeners() {
         document.getElementById('resetBtn').addEventListener('click', () => this.reset());
