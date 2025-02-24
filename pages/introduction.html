@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guard Information | ZYRACHY HUNT</title>
+    <title>Introduction | ZYRACHY HUNT</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/animations.css">
     <link rel="stylesheet" href="../styles/layout.css">
@@ -13,8 +13,8 @@
     <header>
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-time">16:23:43</span>
-                <span class="status-date">2025-02-21</span>
+                <span class="status-time">00:24:55</span>
+                <span class="status-date">2025-02-24</span>
             </div>
             <div class="status-center">
                 <div class="status-indicator">LIVE DATA</div>
@@ -35,8 +35,8 @@
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Overview</a></li>
-                <li><a href="introduction.html"class="active">Introduction</a></li>
-                <li><a href="equipment.html" >Loadout</a></li>
+                <li><a href="introduction.html" class="active">Introduction</a></li>
+                <li><a href="equipment.html">Loadout</a></li>
                 <li><a href="spawns.html">Spawns</a></li>
                 <li><a href="mines.html">Mines</a></li>
                 <li><a href="tactics.html">Tactics</a></li>
@@ -47,172 +47,165 @@
 
     <main class="main-content">
         <div class="page-header">
-            <h1>Guard Information</h1>
+            <h1>Introduction to Farming Zyrachy</h1>
             <div class="page-meta">
-                <span class="update-time">Last updated: 2025-02-22 14:40:20 UTC</span>
+                <span class="update-time">Last updated: 2025-02-24 00:24:55 UTC</span>
                 <span class="patch-version">Patch: 0.16.1.2</span>
             </div>
         </div>
 
-        <!-- Guard Overview -->
-        <section class="guard-overview">
-            <div class="guard-stats">
-                <div class="stat-card">
-                    <h3>Guard Count</h3>
-                    <span class="value">6-8</span>
-                </div>
-                <div class="stat-card">
-                    <h3>Difficulty</h3>
-                    <span class="value">High</span>
-                </div>
-                <div class="stat-card">
-                    <h3>Equipment Level</h3>
-                    <span class="value">Class 5-6</span>
+        <!-- Warning Banner -->
+        <div class="danger-banner">
+            <div class="danger-icon"></div>
+            <p>This mission has an extremely high failure rate. Prepare accordingly.</p>
+        </div>
+
+        <!-- Boss Introduction -->
+        <section class="boss-intro">
+            <div class="boss-image">
+                <img src="../assets/zyrachiy-face.png" alt="Zyrachy Portrait">
+            </div>
+            <div class="boss-info">
+                <p>Welcome to your complete guide on farming Zyrachy—one of the most frustrating yet rewarding encounters in Escape from Tarkov. This guide is for both beginners and experienced players, covering multiple strategies and detailed methods to take him down. Be ready for a brutal grind—between game-breaking bugs, overpowered guards, and other players looking to ruin your run, you’re going to die. A lot. But with the right prep and strategy, you can turn this chaotic mess into a profitable farm.</p>
+                <div class="stat-grid">
+
+                    <div class="stat-item">
+                        <span class="stat-label">Success Rate</span>
+                        <span class="stat-value">15%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average Attempt Time</span>
+                        <span class="stat-value">25-30 min</span>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Guard Types -->
-        <section class="guard-types">
-            <h2>Guard Classifications</h2>
-            <div class="guard-grid">
-                <div class="guard-card">
-                    <img src="../assets/placeholder/assault-guard.png" alt="Assault Guard">
-                    <div class="guard-info">
-                        <h3>Assault Guard</h3>
-                        <div class="guard-details">
-                            <span class="equipment">SCAR-H / M4A1</span>
-                            <span class="armor">THOR Armor (Class 5)</span>
-                        </div>
-                        <ul class="behavior-list">
-                            <li>Aggressive push tactics</li>
-                            <li>Uses grenades frequently</li>
-                            <li>Travels in pairs</li>
-                        </ul>
+        <!-- Key Challenges -->
+        <section class="warning-box">
+            <h2>What to Prepare For</h2>
+            <div class="warning-list">
+                <li>Frequent Deaths: The path to Zyrachy is unforgiving. Numerous deaths are almost guaranteed—not just from combat, but also due to game bugs and erratic guard behavior.</li>
+                <li>Heavy Financial Losses: From costly gear runs that end in failure to unexpected insurance losses, every attempt will drain your stash and test your ability to sustain repeated setbacks.</li>
+                <li>Huge Profit Potential: Mastering these runs can lead to some of the biggest payouts in Tarkov, letting you secure top-tier loot and stack your stash with high-value gear.</li>
+            </div>
+        </section>
+
+        <!-- Guide Structure -->
+        <section class="routes-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+            <div class="route-card">
+                <h3><a href="equipment.html" class="phase-link">Preparation Phase</a></h3>
+                <div class="phase">PHASE 1</div>
+                <p>Master your loadout selection and gear setup before attempting the Zyrachy hunt.</p>
+                <ul class="route-steps">
+                    <li>Optimal weapon selections & modifications</li>
+                    <li>Choices for every budget</li>
+                    <li>Essential keys & utilities</li>
+                </ul>
+            </div>
+
+            <div class="route-card">
+                <h3><a href="mines.html" class="phase-link">Approach Phase</a></h3>
+                <div class="phase">PHASE 2</div>
+                <p>Navigate safely to and across the bridge to reach Zyrachy's domain.</p>
+                <ul class="route-steps">
+                    <li>Player spawn avoidance routes</li>
+                    <li>Avoiding mines on the bridge</li>
+                    <li>Safe crossing procedures</li>
+                </ul>
+            </div>
+
+            <div class="route-card">
+                <h3><a href="tactics.html" class="phase-link">Combat Phase</a></h3>
+                <div class="phase">PHASE 3</div>
+                <p>Execute effective combat strategies against Zyrachy and his guard force.</p>
+                <ul class="route-steps">
+                    <li>Guard patrol patterns & behaviors</li>
+                    <li>Optimal pixel peaks</li>
+                    <li>Bug-aware combat tactics</li>
+                </ul>
+            </div>
+
+            <div class="route-card">
+                <h3><a href="loot.html" class="phase-link">Loot Phase</a></h3>
+                <div class="phase">PHASE 4</div>
+                <p>Maximize your profit after eliminating Zyrachy and secure your extraction.</p>
+                <ul class="route-steps">
+                    <li>High-value loot locations</li>
+                    <li>Guaranteed drops</li>
+                    <li>Secure extraction paths</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Enhanced Credits Section -->
+        <section class="acknowledgments">
+            <div class="credits-container">
+                <div class="credits-content">
+                    <div class="credits-header">
+                        <h3>Community Contributors</h3>
+                        <div class="header-accent"></div>
+                    </div>
+                    <p>This comprehensive guide wouldn't have been possible without the valuable contributions and support from the Tarkov community. Special thanks to all the raiders who shared their experiences and strategies.</p>
+                    <div class="credits-action">
+                        <a href="credits.html" class="credits-button">
+                            <span class="button-text">View All Contributors</span>
+                            <span class="button-icon">→</span>
+                        </a>
                     </div>
                 </div>
-                <div class="guard-card">
-                    <img src="../assets/placeholder/marksman-guard.png" alt="Marksman Guard">
-                    <div class="guard-info">
-                        <h3>Marksman Guard</h3>
-                        <div class="guard-details">
-                            <span class="equipment">SR-25 / M1A</span>
-                            <span class="armor">THOR Armor (Class 5)</span>
-                        </div>
-                        <ul class="behavior-list">
-                            <li>Long-range engagement</li>
-                            <li>Provides overwatch</li>
-                            <li>Uses thermal optics</li>
-                        </ul>
+            </div>
+        </section>
+        <!-- Additional Resources -->
+        <section class="video-grid">
+            <div class="video-card">
+                <div class="video-container">
+                    <img src="../assets/reddit-preview.png" alt="Tarkov Reddit Community">
+                    <div class="social-overlay reddit">
+                        <svg xmlns="https://www.reddit.com/r/EscapefromTarkov/" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                        </svg>
                     </div>
                 </div>
-                <div class="guard-card">
-                    <img src="../assets/placeholder/commander-guard.png" alt="Commander Guard">
-                    <div class="guard-info">
-                        <h3>Squad Commander</h3>
-                        <div class="guard-details">
-                            <span class="equipment">ASH-12 / Vector</span>
-                            <span class="armor">THOR Armor (Class 6)</span>
-                        </div>
-                        <ul class="behavior-list">
-                            <li>Coordinates guard movements</li>
-                            <li>Enhanced health pool</li>
-                            <li>Carries high-tier loot</li>
-                        </ul>
+                <a href="https://www.reddit.com/r/EscapefromTarkov/" target="_blank" rel="noopener noreferrer">
+                    <h3>Tarkov Reddit Community</h3>
+                </a>
+                <p>Join the active Reddit community for daily discussions, tips, and latest patch information.</p>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-container">
+                    <img src="../assets/discord-preview.jpg" alt="Tarkov Discord">
+                    <div class="social-overlay discord">
+                        <svg xmlns="https://discord.gg/Jve93kCRgv" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
                     </div>
                 </div>
+                <a href="https://discord.gg/escapefromtarkov" target="_blank" rel="noopener noreferrer">
+                    <h3>Rowbers EFT Discord</h3>
+                </a>
+                <p>Chat with fellow Zyrachy-farmers in real-time, find help, and share strategies.</p>
             </div>
-        </section>
-
-        <!-- Patrol Routes -->
-        <section class="patrol-routes">
-            <h2>Patrol Patterns</h2>
-            <div class="route-map">
-                <img src="../assets/placeholder/patrol-map.png" alt="Guard Patrol Routes">
-                <div class="route-overlay">
-                    <!-- Interactive patrol route markers -->
+            <div class="video-card">
+                <div class="video-container">
+                    <img src="../assets/wiki-preview.jpg" alt="Official Tarkov Wiki">
+                    <div class="social-overlay wiki">
+                        <svg xmlns="https://escapefromtarkov.fandom.com/wiki/Zryachiy" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.803-.24l-.182-.016c-.084-.012-.17-.053-.17-.143v-.469l.061-.045c1.247-.008 4.043 0 4.043 0l.059.045v.436c0 .119-.074.18-.224.18-.497 0-.836.095-1.014.283-.265.281-.663.895-.984 1.467l-1.971 3.957 1.982 4.153 2.875-7.06c.286-.721.097-1.045-.506-1.045l-.452-.015c-.119 0-.179-.06-.179-.165v-.436l.058-.045h4.174l.041.045v.437c0 .119-.074.18-.224.18-.497 0-.836.095-1.014.283-.265.281-.663.895-.984 1.467L12.09 13.119z"/>
+                        </svg>
+                    </div>
                 </div>
+                <a href="https://escapefromtarkov.fandom.com/wiki/Zryachiy" target="_blank" rel="noopener noreferrer">
+                    <h3>Official Tarkov Wiki</h3>
+                </a>
+                <p>Access comprehensive information about Zyrachy, spawn locations, and detailed game mechanics.</p>
             </div>
-            <div class="route-legend">
-                <div class="legend-item">
-                    <span class="route-color assault"></span>
-                    <span>Assault Team Routes</span>
-                </div>
-                <div class="legend-item">
-                    <span class="route-color marksman"></span>
-                    <span>Marksman Positions</span>
-                </div>
-                <div class="legend-item">
-                    <span class="route-color commander"></span>
-                    <span>Commander Path</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Combat Tactics -->
-        <section class="guard-tactics">
-            <h2>Guard Behaviors</h2>
-            <div class="tactics-grid">
-                <div class="tactic-card">
-                    <h3>Alert States</h3>
-                    <ul class="state-list">
-                        <li>
-                            <span class="state-name">Patrol</span>
-                            <p>Regular movement patterns, standard spacing</p>
-                        </li>
-                        <li>
-                            <span class="state-name">Suspicious</span>
-                            <p>Increased awareness, tighter formations</p>
-                        </li>
-                        <li>
-                            <span class="state-name">Combat</span>
-                            <p>Aggressive flanking, coordinated attacks</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tactic-card">
-                    <h3>Response Protocols</h3>
-                    <ul class="protocol-list">
-                        <li>
-                            <span class="protocol-name">Contact</span>
-                            <p>Immediate area lockdown and reinforcement</p>
-                        </li>
-                        <li>
-                            <span class="protocol-name">Casualties</span>
-                            <p>Aggressive push towards last known position</p>
-                        </li>
-                        <li>
-                            <span class="protocol-name">Retreat</span>
-                            <p>Tactical fallback to fortified positions</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Counter Tactics -->
-        <section class="counter-tactics">
-            <h2>Recommended Approaches</h2>
-            <div class="approach-grid">
-                <div class="approach-card">
-                    <h3>Solo Strategy</h3>
-                    <ul class="strategy-list">
-                        <li>Pick off isolated guards</li>
-                        <li>Use sound masking</li>
-                        <li>Avoid multiple engagements</li>
-                    </ul>
-                </div>
-                <div class="approach-card">
-                    <h3>Team Strategy</h3>
-                    <ul class="strategy-list">
-                        <li>Coordinated pushes</li>
-                        <li>Crossfire positions</li>
-                        <li>Designated roles</li>
-                    </ul>
-                </div>
-            </div>
+            
         </section>
     </main>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -225,5 +218,255 @@
         </div>
     </footer>
     <script src="../scripts/script.js"></script>
+    <style>
+        .social-overlay.wiki svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .video-card:hover .social-overlay.wiki {
+            background: rgba(88, 113, 84, 0.9);
+        }
+
+        .wiki-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--accent-green);
+        }
+        .video-card {
+            background: var(--dark-green);
+            border: 1px solid var(--accent-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(88, 113, 84, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-container img {
+            transform: scale(1.05);
+        }
+
+        .social-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-overlay svg {
+            color: var(--accent-green);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .social-overlay {
+            background: rgba(88, 113, 84, 0.9);
+        }
+
+        .video-card:hover .social-overlay svg {
+            transform: scale(1.2);
+        }
+
+        .video-card a {
+            text-decoration: none;
+        }
+
+        .video-card h3 {
+            padding: 1rem;
+            margin: 0;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .video-card:hover h3 {
+            color: var(--accent-green);
+        }
+
+        .video-card p {
+            padding: 0 1rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .video-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+        /* Enhanced Route Grid Layout */
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .phase-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .phase-link:hover {
+            color: var(--accent-green);
+        }
+        
+        /* Enhanced Credits Section Styling */
+        .acknowledgments {
+            margin-top: 4rem;
+            padding: 0 1rem;
+        }
+        
+        .credits-container {
+            background: var(--dark-green);
+            border: 1px solid var(--accent-green);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .credits-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--accent-green) 0%, 
+                rgba(88, 113, 84, 0.2) 100%
+            );
+        }
+        
+        .credits-header {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .credits-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--text-primary);
+        }
+        
+        .header-accent {
+            width: 50px;
+            height: 2px;
+            background: var(--accent-green);
+            margin-top: 0.5rem;
+        }
+        
+        .credits-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .credits-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .credits-action {
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .credits-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--dark-base);
+            border: 1px solid var(--accent-green);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .credits-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(88, 113, 84, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .credits-button:hover {
+            background: rgba(88, 113, 84, 0.1);
+        }
+        
+        .credits-button:hover::before {
+            left: 100%;
+        }
+        
+        .button-text {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .button-icon {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .credits-button:hover .button-icon {
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .routes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credits-container {
+                padding: 1.5rem;
+            }
+        }
+        </style>
 </body>
 </html>
