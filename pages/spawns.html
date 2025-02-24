@@ -59,8 +59,8 @@
         <!-- Update the map section in spawns.html -->
         <section class="map-section">
             <div class="map-controls">
-                <button class="map-btn active" data-layer="spawns">Player Spawns</button>
-                <button class="map-btn" data-layer="routes">"Safe" Routes</button>
+                <button class="map-btn" data-layer="spawns">Player Spawns</button>
+                <button class="map-btn active" data-layer="routes">"Safe" Routes</button>
                 <div class="zoom-controls">
                     <button class="zoom-btn" id="zoomIn">+</button>
                     <button class="zoom-btn" id="zoomOut">-</button>
@@ -70,13 +70,13 @@
             
             <div class="map-container" id="mapContainer">
                 <div class="map-wrapper" id="mapWrapper">
-                    <div class="map-layer" data-layer="spawns">
+                    <div class="map-layer" data-layer="spawns" style="opacity: 0;">
                         <img src="https://github.com/gruen132/ZyrachyFarmingGuideSite/releases/download/v1.0/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
                         <div class="map-overlay" id="spawnsOverlay">
                             <!-- Spawn markers will be added here -->
                         </div>
                     </div>
-                    <div class="map-layer" data-layer="routes" style="opacity: 0;">
+                    <div class="map-layer" data-layer="routes" style="opacity: 1;">
                         <img src="../assets/SafePaths.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
                         <div class="map-overlay" id="routesOverlay">
                             <!-- Route lines will be added here -->
