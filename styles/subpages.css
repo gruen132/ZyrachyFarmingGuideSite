@@ -107,6 +107,49 @@
     background: var(--dark-green);
     border-left: 2px solid var(--accent-green);
 }
+/* Video Guide Section Styles */
+.video-guide {
+    margin: 4rem 0;
+    background: var(--dark-green);
+    border: 1px solid var(--accent-green);
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.video-guide h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--accent-green);
+    padding-bottom: 0.5rem;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 1000px; /* Ensures video isn't too wide on large screens */
+}
+
+.video-description {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--accent-green);
+    border-radius: 0 4px 4px 0;
+}
+
+.video-description p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
 
 /* Map Section Styles */
 .map-section {
