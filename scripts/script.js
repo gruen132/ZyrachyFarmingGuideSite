@@ -1,3 +1,11 @@
+// Asset URLs configuration
+const ASSET_VERSION = 'v1.0';
+const REPO_URL = 'https://github.com/gruen132/ZyrachyFarmingGuideSite';
+
+export const getAssetUrl = (filename) => {
+    return `${REPO_URL}/releases/download/${ASSET_VERSION}/${filename}`;
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize 3D parallax effect
     const layers = document.querySelectorAll('.layer');
@@ -58,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Rest of your existing code...
     const userElement = document.querySelector('.status-user');
-    userElement.textContent = 'gruen132';
-
+    userElement.textContent = 'unknown';
+3
     // Hex grid interaction
     const hexItems = document.querySelectorAll('.hex-item');
     

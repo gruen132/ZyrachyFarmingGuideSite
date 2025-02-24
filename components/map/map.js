@@ -16,7 +16,7 @@ function initializeMap() {
     
     // Create layers
     const layers = {
-        base: createLayer('base-map', 'assets/lighthouse-map.png'),
+        base: createLayer('base-map', 'https://github.com/gruen132/ZyrachyFarmingGuideSite/releases/download/v1.0/lighthouse-map.png'),
         extracts: createLayer('extracts-layer', 'assets/extracts.png'),
         mines: createLayer('mines-layer', 'assets/mines.png'),
         

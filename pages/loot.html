@@ -110,10 +110,22 @@
             }
         }
 
-        .item-image {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
+       .item-image {
+        width: 150px;  /* Increased from 50px */
+        height: 150px; /* Increased from 50px */
+        object-fit: contain;
+        margin: 10px 0; /* Added padding above and below */
+        }
+
+        /* Adjust the table cell to better accommodate larger images */
+        .loot-table td {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+
+        /* Make first column wider to fit the larger image */
+        .loot-table td:first-child {
+            min-width: 250px; /* Ensures enough space for image and text */
         }
 
         .weapon-mods {
@@ -278,19 +290,19 @@
         <section class="loot-categories">
             <h2>Zyrachy's Guaranteed Drops</h2>
             <div class="hex-grid">
-                <div class="hex-item" data-category="weapons">
+                <div class="hex-item" data-category="weapons" data-owner="zyrachy">
                     <h3>Weapons</h3>
                 </div>
-                <div class="hex-item" data-category="headwear">
+                <div class="hex-item" data-category="headwear" data-owner="zyrachy">
                     <h3>Headwear</h3>
                 </div>
-                <div class="hex-item" data-category="face-cover">
+                <div class="hex-item" data-category="face-cover" data-owner="zyrachy">
                     <h3>Face Cover</h3>
                 </div>
-                <div class="hex-item" data-category="chest-rig">
+                <div class="hex-item" data-category="chest-rig" data-owner="zyrachy">
                     <h3>Chest Rig</h3>
                 </div>
-                <div class="hex-item" data-category="items">
+                <div class="hex-item" data-category="items" data-owner="zyrachy">
                     <h3>Items</h3>
                 </div>
             </div>
@@ -298,19 +310,17 @@
         <section class="loot-categories">
             <h2>Guard's Guaranteed Drops</h2>
             <div class="hex-grid">
-                <div class="hex-item" data-category="weapons">
+                <div class="hex-item" data-category="weapons" data-owner="guard">
                     <h3>Weapons</h3>
                 </div>
-                <div class="hex-item" data-category="headwear">
+                <div class="hex-item" data-category="headwear" data-owner="guard">
                     <h3>Headwear</h3>
                 </div>
-                <div class="hex-item" data-category="face-cover">
-                    <h3>Face Cover</h3>
-                </div>
-                <div class="hex-item" data-category="chest-rig">
+                
+                <div class="hex-item" data-category="chest-rig" data-owner="guard">
                     <h3>Chest Rig</h3>
                 </div>
-                <div class="hex-item" data-category="items">
+                <div class="hex-item" data-category="items" data-owner="guard">
                     <h3>Items</h3>
                 </div>
             </div>
@@ -321,7 +331,7 @@
         <div class="overlay"></div>
 
         <!-- Weapons Panel -->
-        <div class="loot-panel" id="weapons-panel">
+        <div class="loot-panel" id="zyrachy-weapons-panel">
             <button class="close-panel">×</button>
             <h2>Weapons</h2>
             <div class="panel-content">
@@ -337,9 +347,9 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../assets/icons/SVDS.png" alt="SVDS" class="item-image">
                                 SVDS 7.62x54R sniper rifle
                             </td>
+                           
                             <td>7N37, SNB, T46M</td>
                             <td>
                                 <ul class="weapon-mods">
@@ -354,9 +364,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <img src="../assets/icons/AKS74U.png" alt="AKS-74U" class="item-image">
-                                AKS-74U 5.45x39
+                                Kalashnikov AKS-74U 5.45x39 assault rifle
                             </td>
+                        
                             <td>74T</td>
                             <td>
                                 <ul class="weapon-mods">
@@ -364,6 +374,21 @@
                                     <li>AKS-74U 5.45x39 muzzle brake</li>
                                     <li>AKS-74U Zenit B-18 Mount</li>
                                     <li>BelOMO PK-06 reflex sight</li>
+                                    <li>AKS-74U Zenit B-11 handguard</li>
+                                    <li>TangoDown Stubby BGV-MK46K foregrip (Black)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Serdyukov SR-1MP Gyurza 9x21 pistol
+                            </td>
+                        
+                            <td>PS gzh</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>Stock</li>
+
                                 </ul>
                             </td>
                         </tr>
@@ -373,7 +398,7 @@
         </div>
 
         <!-- Headwear Panel -->
-        <div class="loot-panel" id="headwear-panel">
+        <div class="loot-panel" id="zyrachy-headwear-panel">
             <button class="close-panel">×</button>
             <h2>Headwear</h2>
             <div class="panel-content">
@@ -382,22 +407,22 @@
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th>Class</th>
-                            <th>Properties</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../assets/icons/helmet1.png" alt="Tactical Helmet" class="item-image">
-                                Black Ops Fast MT
+                               
+                                Zryachiy's balaclava (folded)
+
                             </td>
-                            <td>4</td>
+                            <td>77,018₽</td>
                             <td>
                                 <ul class="item-properties">
-                                    <li>High ricochet chance</li>
-                                    <li>-5% movement speed</li>
-                                    <li>-10% turn speed</li>
+                                    <li>An intimidating face mask with a skull print, worn by Zryachiy. Folded to be worn as a hat.</li>
+                                  
                                 </ul>
                             </td>
                         </tr>
@@ -407,7 +432,7 @@
         </div>
 
         <!-- Face Cover Panel -->
-        <div class="loot-panel" id="face-cover-panel">
+        <div class="loot-panel"  id="zyrachy-face-cover-panel">
             <button class="close-panel">×</button>
             <h2>Face Cover</h2>
             <div class="panel-content">
@@ -416,21 +441,21 @@
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th>Protection</th>
-                            <th>Features</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../assets/icons/face1.png" alt="Face Shield" class="item-image">
-                                FAST Face Shield
+                                
+                                Zryachiy's balaclava
                             </td>
-                            <td>Class 3</td>
+                            <td>272,735₽</td>
                             <td>
                                 <ul class="item-properties">
-                                    <li>Compatible with NVGs</li>
-                                    <li>90% visibility</li>
+                                    <li>An intimidating face mask with a skull print, worn by Zryachiy.</li>
+                                  
                                 </ul>
                             </td>
                         </tr>
@@ -440,32 +465,29 @@
         </div>
 
         <!-- Chest Rig Panel -->
-        <div class="loot-panel" id="chest-rig-panel">
+        <div class="loot-panel"  id="zyrachy-chest-rig-panel">
             <button class="close-panel">×</button>
             <h2>Chest Rig</h2>
             <div class="panel-content">
-                <h3>Zryachiy's Armor</h3>
+                <h3>Zryachiy's Chest Rig</h3>
                 <table class="loot-table">
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th>Class</th>
-                            <th>Specifications</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                            <th>Item Slots</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../assets/icons/armor1.png" alt="Armor" class="item-image">
-                                FORT Defender-2
+                                Azimut SS "Khamelion" chest harness (Olive)
                             </td>
-                            <td>5</td>
+                            <td>122,455₽</td>
                             <td>
                                 <ul class="item-properties">
-                                    <li>Durability: 80/80</li>
-                                    <li>Material: Combined</li>
-                                    <li>-15% movement speed</li>
-                                    <li>2x2 storage space</li>
+                                    <li>12</li>
+                                  
                                 </ul>
                             </td>
                         </tr>
@@ -475,7 +497,7 @@
         </div>
 
         <!-- Items Panel -->
-        <div class="loot-panel" id="items-panel">
+        <div class="loot-panel"  id="zyrachy-items-panel">
             <button class="close-panel">×</button>
             <h2>Items</h2>
             <div class="panel-content">
@@ -485,52 +507,250 @@
                         <tr>
                             <th>Item</th>
                             <th>Type</th>
-                            <th>Details</th>
+                            <th>Avg. Flea Mkt. Price</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../assets/icons/item1.png" alt="Medical" class="item-image">
-                                Combat Stimulant Injector
+                               
+                                AFAK tactical individual first aid kit
                             </td>
                             <td>Medical</td>
                             <td>
                                 <ul class="item-properties">
-                                    <li>Combat stim</li>
-                                    <li>+20% strength for 300s</li>
-                                    <li>-10 health after effect</li>
+                                    <li>37,403₽</li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../assets/icons/item2.png" alt="Key" class="item-image">
-                                Secure Area Access Card
+
+                                IFAK individual first aid kit
                             </td>
                             <td>Key</td>
                             <td>
                                 <ul class="item-properties">
-                                    <li>Limited use (5/5)</li>
-                                    <li>Opens secured containers</li>
-                                    <li>Required for specific quest</li>
+                                    <li>24,709₽</li>
+
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Weapons Panel -->
+        <div class="loot-panel"  id="guard-weapons-panel">
+            <button class="close-panel">×</button>
+            <h2>Weapons</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Weapons</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Weapon</th>
+                            <th>Ammunition</th>
+                            <th>Modifications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                SVDS 7.62x54R sniper rifle
+                            </td>
+                           
+                            <td>SNB</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>BelOMO PSO-1M2-1 4x24 scope</li>
+                                    <li>PSO scope eyecup</li>
+                                    <li>Rotor 43 7.62x54R sound suppressor</li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../assets/icons/item3.png" alt="Special" class="item-image">
-                                Intelligence Folder
+                                Kalashnikov AKS-74U 5.45x39 assault rifle
                             </td>
-                            <td>Quest Item</td>
+                        
+                            <td>74T</td>
                             <td>
-                                <ul class="item-properties">
-                                    <li>Required for Trader quest</li>
-                                    <li>High value item</li>
-                                    <li>Can be found in special room</li>
+                                <ul class="weapon-mods">
+                                    <li>AK-74 5.45x39 6L31 60-round magazine</li>
+                                    <li>AKS-74U 5.45x39 muzzle brake</li>
+                                    <li>AKS-74U Zenit B-18 Mount</li>
+                                    <li>BelOMO PK-06 reflex sight</li>
+                                    <li>AKS-74U Zenit B-11 handguard</li>
+                                    <li>TangoDown Stubby BGV-MK46K foregrip (Black)</li>
                                 </ul>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                PP-19-01 Vityaz 9x19 submachine gun
+                            </td>
+                        
+                            <td>Pst gzh</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>Zenit Variant</li>
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                SV-98 7.62x54R bolt-action sniper rifle
+                            </td>
+                        
+                            <td>R LPS gzh</td>
+                            <td>
+                                <ul class="weapon-mods">
+                                    <li>SV-98 rear sight</li>
+                                    <li>SV-98 7.62x54R muzzle device</li>
+                                    <li>SV-98 CNC Guns OV-SV98 chassis</li>
+                                    <li>SV-98 CNC Guns OV-SV98 KeyMod handguard</li>
+                                    <li>CNC Guns KeyMod 4 inch rail</li>
+                                    <li>2x CNC Guns KeyMod 2 inch rail</li>
+                                    <li>AK FAB Defense AGR-47 pistol grip (FDE)</li>
+                                    <li>CNC Guns OV-SV98 M12B stock</li>
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Headwear Panel -->
+        <div class="loot-panel"  id="guard-headwear-panel">
+            <button class="close-panel">×</button>
+            <h2>Headwear</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Headwear</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                               
+                                Spooky skull mask
+
+                            </td>
+                            <td>72,069₽</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>A really scary skull mask, worn only by the spookiest operators.</li>
+                                  
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               
+                                Shattered lightweight armored mask
+
+                            </td>
+                            <td>14,574₽</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>The "Shattered" face protection mask, reinforced with aramid fibers</li>
+                                  
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               
+                                Ghost balaclava
+
+                            </td>
+                            <td>7,535₽</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>Tactical balaclava with a skull print. "Bloody yanks! I thought they were the good guys!"</li>
+                                  
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+       
+        <!-- Chest Rig Panel -->
+        <div class="loot-panel"  id="guard-chest-rig-panel">
+            <button class="close-panel">×</button>
+            <h2>Chest Rig</h2>
+            <div class="panel-content">
+                <h3>Zryachiy's Chest Rig</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                            <th>Item Slots</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Azimut SS "Khamelion" chest harness (Olive)
+                            </td>
+                            <td>122,455₽</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>12</li>
+                                  
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Items Panel -->
+        <div class="loot-panel"  id="guard-items-panel">
+            <button class="close-panel">×</button>
+            <h2>Items</h2>
+            <div class="panel-content">
+                <h3>Common Loot</h3>
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Type</th>
+                            <th>Avg. Flea Mkt. Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+
+                                IFAK individual first aid kit
+                            </td>
+                            <td>Key</td>
+                            <td>
+                                <ul class="item-properties">
+                                    <li>24,709₽</li>
+
+                                </ul>
+                            </td>
+                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -555,11 +775,12 @@
             // Update status bar time
             const statusTime = document.querySelector('.status-time');
             const statusDate = document.querySelector('.status-date');
-            const currentTime = '20:28:51';
-            const currentDate = '2025-02-22';
+            const statusUser = document.querySelector('.status-user');
             
-            statusTime.textContent = currentTime;
-            statusDate.textContent = currentDate;
+            // Update with current values
+            statusTime.textContent = '16:32:56';
+            statusDate.textContent = '2025-02-24';
+            statusUser.textContent = 'unknown';
 
             // Panel functionality
             const hexItems = document.querySelectorAll('.hex-item');
@@ -570,9 +791,14 @@
             hexItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const category = item.dataset.category;
-                    const panel = document.getElementById(`${category}-panel`);
-                    panel.classList.add('active');
-                    overlay.classList.add('active');
+                    const owner = item.dataset.owner;
+                    const panelId = `${owner}-${category}-panel`;
+                    const panel = document.getElementById(panelId);
+                    
+                    if (panel) {
+                        panel.classList.add('active');
+                        overlay.classList.add('active');
+                    }
                 });
             });
 
