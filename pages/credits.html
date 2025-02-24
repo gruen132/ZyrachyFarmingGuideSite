@@ -7,14 +7,109 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/animations.css">
     <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/subpages.css">
+    <style>
+        /* Credits Page Specific Styles */
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .credit-card {
+            transition: transform 0.3s ease;
+        }
+
+        .credit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .credit-card h2 {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--accent-green);
+        }
+
+        .credit-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .credit-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-left: 2px solid var(--accent-green);
+            padding-left: 1rem;
+        }
+
+        .credit-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .credit-names {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .credit-name {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .credit-name:hover {
+            color: var(--accent-green);
+        }
+
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .credit-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .credit-card:nth-child(1) { animation-delay: 0.1s; }
+        .credit-card:nth-child(2) { animation-delay: 0.2s; }
+        .credit-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .credits-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-time">16:27:04</span>
-                <span class="status-date">2025-02-21</span>
+                <span class="status-time">18:42:38</span>
+                <span class="status-date">2025-02-24</span>
             </div>
             <div class="status-center">
                 <div class="status-indicator">LIVE DATA</div>
@@ -41,7 +136,6 @@
                 <li><a href="mines.html">Mines</a></li>
                 <li><a href="tactics.html">Tactics</a></li>
                 <li><a href="loot.html">Loot</a></li>
-                
             </ul>
         </nav>
     </header>
@@ -50,52 +144,73 @@
         <div class="page-header">
             <h1>Credits & Acknowledgments</h1>
             <div class="page-meta">
-                <span class="update-time">Last updated: 2025-02-22 14:40:20 UTC</span>
+                <span class="update-time">Last updated: 2025-02-24 18:42:38 UTC</span>
                 <span class="patch-version">Patch: 0.16.1.2</span>
             </div>
         </div>
 
-        <section class="credits-section">
-            <div class="credits-grid">
-                <div class="credit-card">
-                    <h2>Development Team</h2>
-                    <ul class="credit-list">
-                        <li>
-                            <span class="credit-role">Lead Developer</span>
+        <div class="credits-grid">
+            <div class="credit-card">
+                <h2>Development Team</h2>
+                <ul class="credit-list">
+                    <li>
+                        <span class="credit-role">Lead Developer</span>
+                        <div class="credit-names">
                             <span class="credit-name">gruen132</span>
-                        </li>
-                        <li>
-                            <span class="credit-role">Design</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="credit-role">Design</span>
+                        <div class="credit-names">
                             <span class="credit-name">gruen132</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="credit-card">
-                    <h2>Contributors</h2>
-                    <ul class="credit-list">
-                        <li>
-                            <span class="credit-role">Map Data</span>
-                            <span class="credit-name">Community Contributors</span>
-                        </li>
-                        <li>
-                            <span class="credit-role">Strategy Guides</span>
-                            <span class="credit-name">Community Contributors</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="credit-card">
-                    <h2>Special Thanks</h2>
-                    <ul class="credit-list">
-                        <li>
-                            <span class="credit-role">Testing Team</span>
-                            <span class="credit-name">Various Community Members</span>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </section>
+
+            <div class="credit-card">
+                <h2>Contributors</h2>
+                <ul class="credit-list">
+                    <li>
+                        <span class="credit-role">3D Map</span>
+                        <div class="credit-names">
+                            <span class="credit-name">re3mr</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="credit-role">Minefield Guide Video</span>
+                        <div class="credit-names">
+                            <span class="credit-name">rowber</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="credit-role">Loot Guide Video</span>
+                        <div class="credit-names">
+                            <span class="credit-name">Zeroic</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="credit-role">Strategy Guides</span>
+                        <div class="credit-names">
+                            <span class="credit-name">Mrs. Kwan</span>
+                            <span class="credit-name">SOREN</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="credit-card">
+                <h2>Special Thanks</h2>
+                <ul class="credit-list">
+                    <li>
+                        <span class="credit-role">Testing Team</span>
+                        <div class="credit-names">
+                            <span class="credit-name">Various Community Members</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer">

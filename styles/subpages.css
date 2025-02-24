@@ -641,7 +641,6 @@
 .github-link:hover {
     background: var(--accent-color-hover);
 }
-
 /* Credits page specific styles */
 .credits-grid {
     display: grid;
@@ -666,12 +665,19 @@
 .credit-list li {
     margin: 1rem 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;  /* Changed from row to column */
+    gap: 0.5rem;  /* Added gap between elements */
 }
 
 .credit-role {
     color: var(--text-secondary);
+    font-size: 0.9rem;  /* Optional: slightly smaller role text */
+}
+
+.credit-names {  /* New container for multiple names */
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .credit-name {
