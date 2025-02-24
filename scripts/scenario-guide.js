@@ -5,7 +5,7 @@ class ScenarioGuide {
             start: {
                 id: 'start',
                 title: 'Initial Assessment',
-                content: 'Zyrachy is always visible in all scenarios.',
+                content: 'Zryachiy is always visible in all scenarios.',
                 image: '../assets/scenarios/start.jpg',
                 options: [
                     { text: 'Continue', nextId: 'checkLeftGuard' }
@@ -53,16 +53,16 @@ class ScenarioGuide {
             },
             scenario1: {
                 id: 'scenario1',
-                title: 'Scenario 1: Only Right Guard and Zyrachy Visible',
+                title: 'Scenario 1: Only Right Guard and Zryachiy Visible',
                 content: 'The easiest scenario to master',
                 isFinal: true,
                 details: {
-                    description: 'Only right guard and Zyrachy are visible. This scenario offers a straightforward approach with clear steps to follow.',
+                    description: 'Only right guard and Zryachiy are visible. This scenario offers a straightforward approach with clear steps to follow.',
                     video: 'https://www.youtube.com/embed/LqIve_G3kpU',
                     checkpoints: [
                         'Lay down in the center where you can\'t be seen by the right guard',
-                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
-                        'Once Zyrachy is dead, stand up and immediately sprint while going prone to the left for cover',
+                        'Set your scope to 200 meters and fire two shots at the top of Zryachiy\'s head',
+                        'Once Zryachiy is dead, stand up and immediately sprint while going prone to the left for cover',
                         'At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up',
                         'Once the right guard is down, navigate through the mines and reach the island',
                         'Move immediately onto the designated rock mentioned in the video',
@@ -72,16 +72,16 @@ class ScenarioGuide {
             },
             scenario2: {
                 id: 'scenario2',
-                title: 'Scenario 2: Both Guards and Zyrachy Visible',
+                title: 'Scenario 2: Both Guards and Zryachiy Visible',
                 content: 'Most complex scenario requiring careful positioning and timing',
                 isFinal: true,
                 details: {
-                    description: 'Both guards and Zyrachy are visible. This scenario requires precise positioning and careful timing.',
+                    description: 'Both guards and Zryachiy are visible. This scenario requires precise positioning and careful timing.',
                     checkpoints: [
                         'Lay down to the right of the fence',
-                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zyrachy',
-                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
-                        'Once Zyrachy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
+                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zryachiy\'s head',
+                        'Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
                         'With the right left guard dead, stand up and immediately sprint while going prone to the left for cover',
                         'At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up'
                     ]
@@ -89,16 +89,16 @@ class ScenarioGuide {
             },
             scenario3: {
                 id: 'scenario3',
-                title: 'Scenario 3: Only Left Guard and Zyrachy Visible',
+                title: 'Scenario 3: Only Left Guard and Zryachiy Visible',
                 content: 'Moderate difficulty scenario focusing on the western section',
                 isFinal: true,
                 details: {
-                    description: 'Only left guard and Zyrachy are visible. This scenario requires careful positioning and timing.',
+                    description: 'Only left guard and Zryachiy are visible. This scenario requires careful positioning and timing.',
                     checkpoints: [
                         'Lay down to the right of the fence',
-                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zyrachy',
-                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
-                        'Once Zyrachy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
+                        'Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zryachiy\'s head',
+                        'Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard',
                         'Once the left guard is down, navigate through the mines and reach the island',
                         'Head toward the rocks where the left guard normally takes position',
                         'Take cover behind a rock and wait for him to push toward you'
@@ -107,15 +107,15 @@ class ScenarioGuide {
             },
             scenario4: {
                 id: 'scenario4',
-                title: 'Scenario 4: Only Zyrachy Visible',
+                title: 'Scenario 4: Only Zryachiy Visible',
                 content: 'Optimal scenario with maximum flexibility',
                 isFinal: true,
                 details: {
-                    description: 'Only Zyrachy is visible. This is the most straightforward scenario with the most tactical options.',
+                    description: 'Only Zryachiy is visible. This is the most straightforward scenario with the most tactical options.',
                     checkpoints: [
-                        'Position yourself prone in any spot with a clear view of Zyrachy',
-                        'Set your scope to 200 meters and fire two shots at the top of Zyrachy\'s head',
-                        'Once the Zyrachy is dead, navigate through the mines and reach the island',
+                        'Position yourself prone in any spot with a clear view of Zryachiy',
+                        'Set your scope to 200 meters and fire two shots at the top of Zryachiy\'s head',
+                        'Once the Zryachiy is dead, navigate through the mines and reach the island',
                         'Head toward the rocks where the left guard normally takes position',
                         'Take cover behind a rock and wait for him to push toward you',
                         'Move immediately onto the designated rock mentioned in the video of Scenario 1',

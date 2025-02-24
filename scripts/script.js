@@ -1,11 +1,3 @@
-// Asset URLs configuration
-const ASSET_VERSION = 'v1.0';
-const REPO_URL = 'https://github.com/gruen132/ZyrachyFarmingGuideSite';
-
-export const getAssetUrl = (filename) => {
-    return `${REPO_URL}/releases/download/${ASSET_VERSION}/${filename}`;
-};
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize 3D parallax effect
     const layers = document.querySelectorAll('.layer');
@@ -43,31 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const dateElement = document.querySelector('.status-date');
         const now = new Date();
         
-        // Get timezone offset in hours
-        const offset = -(now.getTimezoneOffset() / 60);
-        const offsetSign = offset >= 0 ? '+' : '-';
-        const offsetHours = Math.abs(offset);
-        
-        // Format time as HH:MM:SS UTC±X
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        timeElement.textContent = `${hours}:${minutes}:${seconds} UTC${offsetSign}${offsetHours}`;
+        // Format time as HH:MM:SS UTC
+        const hours = String(now.getUTCHours()).padStart(2, '0');
+        const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+        const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+        timeElement.textContent = `${hours}:${minutes}:${seconds} UTC`;
         
         // Format date as YYYY-MM-DD
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
+        const year = now.getUTCFullYear();
+        const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(now.getUTCDate()).padStart(2, '0');
         dateElement.textContent = `${year}-${month}-${day}`;
     }
     
     updateTime();
     setInterval(updateTime, 1000);
 
-    // Rest of your existing code...
+    // Set user information
     const userElement = document.querySelector('.status-user');
-    userElement.textContent = 'unknown';
-3
+    userElement.textContent = 'gruen132';
+
     // Hex grid interaction
     const hexItems = document.querySelectorAll('.hex-item');
     

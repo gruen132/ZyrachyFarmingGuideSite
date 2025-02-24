@@ -1,6 +1,6 @@
-# Zyrachy Hunt - Escape from Tarkov Guide
+# Zryachiy Hunt - Escape from Tarkov Guide
 
-A comprehensive, interactive web guide for hunting Zyrachy - one of the deadliest snipers in Escape from Tarkov. This project provides detailed information about spawn locations, tactics, equipment loadouts, and critical safety information for a successful hunt.
+A comprehensive, interactive web guide for hunting Zryachiy - one of the deadliest snipers in Escape from Tarkov. This project provides detailed information about spawn locations, tactics, equipment loadouts, and critical safety information for a successful hunt.
 
 ## 🎯 Features
 
@@ -13,7 +13,7 @@ A comprehensive, interactive web guide for hunting Zyrachy - one of the deadlies
 - **Comprehensive Guides**
   - Recommended loadouts and equipment
   - Player spawn locations and safe routes
-  - Combat tactics for engaging Zyrachy and guards
+  - Combat tactics for engaging Zryachiy and guards
   - Critical minefield safety information
   - Loot tables and expected rewards
   - Guard behavior patterns and bugs
@@ -33,7 +33,7 @@ A comprehensive, interactive web guide for hunting Zyrachy - one of the deadlies
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/gruen132/ZyrachyFarmingGuideSite.git
+git clone https://github.com/gruen132/ZryachiyFarmingGuideSite.git
 ```
 
 2. No build process is required as this is a static website. Simply open `index.html` in your web browser.
@@ -46,7 +46,7 @@ git clone https://github.com/gruen132/ZyrachyFarmingGuideSite.git
 ## 🗂️ Project Structure
 
 ```
-ZyrachyFarmingGuideSite/
+ZryachiyFarmingGuideSite/
 ├── components/        # Reusable UI components
 │   └── map/          # Map-related components
 ├── pages/            # Individual guide pages
