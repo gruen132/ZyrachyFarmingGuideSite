@@ -46,7 +46,18 @@ body {
     box-sizing: border-box;
     z-index: 1000;
 }
+.spawn-description {
+    font-size: 0.9em;
+    color: #8a8a8a;
+    margin: 8px 0;
+    font-style: italic;
+    line-height: 1.4;
+}
 
+.spawn-description span {
+    display: block;
+    padding: 4px 0;
+}
 .status-left {
     display: flex;
     align-items: center;

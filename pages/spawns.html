@@ -22,7 +22,7 @@
                 <div class="status-indicator">LIVE DATA</div>
             </div>
             <div class="status-right">
-                <span class="status-user">gruen132</span>
+                <span class="status-user">unkown</span>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
         <section class="map-section">
             <div class="map-controls">
                 <button class="map-btn active" data-layer="spawns">Player Spawns</button>
-                <button class="map-btn" data-layer="routes">Safe Routes</button>
+                <button class="map-btn" data-layer="routes">"Safe" Routes</button>
                 <div class="zoom-controls">
                     <button class="zoom-btn" id="zoomIn">+</button>
                     <button class="zoom-btn" id="zoomOut">-</button>
@@ -82,18 +82,7 @@
                             <!-- Route lines will be added here -->
                         </div>
                     </div>
-                    <div class="map-layer" data-layer="zyrachy" style="opacity: 0;">
-                        <img src="../assets/placeholder/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
-                        <div class="map-overlay" id="zyrachyOverlay">
-                            <!-- Zyrachy spawn markers will be added here -->
-                        </div>
-                    </div>
-                    <div class="map-layer" data-layer="extracts" style="opacity: 0;">
-                        <img src="../assets/placeholder/lighthouse-map.png" alt="Lighthouse Map Base Layer" class="zoomable-map">
-                        <div class="map-overlay" id="extractsOverlay">
-                            <!-- Extract markers will be added here -->
-                        </div>
-                    </div>
+                   1
                 </div>
             </div>
         </section>
@@ -106,7 +95,10 @@
                     <img src="../assets/placeholder/spawn1.png" alt="Northern Spawn">
                     <div class="spawn-info">
                         <h3>Lonely House</h3>
-                        <p>High-risk, high-reward spawn point with direct line of sight to bridge.</p>
+                        <div class="spawn-description">
+                            <span>High-risk, high-reward spawn point with direct line of sight to bridge.</span>
+                        </div>
+                        
                         <ul class="spawn-tips">
                             <li>Move into the house and lay down in the right room</li>
                             <li>Check for PMCs climbing up the rocky ridge all the way to the right</li>
@@ -123,13 +115,11 @@
             <h2>Reset Locations</h2>
             <div class="reset-grid">
                 <div class="reset-card">
-                    <img src="../assets/WesternSpawns.png" alt="Reset Point A">
+                    
                     <div class="reset-info">
                         <h3>Spawns furthest from the Bridge</h3>
                         <p>When spawning very far from the bridge it makes sense to go for a safe reset at the Path to Shoreline extract</p>
-                        <div class="coverage-map">
-                            <!-- Small coverage map showing angles -->
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- More reset points -->

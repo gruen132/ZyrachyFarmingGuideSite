@@ -110,12 +110,14 @@
 
 /* Map Section Styles */
 .map-section {
+    width: 100%; /* Take full width of the main-content */
+    max-width: 1200px;
+    margin: 2rem 0; /* Adjust vertical spacing */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin: 0 auto 2rem auto;
 }
+
 
 .map-controls {
     display: flex;

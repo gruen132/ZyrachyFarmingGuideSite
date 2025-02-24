@@ -1,25 +1,28 @@
 /* Add more space before the map section */
 .map-section {
     position: relative;
-    width: 90%;
+    width: 100%; /* Take full width */
     max-width: 1200px;
-    margin: 6rem auto; /* Increased from 2rem to 6rem */
+    margin: 6rem auto; /* Center horizontally with auto margins */
     background: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     padding: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .map-container {
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 600px;
     overflow: hidden;
-    background: #1a1a1a;
+    background: #000000;
     border-radius: 4px;
     cursor: grab;
+  
 }
+
 
 .map-container:active {
     cursor: grabbing;
