@@ -9,6 +9,56 @@
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/subpages.css">
     <style>
+            .additional-info {
+            margin-top: 3rem;
+        }
+
+        .info-container {
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-secondary);
+        }
+
+        .info-box {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .info-box ul li {
+            margin: 5px 0;
+        }
+
+        .info-box ul li ul {
+            margin: 5px 0;
+        }
+                .image-container {
+            max-width: 800px; /* Adjust this value to your preferred maximum width */
+            margin: 15px auto; /* Centers the container */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        .bug-info, .mechanics-info {
+            padding: 15px;
+        }
+
+        .bug-info h3, .mechanics-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
         .scenario-container {
             margin: 20px 0;
             border: 1px solid var(--border-color);
@@ -203,15 +253,8 @@
                 <div class="guard-header">
                     <h2>Guards</h2>
                     <div class="guard-quick-info">
-                        <span class="guard-count">×4</span>
-                        <div class="threat-indicator">
-                            <span>Threat</span>
-                            <div class="threat-dots">
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
+                        <span class="guard-count">×2</span>
+
                     </div>
                 </div>
                 <div class="guard-stats">
@@ -396,6 +439,68 @@
                     </div>
                     
                    
+                </div>
+            </div>
+        </section>
+        <section class="additional-info">
+            <h2>Additional Information</h2>
+
+            <!-- Spawn Locations -->
+            <div class="info-container">
+                <button type="button" class="collapsible">Zryachiy's Spawn Locations</button>
+                <div class="scenario-content">
+                    <div class="image-container">
+                        <img src="../assets/zyrachyspawns.png" alt="Zryachiy Spawn Locations Map" style="max-width: 1000px; width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aiming Guide -->
+            <div class="info-container">
+                <button type="button" class="collapsible">Where to Aim</button>
+                <div class="scenario-content">
+                    <div class="image-container">
+                        <img src="../assets/aim-guide.png" alt="Zryachiy Aiming Guide">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Known Bugs -->
+            <div class="info-container">
+                <button type="button" class="collapsible">Known Bugs</button>
+                <div class="scenario-content">
+                    <div class="bug-info">
+                        <h3>Arm Infinite Health Bug</h3>
+                        <div class="info-box">
+                            <p>⚠️ When Zryachiy is aiming at you, his arm can block shots to his head or chest:</p>
+                            <ul>
+                                <li>Shots hitting the arm will deal 0 damage</li>
+                                <li>Head and chest hitboxes become blocked</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guard Spawn Mechanics -->
+            <div class="info-container">
+                <button type="button" class="collapsible">Guard Spawn Mechanics</button>
+                <div class="scenario-content">
+                    <div class="mechanics-info">
+                        <div class="info-box">
+                            <h3>Key Mechanics:</h3>
+                            <ul>
+                                <li>
+                                    If Zyrachy is killed first, only 2 guards remain
+                                 
+                                </li>
+                                <li>If Zyrachy is left alive, guards keep spawning
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
