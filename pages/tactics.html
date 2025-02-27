@@ -278,25 +278,161 @@
             </div>
         </section>
 
-        <!-- Combat Scenarios Section -->
-        <section class="scenarios-section">
-            <h2>Combat Scenarios</h2>
-            <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
+        <!-- Day/Night Toggle Buttons -->
+        <div class="view-switcher">
+            <button class="view-button active" id="daytime-btn">Day Time</button>
+            <button class="view-button" id="nighttime-btn">Night Time</button>
+        </div>
 
-            <!-- Scenario 1 -->
-            <div class="scenario-container">
-                <button type="button" class="collapsible">Scenario 1: Only Right Guard and Zryachiy Visible</button>
-                <div class="scenario-content">
-                    <div class="location-section">
+        <!-- Combat Scenarios Section - Day Time -->
+        <section id="daytime-content" class="view-content active">
+            <div class="scenarios-section">
+                <h2>Combat Scenarios - Day Time</h2>
+                <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
+
+                <!-- Scenario 1 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 1: Only Right Guard and Zryachiy Visible</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            
+                            <div class="image-container">
                         
-                        <div class="image-container">
-                       
+                            </div>
+                            <div class="video-container">
+                                    <iframe 
+                                    width="100%" 
+                                    height="600" 
+                                    src="https://www.youtube.com/embed/LqIve_G3kpU" 
+                                    title="Detailed Lighthouse Loot Guide" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <div class="video-description">
+                                    <p>The easiest scenario to master</p>
+                                </div>
+                            </div>
+                            <p>1. Lay down in the center where you can't be seen by the right guard</p>
+                            <p>2. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
+                            <p>3. Once Zryachiy is dead, stand up and immediately sprint while going prone to the left for cover</p>
+                            <p>4. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
+                            <p>5. Once the right guard is down, navigate through the mines and reach the island</p>
+                            <p>6. Move immediately onto the designated rock mentioned in the video</p>
+                            <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
+                            
                         </div>
-                        <div class="video-container">
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 2: Both Guards and Zryachiy Visible</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            <div class="video-container">
                                 <iframe 
                                 width="100%" 
                                 height="600" 
-                                src="https://www.youtube.com/embed/LqIve_G3kpU" 
+                                src="https://www.youtube.com/embed/eppwsnIQemg" 
+                                title="Both Guards visible" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-description">
+                            
+                            </div>
+                        </div>
+                        
+                            <p>1. Lay down to the right of the fence.</p>
+                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
+                            <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
+                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
+                            <p>5. With the right left guard dead, stand up and immediately sprint while going prone to the left for cover</p>
+                            <p>6. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 3: Only Left Guard and Zryachiy Visible</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            <p>Video will be added here soon.</p>
+                        
+                            <p>1. Lay down to the right of the fence.</p>
+                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy.</p>
+                            <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
+                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard.</p>
+                            <p                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard.</p>
+                            <p>5. Once the left guard is down, navigate through the mines and reach the island</p>
+                            <p>6. Head toward the rocks where the left guard normally takes position.</p> 
+                            <p>7. Take cover behind a rock and wait for him to push toward you.</p>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Scenario 4 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 4: Only Zryachiy Visible</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                        
+                            <div class="video-container">
+                                    <iframe 
+                                    width="100%" 
+                                    height="600" 
+                                    src="https://www.youtube.com/embed/W98XvAQzBfE" 
+                                    title="Guards Both on island" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <div class="video-description">
+                                
+                                </div>
+                            </div>
+                            
+                            <p>1. Position yourself prone in any spot with a clear view of Zryachiy.</p>
+                            <p>2. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
+                            <p>3. Once the Zryachiy is dead, navigate through the mines and reach the island</p>
+                            <p>6. Head toward the rocks where the left guard normally takes position.</p> 
+                            <p>7. Take cover behind a rock and wait for him to push toward you.</p>
+                            <p>6. Move immediately onto the designated rock mentioned in the video of Scenario 1</p>
+                            <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
+                            
+                        </div>
+                        
+                    
+                    </div>
+                </div>
+
+                <!-- Scenario 5 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 5: Left Guard Bugged Behind Rock</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                        
+                            <div class="image-container">
+                            
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                width="100%" 
+                                height="600" 
+                                src="https://www.youtube.com/embed/tmFQVteYMR4" 
                                 title="Detailed Lighthouse Loot Guide" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -304,144 +440,69 @@
                                 </iframe>
                             </div>
                             <div class="video-description">
-                                <p>The easiest scenario to master</p>
+                                
                             </div>
                         </div>
-                        <p>1. Lay down in the center where you can't be seen by the right guard</p>
-                        <p>2. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                        <p>3. Once Zryachiy is dead, stand up and immediately sprint while going prone to the left for cover</p>
-                        <p>4. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
-                        <p>5. Once the right guard is down, navigate through the mines and reach the island</p>
-                        <p>6. Move immediately onto the designated rock mentioned in the video</p>
-                        <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
-                        
-                    </div>
-                    
-                    
-                </div>
-            </div>
-
-            <!-- Scenario 2 -->
-            <div class="scenario-container">
-                <button type="button" class="collapsible">Scenario 2: Both Guards and Zryachiy Visible</button>
-                <div class="scenario-content">
-                    <div class="location-section">
-                        <div class="video-container">
-                            <iframe 
-                            width="100%" 
-                            height="600" 
-                            src="https://www.youtube.com/embed/eppwsnIQemg" 
-                            title="Both Guards visible" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                            </iframe>
+                            <p>Currently, no safe sniping spot has been found for the bugged left guard. If you notice the left guard is bugged, it's best to reset.</p>
                         </div>
-                        <div class="video-description">
-                           
-                        </div>
-                     </div>
-                      
-                        <p>1. Lay down to the right of the fence.</p>
-                        <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
-                        <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                        <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
-                        <p>5. With the right left guard dead, stand up and immediately sprint while going prone to the left for cover</p>
-                        <p>6. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
-                    </div>
-                    
-                    
-                </div>
-            </div>
-
-            <!-- Scenario 3 -->
-            <div class="scenario-container">
-                <button type="button" class="collapsible">Scenario 3: Only Left Guard and Zryachiy Visible</button>
-                <div class="scenario-content">
-                    <div class="location-section">
-                        <p>Video will be added here soon.</p>
-                      
-                        <p>1. Lay down to the right of the fence.</p>
-                        <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy.</p>
-                        <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                        <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard.</p>
-                        <p>5. Once the left guard is down, navigate through the mines and reach the island</p>
-                        <p>6. Head toward the rocks where the left guard normally takes position.</p> 
-                        <p>7. Take cover behind a rock and wait for him to push toward you.</p>
                         
+                    
                     </div>
-                    
-                    
-                </div>
             </div>
+        </section>
 
-            <!-- Scenario 4 -->
-            <div class="scenario-container">
-                <button type="button" class="collapsible">Scenario 4: Only Zryachiy Visible</button>
-                <div class="scenario-content">
-                    <div class="location-section">
-                       
-                         <div class="video-container">
+        <!-- Combat Scenarios Section - Night Time -->
+        <section id="nighttime-content" class="view-content">
+            <div class="scenarios-section">
+                <h2>Combat Scenarios - Night Time (Easier Method)</h2>
+                <p class="scenario-note">This night time approach is significantly easier than the day time method.</p>
+
+                <div class="scenario-container">
+                    <div class="scenario-content" style="display: block;">
+                        <div class="location-section">
+                            <div class="image-container">
+                                <!-- Add night time image here when available -->
+                                <img src="../assets/nighttime-approach.png" alt="Night Time Approach" style="max-width: 800px; width: 100%; height: auto;">
+                            </div>
+
+                            <ol>
+                                <li>Walk into the shown area</li>
+                                <li>Zryachiy and his guards will not shoot you there</li>
+                                <li>Walk up the rock to the left</li>
+                                <li>Kill Zryachiy first (zero your scope to 450m)</li>
+                                <li>Kill the right guard from the rock (zero your scope to 350m)</li>
+                                <li>Walk all the way to the right as shown in the video below and kill the right guard (zero to 400m)</li>
+                                <li>Walk across the mines and enjoy your loot</li>
+                            </ol>
+
+                            <div class="video-container">
                                 <iframe 
                                 width="100%" 
                                 height="600" 
-                                src="https://www.youtube.com/embed/W98XvAQzBfE" 
-                                title="Guards Both on island" 
+                                src="https://www.youtube.com/embed/ZkEJgXEcjiE" 
+                                title="Night Time Approach" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
                                 </iframe>
                             </div>
-                            <div class="video-description">
-                               
+                            
+                            <div class="info-box">
+                                <h3>Additional Tips:</h3>
+                                <ul>
+                                    <li>You can definitely bring an AADAR or SVDS for this approach</li>
+                                    <li>A bipod can be super useful here</li>
+                                    <li>Bring at least a stack of extra ammo as it might take some tries to hit them correctly</li>
+                                    <li>The accuracy is drastically decreased due to the large range</li>
+                                </ul>
+                                <p><strong>NOTE:</strong> If any of the guards is not visible, <a href="#" id="switch-to-daytime">refer to killing them in DAYTIME</a> section.</p>
                             </div>
                         </div>
-                        
-                        <p>1. Position yourself prone in any spot with a clear view of Zryachiy.</p>
-                        <p>2. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                        <p>3. Once the Zryachiy is dead, navigate through the mines and reach the island</p>
-                        <p>6. Head toward the rocks where the left guard normally takes position.</p> 
-                        <p>7. Take cover behind a rock and wait for him to push toward you.</p>
-                        <p>6. Move immediately onto the designated rock mentioned in the video of Scenario 1</p>
-                        <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
-                        
                     </div>
-                    
-                   
-                </div>
-            </div>
-
-            <!-- Scenario 5 -->
-            <div class="scenario-container">
-                <button type="button" class="collapsible">Scenario 5: Left Guard Bugged Behind Rock</button>
-                <div class="scenario-content">
-                    <div class="location-section">
-                       
-                        <div class="image-container">
-                        
-                        </div>
-                        <div class="video-container">
-                            <iframe 
-                            width="100%" 
-                            height="600" 
-                            src="https://www.youtube.com/embed/tmFQVteYMR4" 
-                            title="Detailed Lighthouse Loot Guide" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="video-description">
-                            
-                        </div>
-                    </div>
-                        <p>Currently, no safe sniping spot has been found for the bugged left guard. If you notice the left guard is bugged, it's best to reset.</p>
-                    </div>
-                    
-                   
                 </div>
             </div>
         </section>
+
         <section class="additional-info">
             <h2>Additional Information</h2>
 
@@ -522,6 +583,7 @@
     <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
+        // Collapsible sections
         var coll = document.getElementsByClassName("collapsible");
         var i;
 
@@ -536,6 +598,37 @@
                 }
             });
         }
+
+        // Day/Night toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const daytimeBtn = document.getElementById('daytime-btn');
+            const nighttimeBtn = document.getElementById('nighttime-btn');
+            const daytimeContent = document.getElementById('daytime-content');
+            const nighttimeContent = document.getElementById('nighttime-content');
+            const switchToDaytime = document.getElementById('switch-to-daytime');
+
+            daytimeBtn.addEventListener('click', function() {
+                daytimeBtn.classList.add('active');
+                nighttimeBtn.classList.remove('active');
+                daytimeContent.classList.add('active');
+                nighttimeContent.classList.remove('active');
+            });
+
+            nighttimeBtn.addEventListener('click', function() {
+                nighttimeBtn.classList.add('active');
+                daytimeBtn.classList.remove('active');
+                nighttimeContent.classList.add('active');
+                daytimeContent.classList.remove('active');
+            });
+
+            // Link in night time section to switch back to day time content
+            if (switchToDaytime) {
+                switchToDaytime.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    daytimeBtn.click();
+                });
+            }
+        });
     </script>
 </body>
 </html>
