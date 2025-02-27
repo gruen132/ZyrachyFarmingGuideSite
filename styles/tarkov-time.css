@@ -1,0 +1,68 @@
+/* Tarkov time styling */
+.status-user {
+    font-weight: bold;
+}
+
+.tarkov-time-indicator {
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 4px solid var(--accent-color);
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95em;
+    text-align: left;
+    width: fit-content;
+    max-width: 100%;
+    animation: pulse-fade 2s infinite;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.tarkov-time-indicator.good-time {
+    background-color: rgba(0, 30, 0, 0.8);
+    border-left-color: #00ff00;
+    color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+/* Style for the night time button when it's a good time for night raids */
+.view-button.good-night-time {
+    position: relative;
+    overflow: visible;  /* Allow the pseudo-element to extend beyond button */
+}
+
+.view-button.good-night-time::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    animation: pulse-border 2s infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes pulse-fade {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes pulse-border {
+    0% { 
+        border-color: rgba(0, 255, 0, 0.4);
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    }
+    50% { 
+        border-color: rgba(0, 255, 0, 1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    }
+    100% { 
+        border-color: rgba(0, 255, 0, 0.4);
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    }
+}

@@ -29,10 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Create a reference to the tarkov time indicator
+    let tarkovTimeIndicator = null;
+    let isNightSectionActive = false;
+    
+    // Get reference to the night time button (if it exists)
+    const nighttimeBtn = document.getElementById('nighttime-btn');
+
     // Update time display
     function updateTime() {
         const timeElement = document.querySelector('.status-time');
         const dateElement = document.querySelector('.status-date');
+        const tarkovTimeElement = document.querySelector('.status-user'); // Replacing username with Tarkov time
         const now = new Date();
         
         // Format time as HH:MM:SS UTC
@@ -46,14 +54,90 @@ document.addEventListener('DOMContentLoaded', function() {
         const month = String(now.getUTCMonth() + 1).padStart(2, '0');
         const day = String(now.getUTCDate()).padStart(2, '0');
         dateElement.textContent = `${year}-${month}-${day}`;
+        
+        // Calculate and display both Tarkov times (day and night)
+        const dayTarkovTime = realTimeToTarkovTime(now, true); // left raid time (day)
+        const nightTarkovTime = realTimeToTarkovTime(now, false); // right raid time (night)
+        
+        const dayHours = String(dayTarkovTime.getHours()).padStart(2, '0');
+        const dayMinutes = String(dayTarkovTime.getMinutes()).padStart(2, '0');
+        
+        const nightHours = String(nightTarkovTime.getHours()).padStart(2, '0');
+        const nightMinutes = String(nightTarkovTime.getMinutes()).padStart(2, '0');
+        
+        tarkovTimeElement.textContent = `Tarkov: ${dayHours}:${dayMinutes} ${nightHours}:${nightMinutes}`;
+
+        // IMPORTANT FIX: Check if it's currently night time in Tarkov (22:00-05:00)
+        const nightHour = parseInt(nightHours);
+        const isGoodNightTime = (nightHour >= 22 || nightHour <= 5);
+        
+        // Update the night time indicator if it exists and is visible
+        if (tarkovTimeIndicator && isNightSectionActive) {
+            tarkovTimeIndicator.textContent = `Current Night Raid Time: ${nightHours}:${nightMinutes}`;
+            
+            if (isGoodNightTime) {
+                tarkovTimeIndicator.classList.add('good-time');
+                tarkovTimeIndicator.textContent += ' - Good time for night raid!';
+            } else {
+                tarkovTimeIndicator.classList.remove('good-time');
+            }
+        }
+        
+        // Add/remove pulsing green frame to night button based on night time
+        if (nighttimeBtn) {
+            // Check if night time is between 22:00-05:00
+            if (isGoodNightTime) {
+                nighttimeBtn.classList.add('good-night-time');
+            } else {
+                nighttimeBtn.classList.remove('good-night-time');
+            }
+            
+            // Debug indicator to verify night hours (remove in production)
+            console.log(`Night hours: ${nightHours}, Is good time: ${isGoodNightTime}`);
+        }
+
+        // Return the times for external use
+        return {
+            day: { hours: dayHours, minutes: dayMinutes },
+            night: { hours: nightHours, minutes: nightMinutes },
+            isGoodNightTime: isGoodNightTime
+        };
     }
     
+    // Initialize the time on page load
     updateTime();
+    // Update every second
     setInterval(updateTime, 1000);
 
-    // Set user information
-    const userElement = document.querySelector('.status-user');
-    userElement.textContent = 'gruen132';
+    // If we're on the tactics page, set up the night/day highlighting
+    const nighttimeContent = document.getElementById('nighttime-content');
+    const nighttimeScenariosHeader = nighttimeContent ? nighttimeContent.querySelector('h2') : null;
+    
+    if (nighttimeScenariosHeader && nighttimeBtn) {
+        // Create the Tarkov time indicator
+        tarkovTimeIndicator = document.createElement('div');
+        tarkovTimeIndicator.className = 'tarkov-time-indicator';
+        tarkovTimeIndicator.style.display = 'none';
+        
+        // Insert the indicator before the h2 heading
+        nighttimeScenariosHeader.parentNode.insertBefore(tarkovTimeIndicator, nighttimeScenariosHeader);
+        
+        nighttimeBtn.addEventListener('click', function() {
+            isNightSectionActive = true;
+            // Show the current Tarkov night time when night button is clicked
+            updateTime(); // This will update the indicator text
+            tarkovTimeIndicator.style.display = 'block';
+        });
+
+        // Hide indicator when day button is clicked
+        const daytimeBtn = document.getElementById('daytime-btn');
+        if (daytimeBtn) {
+            daytimeBtn.addEventListener('click', function() {
+                isNightSectionActive = false;
+                tarkovTimeIndicator.style.display = 'none';
+            });
+        }
+    }
 
     // Hex grid interaction
     const hexItems = document.querySelectorAll('.hex-item');
@@ -77,13 +161,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navTrigger = document.querySelector('.nav-trigger');
     const scopeReticle = document.querySelector('.scope-reticle');
     
-    navTrigger.addEventListener('mouseenter', () => {
-        scopeReticle.style.transform = 'rotate(45deg)';
-    });
-    
-    navTrigger.addEventListener('mouseleave', () => {
-        scopeReticle.style.transform = 'rotate(0deg)';
-    });
+    if (navTrigger && scopeReticle) {
+        navTrigger.addEventListener('mouseenter', () => {
+            scopeReticle.style.transform = 'rotate(45deg)';
+        });
+        
+        navTrigger.addEventListener('mouseleave', () => {
+            scopeReticle.style.transform = 'rotate(0deg)';
+        });
+    }
 });
 
 // Utility function to find nearby hexagonal items
@@ -107,4 +193,27 @@ function findNearbyHex(centerHex) {
         
         return distance < 300;
     });
+}
+
+// Tarkov time calculation functions
+// 1 second real time = 7 seconds tarkov time
+const tarkovRatio = 7;
+
+function hrs(num) {
+    return 1000 * 60 * 60 * num;
+}
+
+function realTimeToTarkovTime(time, left) {
+    // tarkov time moves at 7 seconds per second.
+    // surprisingly, 00:00:00 does not equal unix 0... but it equals unix 10,800,000.
+    // Which is 3 hours. What's also +3? Yep, St. Petersburg - MSK: UTC+3.
+    // therefore, to convert real time to tarkov time,
+    // tarkov time = (real time * 7 % 24 hr) + 3 hour
+
+    const oneDay = hrs(24);
+    const russia = hrs(3);
+
+    const offset = russia + (left ? 0 : hrs(12));
+    const tarkovTime = new Date((offset + (time.getTime() * tarkovRatio)) % oneDay);
+    return tarkovTime;
 }
