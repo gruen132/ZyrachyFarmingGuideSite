@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://zryachiy.com/sitemap.xml
+
+# Allow indexing of the misspellings page for SEO purposes
+Allow: /pages/misspellings.html
