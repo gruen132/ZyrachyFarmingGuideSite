@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get reference to the night time button (if it exists)
     const nighttimeBtn = document.getElementById('nighttime-btn');
 
+    // Function to check if a given hour is within night time range (22:00-05:00)
+    function isNightTimeHour(hour) {
+        return hour >= 22 || hour <= 5;
+    }
+
     // Update time display
     function updateTime() {
         const timeElement = document.querySelector('.status-time');
@@ -67,15 +72,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         tarkovTimeElement.textContent = `Tarkov: ${dayHours}:${dayMinutes} ${nightHours}:${nightMinutes}`;
 
-        // IMPORTANT FIX: Check if it's currently night time in Tarkov (22:00-05:00)
+        // Check if EITHER time is night time (between 22:00-05:00)
+        const dayHour = parseInt(dayHours);
         const nightHour = parseInt(nightHours);
-        const isGoodNightTime = (nightHour >= 22 || nightHour <= 5);
+        
+        // Check if either day or night time is within night hours
+        const isDayNightTime = isNightTimeHour(dayHour);
+        const isNightNightTime = isNightTimeHour(nightHour);
+        const isGoodNightTime = isDayNightTime || isNightNightTime;
         
         // Update the night time indicator if it exists and is visible
         if (tarkovTimeIndicator && isNightSectionActive) {
-            tarkovTimeIndicator.textContent = `Current Night Raid Time: ${nightHours}:${nightMinutes}`;
+            // Show both day and night Tarkov times
+            tarkovTimeIndicator.textContent = `Current Tarkov Time: ${dayHours}:${dayMinutes} ${nightHours}:${nightMinutes}`;
             
-            if (isGoodNightTime) {
+            // Check if either time is within night hours (22:00-05:00)
+            if (isDayNightTime || isNightNightTime) {
                 tarkovTimeIndicator.classList.add('good-time');
                 tarkovTimeIndicator.textContent += ' - Good time for night raid!';
             } else {
@@ -85,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add/remove pulsing green frame to night button based on night time
         if (nighttimeBtn) {
-            // Check if night time is between 22:00-05:00
+            // Apply the glowing effect if either time is within night hours
             if (isGoodNightTime) {
                 nighttimeBtn.classList.add('good-night-time');
             } else {
@@ -93,13 +105,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Debug indicator to verify night hours (remove in production)
-            console.log(`Night hours: ${nightHours}, Is good time: ${isGoodNightTime}`);
+            console.log(`Day hours: ${dayHours} (is night: ${isDayNightTime}), Night hours: ${nightHours} (is night: ${isNightNightTime}), Glowing: ${isGoodNightTime}`);
         }
 
         // Return the times for external use
         return {
-            day: { hours: dayHours, minutes: dayMinutes },
-            night: { hours: nightHours, minutes: nightMinutes },
+            day: { hours: dayHours, minutes: dayMinutes, isNightTime: isDayNightTime },
+            night: { hours: nightHours, minutes: nightMinutes, isNightTime: isNightNightTime },
             isGoodNightTime: isGoodNightTime
         };
     }
@@ -197,6 +209,10 @@ function findNearbyHex(centerHex) {
 
 // Tarkov time calculation functions
 // 1 second real time = 7 seconds tarkov time
+
+
+// Tarkov time calculation functions - with 1 hour correction
+// 1 second real time = 7 seconds tarkov time
 const tarkovRatio = 7;
 
 function hrs(num) {
@@ -209,10 +225,11 @@ function realTimeToTarkovTime(time, left) {
     // Which is 3 hours. What's also +3? Yep, St. Petersburg - MSK: UTC+3.
     // therefore, to convert real time to tarkov time,
     // tarkov time = (real time * 7 % 24 hr) + 3 hour
-
+    
+    // CORRECTED: Adjusting offset by -1 hour to match in-game time
     const oneDay = hrs(24);
-    const russia = hrs(3);
-
+    const russia = hrs(2);  // Changed from 3 to 2 hours to correct the offset
+    
     const offset = russia + (left ? 0 : hrs(12));
     const tarkovTime = new Date((offset + (time.getTime() * tarkovRatio)) % oneDay);
     return tarkovTime;

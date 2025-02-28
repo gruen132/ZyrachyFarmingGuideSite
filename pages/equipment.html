@@ -80,6 +80,44 @@
         height: 2px;
         background: var(--accent-green);
     }
+    
+    /* Loadout Cycler Styles */
+    .loadout-cycler {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 10px;
+        vertical-align: middle;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        padding: 2px 8px;
+        border: 1px solid var(--accent-green);
+        position: relative;
+        top: -3px; /* Move the cycler up by 3 pixels */
+    }
+    
+    .cycle-btn {
+        background: none;
+        border: none;
+        color: var(--accent-green);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0 4px;
+        transition: all 0.2s ease;
+    }
+    
+    .cycle-btn:hover {
+        color: var(--light-green);
+        transform: scale(1.2);
+    }
+    
+    .loadout-indicator {
+        margin: 0 8px;
+        color: var(--text-primary);
+        font-size: 14px;
+        font-weight: 500;
+        min-width: 20px;
+        text-align: center;
+    }
 </style>
     
 </head>
@@ -87,8 +125,8 @@
     <header>
         <div class="status-bar">
             <div class="status-left">
-                <span class="status-time">19:59:55</span>
-                <span class="status-date">2025-02-22</span>
+                <span class="status-time">22:49:50</span>
+                <span class="status-date">2025-02-27</span>
             </div>
             <div class="status-center">
                 <div class="status-indicator">LIVE DATA</div>
@@ -123,7 +161,7 @@
         <div class="page-header">
             <h1>Recommended Equipment</h1>
             <div class="page-meta">
-                <span class="update-time">Last updated: 2025-02-22 14:40:20 UTC</span>
+                <span class="update-time">Last updated: 2025-02-27 22:49:50 UTC</span>
                 <span class="patch-version">Patch: 0.16.1.2</span>
             </div>
             <!-- Add view switching buttons -->
@@ -137,42 +175,104 @@
             <!-- Budget View Content -->
             <div class="view-content budget-view active">
                 <section class="equipment-section">
-                    <h2>Budget Loadout</h2>
-                    <div class="weapon-showcase">
-                        <img src="../assets/mosin.png" alt="Mosin Basic Build">
-                        <div class="weapon-stats">
-                            <div class="stat-row">
-                                <span class="stat-label">Primary:</span>
-                                <span class="stat-value">Mosin 7.62x54R</span>
+                    <h2>
+                        Budget Loadout 
+                        <span class="loadout-cycler">
+                            <button class="cycle-btn prev-loadout">◄</button>
+                            <span class="loadout-indicator">1</span>
+                            <button class="cycle-btn next-loadout">►</button>
+                        </span>
+                    </h2>
+                    
+                    <!-- Budget Loadout Option 1 -->
+                    <div class="budget-loadout active" data-loadout="1">
+                        <div class="weapon-showcase">
+                            <img src="../assets/mosin.png" alt="Mosin Basic Build">
+                            <div class="weapon-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Primary:</span>
+                                    <span class="stat-value">Mosin 7.62x54R</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Ammunition:</span>
+                                    <span class="stat-value">HP BT</span>
+                                </div>
                             </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Ammunition:</span>
-                                <span class="stat-value">HP BT</span>
+                        </div>
+                        <div class="build-details">
+                            <h3>Recommended Build</h3>
+                            <ul class="mod-list">
+                                <li>Scope: Schmidt & Bender PM II 3-20x50</li>
+                                <li>Barrel: 730mm barrel</li>
+                                <li>Muzzle: WT1052 + DTK-4M</li>
+                            </ul>
+                        </div>
+                        <h3>Secondary Weapon</h3>
+                        <div class="weapon-showcase">
+                            <img src="../assets/kedr.png" alt="PP-91 Kedr 9 x 18">
+                            <div class="weapon-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Weapon:</span>
+                                    <span class="stat-value">PP-91 Kedr 9x18</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Ammunition:</span>
+                                    <span class="stat-value">PM BZHT GZH</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="build-details">
-                        <h3>Recommended Build</h3>
-                        <ul class="mod-list">
-                            <li>Scope: Schmidt & Bender PM II 3-20x50</li>
-                            <li>Barrel: 730mm barrel</li>
-                            <li>Muzzle: WT1052 + DTK-4M</li>
-                            
-                        </ul>
-                    </div>
-                    <h3>Secondary Weapon</h3>
-                    <div class="weapon-showcase">
-                        <img src="../assets/kedr.png" alt="PP-91 Kedr 9 x 18">
-                        <div class="weapon-stats">
-                            <div class="stat-row">
-                                <span class="stat-label">Weapon:</span>
-                                <span class="stat-value">PP-91 Kedr 9x18</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Ammunition:</span>
-                                <span class="stat-value">PM BZHT GZH</span>
+                    
+                    <!-- Budget Loadout Option 2 -->
+                    <div class="budget-loadout" data-loadout="2" style="display: none;">
+                        <div class="weapon-showcase">
+                            <img src="../assets/RFB.png" alt="RFB Basic Build">
+                            <div class="weapon-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Primary:</span>
+                                    <span class="stat-value">Kel-Tec RFB</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Ammunition:</span>
+                                    <span class="stat-value">TCW-SP</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="build-details">
+                            <h3>Recommended Build</h3>
+                            <ul class="mod-list">
+                                <li>Scope: March Tactical 3-24x 30mm</li>
+                                <li>Barrel: Stock</li>
+                                <li>Muzzle: Cheapest available</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    
+          
+                    <div class="budget-loadout" data-loadout="3" style="display: none;">
+                        <div class="weapon-showcase">
+                            <img src="../assets/ADAR.png" alt="ADAR 2-15">
+                            <div class="weapon-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Primary:</span>
+                                    <span class="stat-value">ADAR 2-15</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Ammunition:</span>
+                                    <span class="stat-value">WARMAGEDDON</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="build-details">
+                            <h3>Recommended Build</h3>
+                            <ul class="mod-list">
+                                <li>Scope: March Tactical 3-24x 30mm</li>
+                                <li>Barrel: Stock</li>
+                                <li>Muzzle: Cheapest available</li>
+                            </ul>
+                        </div>
+                        
                     </div>
                     
                     <div class="protection-info">
@@ -293,7 +393,7 @@
 
                         <div class="item-card">
                             <div class="item-description">
-                                <h5>- Surv12 field surgical kit</h5>
+                                <h5>- Surv12 field surgical kit                                <h5>- Surv12 field surgical kit</h5>
                             </div>
                             <div class="item-description">
                                 <h5>- AFAK tactical individual first aid kit</h5>
@@ -332,36 +432,94 @@
 <!-- Update the script block -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Update the date and time display
+        const timeDisplay = document.querySelector('.status-time');
+        const dateDisplay = document.querySelector('.status-date');
+        if (timeDisplay) timeDisplay.textContent = '22:55:24';
+        if (dateDisplay) dateDisplay.textContent = '2025-02-27';
+        
         // Get all buttons and content sections
         const setupButtons = document.querySelectorAll('.setup-button');
         const setupContents = document.querySelectorAll('.setup-content:not(.always-visible)');
         
         // Initialize state - ensure budget is active by default
         const defaultSetup = 'budget';
-        document.getElementById(`${defaultSetup}-setup`).classList.add('active');
+        const defaultSetupEl = document.getElementById(`${defaultSetup}-setup`);
+        if (defaultSetupEl) defaultSetupEl.classList.add('active');
+        
         setupButtons.forEach(btn => {
             if (btn.getAttribute('data-setup') === defaultSetup) {
                 btn.classList.add('active');
             }
         });
-    
-        // Add click handlers
-        setupButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const setupType = button.getAttribute('data-setup');
+        
+        // Budget loadout cycling functionality
+        const prevBtn = document.querySelector('.prev-loadout');
+        const nextBtn = document.querySelector('.next-loadout');
+        const loadoutIndicator = document.querySelector('.loadout-indicator');
+        const budgetLoadouts = document.querySelectorAll('.budget-loadout');
+        let currentLoadoutIndex = 0;
+        const totalLoadouts = budgetLoadouts.length;
+        
+        // Function to update displayed loadout with fade effect
+        function updateLoadoutDisplay() {
+            // Hide all loadouts
+            budgetLoadouts.forEach(loadout => {
+                loadout.style.opacity = '0';
+                setTimeout(() => {
+                    loadout.style.display = 'none';
+                }, 300);
+            });
+            
+            // Show current loadout with fade-in effect
+            setTimeout(() => {
+                budgetLoadouts[currentLoadoutIndex].style.display = 'block';
+                setTimeout(() => {
+                    budgetLoadouts[currentLoadoutIndex].style.opacity = '1';
+                }, 50);
+            }, 300);
+            
+            // Update indicator display
+            loadoutIndicator.textContent = currentLoadoutIndex + 1;
+        }
+        
+        // Add fade transition to budget loadouts
+        budgetLoadouts.forEach(loadout => {
+            loadout.style.transition = 'opacity 0.3s ease';
+        });
+        
+        // Event listener for previous button
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                currentLoadoutIndex = (currentLoadoutIndex - 1 + totalLoadouts) % totalLoadouts;
+                updateLoadoutDisplay();
+            });
+        }
+        
+        // Event listener for next button
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                currentLoadoutIndex = (currentLoadoutIndex + 1) % totalLoadouts;
+                updateLoadoutDisplay();
+            });
+        }
+        
+        // View switcher functionality
+        const viewButtons = document.querySelectorAll('.view-button');
+        const viewContents = document.querySelectorAll('.view-content');
+        
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const viewType = this.getAttribute('data-view');
                 
-                // Update buttons
-                setupButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+                // Update button states
+                viewButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
                 
-                // Update content with fade effect
-                setupContents.forEach(content => {
-                    if (content.id === `${setupType}-setup`) {
-                        content.style.opacity = '0';
+                // Update content visibility
+                viewContents.forEach(content => {
+                    if (content.classList.contains(`${viewType}-view`)) {
                         content.classList.add('active');
-                        setTimeout(() => {
-                            content.style.opacity = '1';
-                        }, 50);
                     } else {
                         content.classList.remove('active');
                     }
@@ -369,7 +527,7 @@
             });
         });
     });
-    </script>
+</script>
     
     
     <script src="../scripts/script.js" type="module"></script>
