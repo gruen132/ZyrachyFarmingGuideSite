@@ -156,7 +156,286 @@
         }
 
         .scenarios-section {
-            margin-top: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* Enhanced method choice section */
+        .method-choice-section {
+            margin: 40px 0 50px;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+        
+        .choice-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .choice-header h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .choice-header p {
+            font-size: 16px;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .method-switcher {
+            display: flex;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            margin-bottom: 5px;
+        }
+        
+        .method-option {
+            flex: 1;
+            padding: 18px 10px;
+            text-align: center;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            border-radius: 6px;
+            margin: 0 2px;
+        }
+        
+        .method-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .method-option.active {
+            color: var(--text-primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            background: var(--bg-secondary);
+            transform: translateY(-3px);
+        }
+        
+        .method-indicator {
+            position: absolute;
+            height: calc(100% - 10px);
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            top: 5px;
+            z-index: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+        }
+        
+        .method-icon {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 4px;
+            vertical-align: super;
+            position: relative;
+        }
+        
+        .easy-icon {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .axmc-icon {
+            background: rgba(255, 152, 0, 0.2);
+            color: #FF9800;
+        }
+        
+        .method-subtitle {
+            display: block;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+        
+        .requires-item {
+            display: inline-block;
+            font-weight: 500;
+            color: #ff9800;
+            background: rgba(255, 152, 0, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        
+        .method-details {
+            background: var(--bg-primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        
+        .arrow-indicator {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        
+        .method-features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        
+        .method-feature {
+            text-align: center;
+            padding: 10px;
+            flex: 1;
+        }
+        
+        .feature-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .feature-value {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        /* Night method glow effect for optimal time */
+        .night-optimal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .night-optimal::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: 0;
+            background: linear-gradient(45deg, #2b5876, #4e4376, #00223e, #162447);
+            background-size: 400% 400%;
+            animation: nightGlow 3s ease infinite;
+            border-radius: 8px;
+        }
+        
+        .night-optimal::after {
+            content: "OPTIMAL NOW";
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 9px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            z-index: 3;
+            font-weight: bold;
+        }
+        
+        .night-optimal > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .night-optimal-time {
+            display: inline-block;
+            position: absolute;
+            bottom: 3px;
+            right: 5px;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+        
+        @keyframes nightGlow {
+            0% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(30, 55, 153, 0.7); }
+            50% { background-position: 100% 50%; box-shadow: 0 0 20px rgba(43, 88, 118, 0.9); }
+            100% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(30, 55, 153, 0.7); }
+        }
+        
+        @media (max-width: 768px) {
+            .method-option {
+                font-size: 14px;
+                padding: 15px 5px;
+            }
+            
+            .method-icon {
+                margin-left: 2px;
+                font-size: 9px;
+                padding: 1px 3px;
+            }
+            
+            .choice-header h2 {
+                font-size: 20px;
+            }
+            
+            .choice-header p {
+                font-size: 14px;
+            }
+            
+            .method-choice-section {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* Tarkov time indicator in the method-choice section */
+        .tarkov-time-display {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .tarkov-time-value {
+            font-weight: bold;
+            color: var(--text-primary);
         }
     </style>
 </head>
@@ -241,7 +520,7 @@
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Detection Range</span>
-                            <span class="stat-value">750m</span> <!-- TODO Verify this, Zryachiy does not shoot you when in certain spots down to 350 meters -->
+                            <span class="stat-value">750m</span>
                         </div>
                     </div>
                 </div>
@@ -279,28 +558,45 @@
             </div>
         </section>
 
-        <!-- Day/Night Toggle Buttons -->
-        <div class="view-switcher">
-            <button class="view-button active" id="daytime-btn">Day Time</button>
-            <button class="view-button" id="nighttime-btn">Night Time</button>
-            <!-- The tarkov-time-indicator will be inserted here by JavaScript -->
-        </div>
+        <!-- Enhanced Method Choice Section -->
+        <section class="method-choice-section">
+            <div class="arrow-indicator">⬇</div>
+            <div class="choice-header">
+                <h2>CHOOSE YOUR COMBAT APPROACH</h2>
+                <p>Select the method that best fits your equipment and preferences for engaging Zryachiy and his guards</p>
+            </div>
+            
+            
+            
+            <!-- Enhanced Method Switcher -->
+            <div class="method-switcher">
+                <div class="method-indicator"></div>
+                <button class="method-option active" id="daytime-btn" data-index="0">
+                    Day Method
+                    <span class="method-subtitle">Standard approach</span>
+                </button>
+                <button class="method-option" id="adv-day-btn" data-index="1">
+                    Advanced Day Method
+                    <span class="method-icon axmc-icon">AXMC</span>
+                    <span class="method-icon easy-icon">EASY</span>
+                </button>
+                <button class="method-option" id="nighttime-btn" data-index="2">
+                    Night Method
+                    <span class="method-subtitle">10:00pm-5:00am</span>
+                </button>
+            </div>
+            
+            <!-- Method Details -->
+            <div class="method-details">
+                
+            </div>
+        </section>
 
         <!-- Combat Scenarios Section - Day Time -->
         <section id="daytime-content" class="view-content active">
             <div class="scenarios-section">
-                <h2>Combat Scenarios - Day Time</h2>
+                <h2>Combat Scenarios - Day Method</h2>
                 <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
-               <!--     <section class="warning-section">
-                    <div class="warning-box">
-                       
-                        
-                            <li>The current daytime methods are deprecated and ineffective due to a change allowing guards to shoot through metal cover.</li>
-                        
-                         
-                        
-                    </div>
-                </section> -->
 
                 <!-- Scenario 1 -->
                 <div class="scenario-container">
@@ -316,7 +612,7 @@
                                     width="100%" 
                                     height="600" 
                                     src="https://www.youtube.com/embed/LqIve_G3kpU" 
-                                    title="Zryachiy and right guard" 
+                                    title="Detailed Lighthouse Loot Guide" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen>
@@ -361,7 +657,7 @@
                             </div>
                         </div>
                         
-                            <p>1. Lay down to the right of the fence</p>
+                            <p>1. Lay down to the right of the fence.</p>
                             <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
                             <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
                             <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
@@ -380,14 +676,13 @@
                         <div class="location-section">
                             <p>Video will be added here soon.</p>
                         
-                            <p>1. Lay down to the right of the fence</p>
-                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
+                            <p>1. Lay down to the right of the fence.</p>
+                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy.</p>
                             <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
-                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
+                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard.</p>
                             <p>5. Once the left guard is down, navigate through the mines and reach the island</p>
-                            <p>6. Head toward the rocks where the left guard normally takes position</p> 
-                            <p>7. Take cover behind a rock and wait for him to push toward you</p>
+                            <p>6. Head toward the rocks where the left guard normally takes position.</p> 
+                            <p>7. Take cover behind a rock and wait for him to push toward you.</p>
                             
                         </div>
                         
@@ -417,11 +712,11 @@
                                 </div>
                             </div>
                             
-                            <p>1. Position yourself prone in any spot with a clear view of Zryachiy</p>
+                            <p>1. Position yourself prone in any spot with a clear view of Zryachiy.</p>
                             <p>2. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
                             <p>3. Once the Zryachiy is dead, navigate through the mines and reach the island</p>
-                            <p>6. Head toward the rocks where the left guard normally takes position</p> 
-                            <p>7. Take cover behind a rock and wait for him to push toward you</p>
+                            <p>6. Head toward the rocks where the left guard normally takes position.</p> 
+                            <p>7. Take cover behind a rock and wait for him to push toward you.</p>
                             <p>6. Move immediately onto the designated rock mentioned in the video of Scenario 1</p>
                             <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
                             
@@ -445,7 +740,7 @@
                                 width="100%" 
                                 height="600" 
                                 src="https://www.youtube.com/embed/apVc6uONkyY" 
-                                title="Zryachiy and left guard bugged" 
+                                title="Detailed Lighthouse Loot Guide" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
@@ -462,7 +757,7 @@
                             <p>6. Stand up, walk away from the bridge and jump on the beach on your right. From there, go straight to the road that's at the foot of the Southern Road sniping rock.</p>
                             <p>7. Walk a tiny bit along the road in the direction of the rogues camp until you reach the truck that's facing the rock. Go prone on the right side of the truck. The goal is to have a line of sight on the left guard while having a tree between you and the guard.</p>
                             <p>8. This spot is mostly safe, you can move around a little bit, but keep the tree in between you and the guard, otherwise he's going to shoot you. When prone, lean slightly left and right in order to distinguish the head of the guard behind the leaves.</p>
-                            <p>9. Set your zeroing to 350 meters and shoot the head of the guard until he dies</p>
+                            <p>9. Set your zeroing to 350 meters and shoot the head of the guard until he dies.</p>
                             <p>10. This may take a while, as it's difficult to land a perfect headshot. You may have to take down all the HPs of the guard. Sometimes, the guard will stand up or lay down when hit, but he should not move.</p>
                         </div>
                         
@@ -471,12 +766,46 @@
             </div>
         </section>
 
-      
+        <!-- Advanced Day Method Section -->
+        <section id="adv-day-content" class="view-content">
+            <div class="scenarios-section">
+                <h2>Combat Scenarios - Advanced Day Method</h2>
+                <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
+                <p class="requires-item">⚠️ Requires AXMC sniper rifle</p>
 
-            <!-- Combat Scenarios Section - Night Time -->
+                <!-- Scenario 1 -->
+                <div class="scenario-container">
+                    <button type="button" class="collapsible">Scenario 1: Standard</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            <div class="video-container">
+                                <iframe 
+                                width="100%" 
+                                height="600" 
+                                src="https://youtu.be/GeN4ME_XOY0" 
+                                title="Advanced Day Method" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                                </iframe>
+                            </div>
+                           
+                        </div>
+                        <p>1. Stand Anywhere you want</p>
+                        <p>2. If Standing at the bridge set your scope to 200 meters otherwise use a rangefinder</p>
+                        <p>3. Take one clean shot at the top of his head, he should drop dead</p>
+                        <p>4. Once hes dead the other guards should not aggro and you can kill them the same way</p>
+                        <p>5. If standing at the bridge zero to 150 for the guards</p>
+                    </div>
+                </div>
+
+              
+        </section>
+
+        <!-- Combat Scenarios Section - Night Time -->
         <section id="nighttime-content" class="view-content">
             <div class="scenarios-section">
-                <h2>Combat Scenarios - Night Time</h2>
+                <h2>Combat Scenarios - Night Method</h2>
                 <p class="scenario-note">Scope ZEROING VALUES<br>
                 Zryachiy ~450m<br>
                 Left Guard ~400m<br>
@@ -568,14 +897,14 @@
                     <button type="button" class="collapsible">Nighttime Mechanics</button>
                     <div class="mechanics-content" style="display: none;">
                         <ul>
-                            <li>The "safe" zone is still the same</li>
-                            <li>Once you kill anybody from the group (Zyrachy, GuardLeft, GuardRight), the others will become aggroed and shoot you even in the "safe" zone</li>
-                            <li>When you vanish for about 30 seconds, they will deaggro, and you can peek in the safe zone again</li>
-                            <li>The left guard sometimes tries to go behind cover when he gets hit</li>
+                            <li>The "safe" zone is still the same.</li>
+                            <li>Once you kill anybody from the group (Zyrachy, GuardLeft, GuardRight), the others will become aggroed and shoot you even in the "safe" zone.</li>
+                            <li>When you vanish for about 30 seconds, they will deaggro, and you can peek in the safe zone again.</li>
+                            <li>The left guard sometimes tries to go behind cover when he gets hit.</li>
                             <li>He either:</li>
-                            <li>5.1: After some time, goes back to another position on his rock</li>
-                            <li>5.2: Stays hidden until you go onto the island, where you can peek him like normal again</li>
-                            <li>If Zyrachy is killed first, only 2 guards remain</li>
+                            <li>5.1: After some time, goes back to another position on his rock.</li>
+                            <li>5.2: Stays hidden until you go onto the island, where you can peek him like normal again.</li>
+                            <li>If Zyrachy is killed first, only 2 guards remain.</li>
                         </ul>
                     </div>
                     <p><strong>NOTE:</strong> If any of the guards is not visible, <a href="#" id="switch-to-daytime">refer to killing them in DAYTIME</a> section.</p>
@@ -584,8 +913,6 @@
   
         </section>
        
-
-
         <section class="additional-info">
             <h2>Additional Information</h2>
 
@@ -683,35 +1010,200 @@
             });
         }
 
-        // Day/Night toggle functionality
+        // Tarkov time calculation
+        function calculateTarkovTime() {
+            const dateNow = new Date();
+            const seconds = Math.floor(dateNow.getTime() / 1000);
+            
+            // Calculate in-game time (7 seconds real time = 1 minute in Tarkov)
+            const secondsInDay = 24 * 60 * 60;
+            const tarkovTimeSeconds = (seconds * 7) % secondsInDay;
+            
+            const tarkovHours = Math.floor(tarkovTimeSeconds / 3600);
+            const tarkovMinutes = Math.floor((tarkovTimeSeconds % 3600) / 60);
+            
+            // Format time as HH:MM
+            const formattedHours = tarkovHours.toString().padStart(2, '0');
+            const formattedMinutes = tarkovMinutes.toString().padStart(2, '0');
+            
+            return {
+                hours: tarkovHours,
+                minutes: tarkovMinutes,
+                formatted: `${formattedHours}:${formattedMinutes}`
+            };
+        }
+        
+        // Check if it's night time in Tarkov (between 10pm and 5am)
+        function isNightTime(tarkovTime) {
+            const hours = tarkovTime.hours;
+            return (hours >= 22 || hours < 5);
+        }
+        
+        // Update Tarkov time and night mode button
+        function updateTarkovTime() {
+            const tarkovTime = calculateTarkovTime();
+            const currentTarkovTimeElement = document.getElementById('current-tarkov-time');
+            if (currentTarkovTimeElement) {
+                currentTarkovTimeElement.textContent = tarkovTime.formatted;
+            }
+            
+            // Update the night method button
+            const nighttimeBtn = document.getElementById('nighttime-btn');
+            if (isNightTime(tarkovTime)) {
+                // It's night time, add glowing effect
+                nighttimeBtn.classList.add('night-optimal');
+                
+                // Add the current time display
+                if (!document.querySelector('.night-optimal-time')) {
+                    const timeDisplay = document.createElement('span');
+                    timeDisplay.classList.add('night-optimal-time');
+                    timeDisplay.textContent = tarkovTime.formatted;
+                    nighttimeBtn.appendChild(timeDisplay);
+                } else {
+                    document.querySelector('.night-optimal-time').textContent = tarkovTime.formatted;
+                }
+            } else {
+                // It's day time, remove glowing effect
+                nighttimeBtn.classList.remove('night-optimal');
+                const timeDisplay = document.querySelector('.night-optimal-time');
+                if (timeDisplay) {
+                    timeDisplay.remove();
+                }
+            }
+        }
+        
+        // Arrow indicator content based on time
+        function updateArrowIndicator() {
+            const tarkovTime = calculateTarkovTime();
+            const arrowIndicator = document.querySelector('.arrow-indicator');
+            
+            if (isNightTime(tarkovTime)) {
+                arrowIndicator.innerHTML = '🌙';
+                arrowIndicator.style.background = '#1a237e';
+            } else {
+                arrowIndicator.innerHTML = '⬇️';
+                arrowIndicator.style.background = 'var(--accent-color)';
+            }
+        }
+
+        // Method switcher functionality
         document.addEventListener('DOMContentLoaded', function() {
             const daytimeBtn = document.getElementById('daytime-btn');
+            const advDayBtn = document.getElementById('adv-day-btn');
             const nighttimeBtn = document.getElementById('nighttime-btn');
+            
             const daytimeContent = document.getElementById('daytime-content');
+            const advDayContent = document.getElementById('adv-day-content');
             const nighttimeContent = document.getElementById('nighttime-content');
+            
+            const daytimeInfo = document.getElementById('daytime-info');
+            const advDayInfo = document.getElementById('adv-day-info');
+            const nighttimeInfo = document.getElementById('nighttime-info');
+            
             const switchToDaytime = document.getElementById('switch-to-daytime');
-
+            const methodIndicator = document.querySelector('.method-indicator');
+            
+            // Initialize Tarkov time
+            updateTarkovTime();
+            updateArrowIndicator();
+            
+            // Update time every second
+            setInterval(() => {
+                updateTarkovTime();
+                updateArrowIndicator();
+            }, 1000);
+            
+            // Set initial indicator position
+            positionIndicator(0);
+            
+            // Function to position the sliding indicator
+            function positionIndicator(index) {
+                const options = document.querySelectorAll('.method-option');
+                const selectedOption = options[index];
+                const indicator = document.querySelector('.method-indicator');
+                
+                if (selectedOption && indicator) {
+                    // Calculate position and width based on the selected button
+                    const containerWidth = document.querySelector('.method-switcher').offsetWidth;
+                    const optionWidth = containerWidth / options.length;
+                    
+                    indicator.style.width = `${optionWidth}px`;
+                    indicator.style.left = `${index * optionWidth}px`;
+                }
+            }
+            
+            // Show the appropriate info panel
+            function showInfoPanel(index) {
+                daytimeInfo.style.display = 'none';
+                advDayInfo.style.display = 'none';
+                nighttimeInfo.style.display = 'none';
+                
+                if (index === 0) {
+                    daytimeInfo.style.display = 'block';
+                } else if (index === 1) {
+                    advDayInfo.style.display = 'block';
+                } else if (index === 2) {
+                    nighttimeInfo.style.display = 'block';
+                }
+            }
+            
+            // Handle tab clicks
+            function activateTab(index) {
+                // Remove active class from all options and content sections
+                document.querySelectorAll('.method-option').forEach(opt => opt.classList.remove('active'));
+                document.querySelectorAll('.view-content').forEach(cont => cont.classList.remove('active'));
+                
+                // Add active class to selected option and content
+                const options = document.querySelectorAll('.method-option');
+                options[index].classList.add('active');
+                
+                // Show the appropriate content
+                if (index === 0) {
+                    daytimeContent.classList.add('active');
+                } else if (index === 1) {
+                    advDayContent.classList.add('active');
+                } else if (index === 2) {
+                    nighttimeContent.classList.add('active');
+                }
+                
+                // Show the appropriate info panel
+                showInfoPanel(index);
+                
+                // Position the indicator
+                positionIndicator(index);
+            }
+            
+            // Auto-select night method if it's currently night
+            if (isNightTime(calculateTarkovTime())) {
+                activateTab(2);
+            }
+            
+            // Set up event listeners for tabs
             daytimeBtn.addEventListener('click', function() {
-                daytimeBtn.classList.add('active');
-                nighttimeBtn.classList.remove('active');
-                daytimeContent.classList.add('active');
-                nighttimeContent.classList.remove('active');
+                activateTab(0);
             });
-
+            
+            advDayBtn.addEventListener('click', function() {
+                activateTab(1);
+            });
+            
             nighttimeBtn.addEventListener('click', function() {
-                nighttimeBtn.classList.add('active');
-                daytimeBtn.classList.remove('active');
-                nighttimeContent.classList.add('active');
-                daytimeContent.classList.remove('active');
+                activateTab(2);
             });
 
             // Link in night time section to switch back to day time content
             if (switchToDaytime) {
                 switchToDaytime.addEventListener('click', function(e) {
                     e.preventDefault();
-                    daytimeBtn.click();
+                    activateTab(0);
                 });
             }
+            
+            // Handle window resize to reposition indicator
+            window.addEventListener('resize', function() {
+                const activeIndex = Array.from(document.querySelectorAll('.method-option')).findIndex(opt => opt.classList.contains('active'));
+                positionIndicator(activeIndex);
+            });
         });
     </script>
 
