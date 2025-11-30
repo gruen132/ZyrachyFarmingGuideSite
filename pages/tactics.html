@@ -341,64 +341,6 @@
             font-size: 14px;
         }
         
-        /* Night method glow effect for optimal time */
-        .night-optimal {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .night-optimal::before {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: 0;
-            background: linear-gradient(45deg, #2b5876, #4e4376, #00223e, #162447);
-            background-size: 400% 400%;
-            animation: nightGlow 3s ease infinite;
-            border-radius: 8px;
-        }
-        
-        .night-optimal::after {
-            content: "OPTIMAL NOW";
-            position: absolute;
-            top: 2px;
-            right: 5px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            font-size: 9px;
-            padding: 2px 5px;
-            border-radius: 3px;
-            z-index: 3;
-            font-weight: bold;
-        }
-        
-        .night-optimal > * {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .night-optimal-time {
-            display: inline-block;
-            position: absolute;
-            bottom: 3px;
-            right: 5px;
-            font-size: 9px;
-            color: rgba(255, 255, 255, 0.8);
-            z-index: 3;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 1px 4px;
-            border-radius: 2px;
-        }
-        
-        @keyframes nightGlow {
-            0% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(30, 55, 153, 0.7); }
-            50% { background-position: 100% 50%; box-shadow: 0 0 20px rgba(43, 88, 118, 0.9); }
-            100% { background-position: 0% 50%; box-shadow: 0 0 10px rgba(30, 55, 153, 0.7); }
-        }
-        
         @media (max-width: 768px) {
             .method-option {
                 font-size: 14px;
@@ -483,11 +425,6 @@
                 <span class="patch-version">Patch: 0.16.1.3</span>
             </div>
         </div>
-
-        <!-- Quick Access Link -->
-        <a href="scenario-guide.html" class="quick-guide-link">
-            ⚡ QUICK ACCESS: Interactive Scenario Guide - Find Your Exact Situation! ⚡
-        </a>
 
         <!-- Zryachiy Info Section -->
         <section class="boss-section">
@@ -599,8 +536,41 @@
                 <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
 
                 <!-- Scenario 1 -->
+                <div class="scenario-container" style="border: 2px solid var(--accent-green); background: rgba(88, 113, 84, 0.1);">
+                    <button type="button" class="collapsible">Scenario 1: Both Guards and Zryachiy Visible ⭐ MOST COMMON</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            <div class="video-container">
+                                <iframe 
+                                width="100%" 
+                                height="600" 
+                                src="https://www.youtube.com/embed/eppwsnIQemg" 
+                                title="Both Guards visible" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-description">
+                            
+                            </div>
+                        </div>
+                        
+                            <p>1. Lay down to the right of the fence.</p>
+                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
+                            <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
+                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
+                            <p>5. With the left guard dead, stand up and immediately sprint while going prone to the left for cover</p>
+                            <p>6. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
                 <div class="scenario-container">
-                    <button type="button" class="collapsible">Scenario 1: Only Right Guard and Zryachiy Visible</button>
+                    <button type="button" class="collapsible">Scenario 2: Only Right Guard and Zryachiy Visible</button>
                     <div class="scenario-content">
                         <div class="location-section">
                             
@@ -630,39 +600,6 @@
                             <p>6. Move immediately onto the designated rock mentioned in the video</p>
                             <p>7. When the left guard moves along his path, unload your entire magazine into either his face or chest</p>
                             
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-
-                <!-- Scenario 2 -->
-                <div class="scenario-container">
-                    <button type="button" class="collapsible">Scenario 2: Both Guards and Zryachiy Visible</button>
-                    <div class="scenario-content">
-                        <div class="location-section">
-                            <div class="video-container">
-                                <iframe 
-                                width="100%" 
-                                height="600" 
-                                src="https://www.youtube.com/embed/eppwsnIQemg" 
-                                title="Both Guards visible" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div class="video-description">
-                            
-                            </div>
-                        </div>
-                        
-                            <p>1. Lay down to the right of the fence.</p>
-                            <p>2. Lean carefully to create a small pixel peek that allows you to land a shot on Zryachiy</p>
-                            <p>3. Set your scope to 200 meters and fire two shots at the top of Zryachiy's head</p>
-                            <p>4. Once Zryachiy is dead, slowly crawl while leaning to create an angle to peek and eliminate the left guard</p>
-                            <p>5. With the right left guard dead, stand up and immediately sprint while going prone to the left for cover</p>
-                            <p>6. At the slowest movement speed, peek through the fence to spot the right guard, adjusting your crouch height one step up</p>
                         </div>
                         
                         
@@ -816,7 +753,7 @@
 
                 <!-- Scenario 1 -->
                 <div class="scenario-container">
-                    <button type="button" class="collapsible">Scenario 1: Killing one guard 4 times</button>
+                    <button type="button" class="collapsible">Scenario 1: Killing one guard (each can respawn 1 time)</button>
                     <div class="scenario-content">
                         <div class="location-section">
                            
@@ -825,7 +762,7 @@
                                 <li>Zryachiy and his guards will not shoot you there</li>
                                 <li>Walk up to the concrete block shown in the image below and go prone</li>
                                 <li>Make sure you are in cover from Zryachiy and the right guard</li>
-                                <li>Kill the left guard and wait for him to respawn, then crawl back to another position (repeat 4 times)</li>
+                                <li>Kill the left guard and wait for him to respawn, then crawl back to another position</li>
                                 <li>Once the last left guard has been killed, take cover for 30 seconds to deaggro Zryachiy</li>
                                 <li>Stand up, walk to the 2nd position shown below and go prone</li>
                                 <li>Kill the right guard whilst in cover from Zryachiy</li>
@@ -1039,48 +976,19 @@
             return (hours >= 22 || hours < 5);
         }
         
-        // Update Tarkov time and night mode button
+        // Update Tarkov time
         function updateTarkovTime() {
             const tarkovTime = calculateTarkovTime();
             const currentTarkovTimeElement = document.getElementById('current-tarkov-time');
             if (currentTarkovTimeElement) {
                 currentTarkovTimeElement.textContent = tarkovTime.formatted;
             }
-            
-            // Update the night method button
-            const nighttimeBtn = document.getElementById('nighttime-btn');
-            if (isNightTime(tarkovTime)) {
-                // It's night time, add glowing effect
-                nighttimeBtn.classList.add('night-optimal');
-                
-                // Add the current time display
-                if (!document.querySelector('.night-optimal-time')) {
-                    const timeDisplay = document.createElement('span');
-                    timeDisplay.classList.add('night-optimal-time');
-                    timeDisplay.textContent = tarkovTime.formatted;
-                    nighttimeBtn.appendChild(timeDisplay);
-                } else {
-                    document.querySelector('.night-optimal-time').textContent = tarkovTime.formatted;
-                }
-            } else {
-                // It's day time, remove glowing effect
-                nighttimeBtn.classList.remove('night-optimal');
-                const timeDisplay = document.querySelector('.night-optimal-time');
-                if (timeDisplay) {
-                    timeDisplay.remove();
-                }
-            }
         }
         
-        // Arrow indicator content based on time
+        // Arrow indicator
         function updateArrowIndicator() {
-            const tarkovTime = calculateTarkovTime();
             const arrowIndicator = document.querySelector('.arrow-indicator');
-            
-            if (isNightTime(tarkovTime)) {
-                arrowIndicator.innerHTML = '🌙';
-                arrowIndicator.style.background = '#1a237e';
-            } else {
+            if (arrowIndicator) {
                 arrowIndicator.innerHTML = '⬇️';
                 arrowIndicator.style.background = 'var(--accent-color)';
             }
@@ -1134,15 +1042,15 @@
             
             // Show the appropriate info panel
             function showInfoPanel(index) {
-                daytimeInfo.style.display = 'none';
-                advDayInfo.style.display = 'none';
-                nighttimeInfo.style.display = 'none';
+                if (daytimeInfo) daytimeInfo.style.display = 'none';
+                if (advDayInfo) advDayInfo.style.display = 'none';
+                if (nighttimeInfo) nighttimeInfo.style.display = 'none';
                 
-                if (index === 0) {
+                if (index === 0 && daytimeInfo) {
                     daytimeInfo.style.display = 'block';
-                } else if (index === 1) {
+                } else if (index === 1 && advDayInfo) {
                     advDayInfo.style.display = 'block';
-                } else if (index === 2) {
+                } else if (index === 2 && nighttimeInfo) {
                     nighttimeInfo.style.display = 'block';
                 }
             }
@@ -1171,11 +1079,6 @@
                 
                 // Position the indicator
                 positionIndicator(index);
-            }
-            
-            // Auto-select night method if it's currently night
-            if (isNightTime(calculateTarkovTime())) {
-                activateTab(2);
             }
             
             // Set up event listeners for tabs
