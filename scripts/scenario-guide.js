@@ -154,10 +154,10 @@ class ScenarioGuide {
                     checkpoints: [
                         'Make your way across the bridge',
                         'Walk inside of the main "court"',
-                        'Bait Zryiachy by quickly running to the end of the small red shack on the left side and immideatly return',
+                        'Bait Zryiachy by quickly running to the end of the small red shack on the left side and immediately return',
                         'Zryiachy will come to the red main gate from where you can shoot his legs',
-                        'Once killed, loost him, then move immediately onto the designated rock mentioned in the video',
-                        'When theboth guards moves along their paths, eliminate them'
+                        'Once killed, loot him, then move immediately onto the designated rock mentioned in the video',
+                        'When both guards move along their paths, eliminate them'
                     ]
                 }
             }
