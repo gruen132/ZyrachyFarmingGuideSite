@@ -318,6 +318,21 @@
             100% { transform: translateX(-50%) scale(1); }
         }
         
+        @keyframes pulse-border {
+            0% { 
+                box-shadow: 0 0 20px rgba(255, 68, 68, 0.3); 
+                border-color: #ff4444;
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(255, 68, 68, 0.5); 
+                border-color: #ff6666;
+            }
+            100% { 
+                box-shadow: 0 0 20px rgba(255, 68, 68, 0.3); 
+                border-color: #ff4444;
+            }
+        }
+        
         .method-features {
             display: flex;
             justify-content: space-around;
@@ -534,6 +549,40 @@
             <div class="scenarios-section">
                 <h2>Combat Scenarios - Day Method</h2>
                 <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
+
+                <!-- Scenario 0: Currently Bugged -->
+                <div class="scenario-container" style="border: 3px solid #ff4444; background: rgba(255, 68, 68, 0.15); box-shadow: 0 0 20px rgba(255, 68, 68, 0.3); animation: pulse-border 2s infinite;">
+                    <button type="button" class="collapsible">⚠️ CURRENTLY BUGGED SCENARIO - Zryachiy Inside Courtyard ⚠️</button>
+                    <div class="scenario-content">
+                        <div class="location-section">
+                            <div style="background: rgba(255, 68, 68, 0.2); padding: 15px; border-radius: 5px; margin-bottom: 15px; border: 2px solid #ff4444;">
+                                <h3 style="color: #ff4444; margin: 0 0 10px 0;">⚠️ WARNING: This scenario is currently bugged in the game</h3>
+                                <p style="margin: 0;">This approach may not work as intended due to current game bugs. Use at your own risk.</p>
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                width="100%" 
+                                height="600" 
+                                src="https://www.youtube.com/embed/ldBFx3YwoEU" 
+                                title="Bugged Zryachiy Scenario" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-description">
+                                <p>Explanation video for this bugged scenario</p>
+                            </div>
+                        </div>
+                        
+                        <p>1. Make your way across the bridge</p>
+                        <p>2. Walk inside of the main "court"</p>
+                        <p>3. Bait Zryachiy by quickly running to the end of the small red shack on the left side and immediately return</p>
+                        <p>4. Zryachiy will come to the red main gate from where you can shoot his legs</p>
+                        <p>5. Once killed, loot him, then move immediately onto the designated rock mentioned in the video</p>
+                        <p>6. When both guards move along their paths, eliminate them</p>
+                    </div>
+                </div>
 
                 <!-- Scenario 1 -->
                 <div class="scenario-container" style="border: 2px solid var(--accent-green); background: rgba(88, 113, 84, 0.1);">
