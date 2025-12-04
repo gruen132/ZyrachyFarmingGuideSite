@@ -37,7 +37,8 @@ class ScenarioGuide {
                 content: 'Is the right guard visible?',
                 image: '../assets/scenarios/right-guard-check.jpg',
                 options: [
-                    { text: 'Yes', nextId: 'scenario1' },
+                    { text: 'Yes, visible normally', nextId: 'scenario1' },
+                    { text: 'Yes, but bugged in main court', nextId: 'scenario6' },
                     { text: 'No', nextId: 'scenario4' }
                 ]
             },
@@ -128,6 +129,7 @@ class ScenarioGuide {
                 title: 'Scenario 5: Left Guard Bugged Behind Rock',
                 content: 'Special bugged scenario - Reset recommended',
                 isFinal: true,
+                isHighlighted: true,
                 details: {
                     description: 'Left guard is bugged behind rock. Currently, no safe sniping spot has been found for the bugged left guard.',
                     video: 'https://www.youtube.com/embed/tmFQVteYMR4',
@@ -136,6 +138,26 @@ class ScenarioGuide {
                         'No safe sniping spot has been identified for this scenario',
                         'The guard may be sitting or standing',
                         'Only the gun is visible'
+                    ]
+                }
+            },
+            scenario6: {
+                id: 'scenario6',
+                title: 'Scenario 6: Right Guard Bugged in Main Court (Day)',
+                content: '⚠️ CURRENTLY BUGGED - Special day scenario',
+                isFinal: true,
+                isHighlighted: true,
+                isExtraHighlighted: true,
+                details: {
+                    description: 'Right guard is bugged in the main court area during daytime. This scenario requires specific positioning and timing to complete safely.',
+                    video: 'https://www.youtube.com/embed/ldBFx3YwoEU',
+                    checkpoints: [
+                        'Make your way across the bridge',
+                        'Walk inside of the main "court"',
+                        'Bait Zryiachy by quickly running to the end of the small red shack on the left side and immideatly return',
+                        'Zryiachy will come to the red main gate from where you can shoot his legs',
+                        'Once killed, loost him, then move immediately onto the designated rock mentioned in the video',
+                        'When theboth guards moves along their paths, eliminate them'
                     ]
                 }
             }
@@ -183,7 +205,7 @@ class ScenarioGuide {
         `;
 
         let html = `
-            <div class="node">
+            <div class="node ${node.isHighlighted ? 'node-highlighted' : ''} ${node.isExtraHighlighted ? 'node-extra-highlighted' : ''}">
                 <div class="node-header">
                     <span class="node-id">${node.id}</span>
                     ${node.title ? `<h2 class="node-title">${node.title}</h2>` : ''}
@@ -210,6 +232,12 @@ class ScenarioGuide {
                         <div class="scenario-details-content">
                             <div class="scenario-description">
                                 <p>${node.details.description}</p>
+                                ${node.details.video ? `
+                                    <div class="scenario-video">
+                                        <h4>Video Guide</h4>
+                                        <iframe src="${node.details.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                ` : ''}
                                 <div class="scenario-checkpoints">
                                     <h4>Key Checkpoints</h4>
                                     <ul>
@@ -217,9 +245,11 @@ class ScenarioGuide {
                                     </ul>
                                 </div>
                             </div>
-                            <div class="scenario-tactical">
-                                <img src="${node.details.tacticalImage}" alt="Tactical view for ${node.title}">
-                            </div>
+                            ${node.details.tacticalImage ? `
+                                <div class="scenario-tactical">
+                                    <img src="${node.details.tacticalImage}" alt="Tactical view for ${node.title}">
+                                </div>
+                            ` : ''}
                         </div>
                     </div>
                 ` : ''}

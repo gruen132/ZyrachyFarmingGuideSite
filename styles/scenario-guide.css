@@ -64,6 +64,29 @@
     gap: 1rem;
 }
 
+.node-highlighted {
+    border: 2px solid var(--warning-color);
+    padding: 0.5rem;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.node-extra-highlighted {
+    border: 3px solid #ff0000;
+    padding: 0.75rem;
+    background: rgba(255, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    animation: pulse-warning 2s ease-in-out infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    }
+}
+
 .node-header {
     grid-column: 1 / -1;
     display: flex;
@@ -288,6 +311,24 @@
 .scenario-checkpoints li {
     margin: 0.5rem 0;
     color: var(--text-secondary);
+}
+
+.scenario-video {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--node-active);
+    border-left: 4px solid var(--accent-green);
+}
+
+.scenario-video h4 {
+    margin: 0 0 1rem 0;
+    color: var(--accent-green);
+}
+
+.scenario-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--node-border);
 }
 
 @media (max-width: 768px) {
