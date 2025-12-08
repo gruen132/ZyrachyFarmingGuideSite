@@ -395,41 +395,237 @@
             color: var(--text-primary);
         }
         
-        /* Maintenance Overlay Styles */
-        .maintenance-overlay {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-            padding: 40px 20px;
-        }
-        
-        .maintenance-message {
+        /* Quiz Styles */
+        .quiz-container {
             background: var(--bg-secondary);
             border: 2px solid var(--border-color);
             border-radius: 10px;
-            padding: 40px;
-            max-width: 600px;
-            text-align: center;
+            padding: 30px;
+            margin: 20px 0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .maintenance-message h2 {
+        .quiz-header {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 24px;
+            text-align: center;
         }
         
-        .maintenance-message p {
-            margin: 10px 0;
-            line-height: 1.6;
+        .quiz-question {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .quiz-question h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .quiz-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .quiz-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .quiz-button {
+            background: var(--accent-color);
+            color: var(--text-primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .quiz-button:hover {
+            background: var(--accent-color-hover);
+            transform: scale(1.05);
+        }
+        
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .quiz-feedback.correct {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+        
+        .quiz-feedback.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid #f44336;
+        }
+        
+        /* Minefield Game Styles */
+        .minefield-container {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .minefield-header {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .minefield-instructions {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-tertiary);
+            border-radius: 5px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .minefield-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            grid-gap: 5px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        
+        .minefield-cell {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .minefield-cell:hover:not(.revealed):not(.player) {
+            background: var(--bg-secondary);
+            transform: scale(1.05);
+        }
+        
+        .minefield-cell.player {
+            background: #4CAF50;
+            border-color: #2e7d32;
+        }
+        
+        .minefield-cell.revealed {
+            cursor: default;
+        }
+        
+        .minefield-cell.mine {
+            background: #f44336;
+            border-color: #c62828;
+        }
+        
+        .minefield-cell.safe {
+            background: var(--bg-secondary);
+            border-color: var(--accent-color);
+        }
+        
+        .minefield-cell.goal {
+            background: #FFD700;
+            border-color: #FFA500;
+        }
+        
+        .minefield-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .minefield-status {
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .minefield-status.playing {
+            background: var(--bg-tertiary);
             color: var(--text-primary);
         }
         
-        .maintenance-message .disclaimer {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
+        .minefield-status.won {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+        
+        .minefield-status.lost {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid #f44336;
+        }
+        
+        /* Help Menu Styles */
+        .help-menu {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .help-menu h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .help-menu p {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .help-menu a {
+            display: inline-block;
+            background: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .help-menu a:hover {
+            background: #4752C4;
+            transform: scale(1.05);
         }
         
         .hidden-content {
@@ -831,15 +1027,60 @@
 
         <!-- Combat Scenarios Section - Night Time -->
         <section id="nighttime-content" class="view-content">
-            <!-- Maintenance Overlay -->
-            <div class="maintenance-overlay">
-                <div class="maintenance-message">
-                    <h2>🔧 Currently Under Maintenance</h2>
-                    <p>The Night Method section is currently undergoing updates and improvements.</p>
-                    <p>Please check back later or use the Day Method or Advanced Day Method in the meantime.</p>
-                    <p class="disclaimer">We apologize for any inconvenience.</p>
+            <!-- Night Method Quiz -->
+            <div class="quiz-container">
+                <h2 class="quiz-header">🌙 Night Method Quiz</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 25px;">
+                    Complete this quiz to unlock the Night Method tactics!
+                </p>
+                
+                <!-- Minefield Game -->
+                <div class="minefield-container">
+                    <h3 class="minefield-header">Challenge 1: Navigate the Minefield</h3>
+                    <div class="minefield-instructions">
+                        <strong>Instructions:</strong> Use arrow keys or click on adjacent cells to move your player (🟢) from the bottom to the top row. Avoid the mines! Each move reveals if the cell is safe or contains a mine.
+                    </div>
+                    <div class="minefield-grid" id="minefield-grid"></div>
+                    <div class="minefield-controls">
+                        <button class="quiz-button" id="minefield-reset">Reset Game</button>
+                    </div>
+                    <div class="minefield-status playing" id="minefield-status">
+                        Use arrow keys or click adjacent cells to move. Reach the top row to win!
+                    </div>
+                </div>
+                
+                <!-- Question 1 -->
+                <div class="quiz-question">
+                    <h3>Question 1: What is the approximate zeroing distance for Zryachiy in the night method?</h3>
+                    <input type="text" class="quiz-input" id="q1-answer" placeholder="Enter your answer (e.g., 450m)">
+                    <button class="quiz-button" onclick="checkAnswer(1)">Submit Answer</button>
+                    <div id="q1-feedback"></div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="quiz-question">
+                    <h3>Question 2: How long should you stay in cover to deaggro Zryachiy and his guards?</h3>
+                    <input type="text" class="quiz-input" id="q2-answer" placeholder="Enter your answer (e.g., 30 seconds)">
+                    <button class="quiz-button" onclick="checkAnswer(2)">Submit Answer</button>
+                    <div id="q2-feedback"></div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="quiz-question">
+                    <h3>Question 3: Complete the sentence: "If Zyrachy is killed first, only 2 guards remain. If Zyrachy is left alive, guards keep ______."</h3>
+                    <input type="text" class="quiz-input" id="q3-answer" placeholder="Enter your answer">
+                    <button class="quiz-button" onclick="checkAnswer(3)">Submit Answer</button>
+                    <div id="q3-feedback"></div>
+                </div>
+                
+                <!-- Help Menu -->
+                <div class="help-menu">
+                    <h3>Need Help with the Quiz?</h3>
+                    <p>Join our Discord community for assistance and tips!</p>
+                    <a href="https://discord.gg/8cAB9SjK" target="_blank">Join Discord Server</a>
                 </div>
             </div>
+            
             <div class="scenarios-section hidden-content">
                 <h2>Combat Scenarios - Night Method</h2>
                 <p class="scenario-note">Scope ZEROING VALUES<br>
@@ -1207,6 +1448,206 @@
                 positionIndicator(activeIndex);
             });
         });
+
+        // Quiz Answer Checking
+        function checkAnswer(questionNum) {
+            const answers = {
+                1: ['450m', '450', '~450m', 'approximately 450m', 'about 450m'],
+                2: ['30 seconds', '30', '30s', 'thirty seconds'],
+                3: ['spawning', 'respawning', 'spawn', 'respawn', 'keep spawning', 'keep respawning']
+            };
+            
+            const input = document.getElementById(`q${questionNum}-answer`);
+            const feedback = document.getElementById(`q${questionNum}-feedback`);
+            const userAnswer = input.value.trim().toLowerCase();
+            
+            // For question 3, handle apostrophe variations and be case-insensitive
+            let isCorrect = false;
+            if (questionNum === 3) {
+                // Remove apostrophes and make case-insensitive
+                const normalizedAnswer = userAnswer.replace(/'/g, '').toLowerCase();
+                isCorrect = answers[questionNum].some(answer => {
+                    const normalizedCorrect = answer.replace(/'/g, '').toLowerCase();
+                    return normalizedAnswer === normalizedCorrect || 
+                           normalizedAnswer.includes(normalizedCorrect) ||
+                           normalizedCorrect.includes(normalizedAnswer);
+                });
+            } else {
+                isCorrect = answers[questionNum].some(answer => 
+                    userAnswer === answer.toLowerCase()
+                );
+            }
+            
+            feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+            feedback.textContent = isCorrect ? '✓ Correct!' : '✗ Incorrect. Try again!';
+            feedback.style.display = 'block';
+            
+            if (isCorrect) {
+                input.disabled = true;
+            }
+        }
+
+        // Minefield Game
+        let mineField = {
+            grid: [],
+            playerPos: { row: 4, col: 2 }, // Start at bottom middle
+            gameOver: false,
+            won: false,
+            mines: []
+        };
+
+        function initMinefield() {
+            const gridElement = document.getElementById('minefield-grid');
+            mineField.grid = [];
+            mineField.playerPos = { row: 4, col: 2 };
+            mineField.gameOver = false;
+            mineField.won = false;
+            gridElement.innerHTML = '';
+            
+            // Generate mines (less mines for easier gameplay)
+            mineField.mines = [];
+            const mineCount = 5; // Reduced from typical minesweeper
+            while (mineField.mines.length < mineCount) {
+                const row = Math.floor(Math.random() * 5);
+                const col = Math.floor(Math.random() * 5);
+                // Don't place mines at start position or top row goal positions
+                if ((row === 4 && col === 2) || row === 0) continue;
+                const key = `${row},${col}`;
+                if (!mineField.mines.includes(key)) {
+                    mineField.mines.push(key);
+                }
+            }
+            
+            // Create grid
+            for (let row = 0; row < 5; row++) {
+                for (let col = 0; col < 5; col++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'minefield-cell';
+                    cell.dataset.row = row;
+                    cell.dataset.col = col;
+                    
+                    // Mark goal row
+                    if (row === 0) {
+                        cell.classList.add('goal');
+                        cell.textContent = '🏁';
+                    }
+                    
+                    // Mark player start position
+                    if (row === 4 && col === 2) {
+                        cell.classList.add('player');
+                        cell.textContent = '🟢';
+                    }
+                    
+                    cell.addEventListener('click', () => movePlayer(row, col));
+                    gridElement.appendChild(cell);
+                }
+            }
+            
+            updateStatus('Use arrow keys or click adjacent cells to move. Reach the top row to win!');
+        }
+
+        function movePlayer(targetRow, targetCol) {
+            if (mineField.gameOver || mineField.won) return;
+            
+            const { row: currentRow, col: currentCol } = mineField.playerPos;
+            
+            // Check if move is adjacent (one step in any direction, no diagonal)
+            const rowDiff = Math.abs(targetRow - currentRow);
+            const colDiff = Math.abs(targetCol - currentCol);
+            
+            if ((rowDiff === 1 && colDiff === 0) || (rowDiff === 0 && colDiff === 1)) {
+                // Clear old player position
+                const oldCell = document.querySelector(`[data-row="${currentRow}"][data-col="${currentCol}"]`);
+                oldCell.classList.remove('player');
+                oldCell.textContent = '';
+                oldCell.classList.add('revealed', 'safe');
+                
+                // Update player position
+                mineField.playerPos = { row: targetRow, col: targetCol };
+                
+                // Check for mine
+                const cellKey = `${targetRow},${targetCol}`;
+                if (mineField.mines.includes(cellKey)) {
+                    // Hit a mine - game over
+                    const cell = document.querySelector(`[data-row="${targetRow}"][data-col="${targetCol}"]`);
+                    cell.classList.add('mine', 'revealed');
+                    cell.textContent = '💣';
+                    mineField.gameOver = true;
+                    updateStatus('💥 Game Over! You hit a mine. Try again!', 'lost');
+                    revealAllMines();
+                } else {
+                    // Safe move
+                    const cell = document.querySelector(`[data-row="${targetRow}"][data-col="${targetCol}"]`);
+                    cell.classList.add('player', 'revealed', 'safe');
+                    cell.textContent = '🟢';
+                    
+                    // Check for win (reached top row)
+                    if (targetRow === 0) {
+                        mineField.won = true;
+                        updateStatus('🎉 Congratulations! You made it through the minefield!', 'won');
+                    }
+                }
+            }
+        }
+
+        function revealAllMines() {
+            mineField.mines.forEach(mineKey => {
+                const [row, col] = mineKey.split(',').map(Number);
+                const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+                if (!cell.classList.contains('player')) {
+                    cell.classList.add('mine', 'revealed');
+                    cell.textContent = '💣';
+                }
+            });
+        }
+
+        function updateStatus(message, status = 'playing') {
+            const statusElement = document.getElementById('minefield-status');
+            statusElement.textContent = message;
+            statusElement.className = `minefield-status ${status}`;
+        }
+
+        // Keyboard controls for minefield
+        document.addEventListener('keydown', function(e) {
+            if (mineField.gameOver || mineField.won) return;
+            
+            const { row, col } = mineField.playerPos;
+            let newRow = row;
+            let newCol = col;
+            
+            switch(e.key) {
+                case 'ArrowUp':
+                    newRow = Math.max(0, row - 1);
+                    e.preventDefault();
+                    break;
+                case 'ArrowDown':
+                    newRow = Math.min(4, row + 1);
+                    e.preventDefault();
+                    break;
+                case 'ArrowLeft':
+                    newCol = Math.max(0, col - 1);
+                    e.preventDefault();
+                    break;
+                case 'ArrowRight':
+                    newCol = Math.min(4, col + 1);
+                    e.preventDefault();
+                    break;
+                default:
+                    return;
+            }
+            
+            if (newRow !== row || newCol !== col) {
+                movePlayer(newRow, newCol);
+            }
+        });
+
+        // Reset button
+        document.getElementById('minefield-reset').addEventListener('click', initMinefield);
+
+        // Initialize minefield when page loads
+        if (document.getElementById('minefield-grid')) {
+            initMinefield();
+        }
     </script>
 
 </body>
