@@ -1672,7 +1672,6 @@
             let quizInitialized = false;
 
             if (nighttimeBtn) {
-                const originalHandler = nighttimeBtn.onclick;
                 nighttimeBtn.addEventListener('click', function() {
                     if (!quizInitialized) {
                         showQuestion();
