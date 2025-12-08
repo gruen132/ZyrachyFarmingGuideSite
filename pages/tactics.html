@@ -1489,7 +1489,6 @@
 
         // Minefield Game
         let mineField = {
-            grid: [],
             playerPos: { row: 4, col: 2 }, // Start at bottom middle
             gameOver: false,
             won: false,
@@ -1498,7 +1497,8 @@
 
         function initMinefield() {
             const gridElement = document.getElementById('minefield-grid');
-            mineField.grid = [];
+            if (!gridElement) return;
+            
             mineField.playerPos = { row: 4, col: 2 };
             mineField.gameOver = false;
             mineField.won = false;
@@ -1641,13 +1641,19 @@
             }
         });
 
-        // Reset button
-        document.getElementById('minefield-reset').addEventListener('click', initMinefield);
-
-        // Initialize minefield when page loads
-        if (document.getElementById('minefield-grid')) {
-            initMinefield();
-        }
+        // Initialize minefield when page loads - wrapped in existing DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize minefield if on night method tab
+            if (document.getElementById('minefield-grid')) {
+                initMinefield();
+                
+                // Reset button
+                const resetBtn = document.getElementById('minefield-reset');
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', initMinefield);
+                }
+            }
+        });
     </script>
 
 </body>
