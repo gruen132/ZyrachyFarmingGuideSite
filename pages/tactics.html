@@ -435,6 +435,182 @@
         .hidden-content {
             display: none;
         }
+
+        /* Terminal Quiz Styles */
+        .terminal-quiz-container {
+            background: #0a0c0a;
+            border: 2px solid #587154;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 0 30px rgba(88, 113, 84, 0.3);
+        }
+
+        .terminal-header {
+            border-bottom: 1px solid #587154;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            color: #587154;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .terminal-subtitle {
+            color: #718268;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .quiz-question {
+            color: #9da994;
+            font-size: 16px;
+            margin: 20px 0 15px;
+            line-height: 1.6;
+        }
+
+        .quiz-input {
+            background: #1a2419;
+            border: 1px solid #587154;
+            color: #9da994;
+            padding: 12px 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-input:focus {
+            outline: none;
+            border-color: #647a5d;
+            box-shadow: 0 0 10px rgba(88, 113, 84, 0.3);
+        }
+
+        .quiz-button {
+            background: #587154;
+            border: none;
+            color: #0a0c0a;
+            padding: 12px 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            background: #647a5d;
+            box-shadow: 0 0 15px rgba(88, 113, 84, 0.5);
+        }
+
+        .quiz-button:disabled {
+            background: #465644;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .terminal-message {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .terminal-error {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff6666;
+        }
+
+        .terminal-success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+
+        .terminal-info {
+            background: rgba(88, 113, 84, 0.2);
+            border: 1px solid #587154;
+            color: #9da994;
+        }
+
+        .minefield-container {
+            background: #1a2419;
+            border: 1px solid #587154;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .minefield-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 30px);
+            grid-template-rows: repeat(10, 30px);
+            gap: 2px;
+            margin: 15px auto;
+            width: fit-content;
+        }
+
+        .minefield-cell {
+            width: 30px;
+            height: 30px;
+            background: #2a3828;
+            border: 1px solid #465644;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .minefield-player {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .minefield-mine {
+            background: #ff4444;
+            animation: explosion 0.5s ease-out;
+        }
+
+        .minefield-goal {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        @keyframes explosion {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); background: #ff0000; }
+            100% { transform: scale(1); }
+        }
+
+        .lives-counter {
+            color: #ff9800;
+            font-size: 14px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .minefield-instructions {
+            color: #718268;
+            font-size: 13px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .quiz-prompt {
+            color: #587154;
+            font-weight: bold;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -831,16 +1007,25 @@
 
         <!-- Combat Scenarios Section - Night Time -->
         <section id="nighttime-content" class="view-content">
-            <!-- Maintenance Overlay -->
-            <div class="maintenance-overlay">
-                <div class="maintenance-message">
-                    <h2>🔧 Currently Under Maintenance</h2>
-                    <p>The Night Method section is currently undergoing updates and improvements.</p>
-                    <p>Please check back later or use the Day Method or Advanced Day Method in the meantime.</p>
-                    <p class="disclaimer">We apologize for any inconvenience.</p>
+            <!-- Terminal Quiz -->
+            <div id="terminal-quiz-overlay" class="maintenance-overlay">
+                <div class="terminal-quiz-container">
+                    <div class="terminal-header">
+                        <div class="terminal-title">[ RESTRICTED ACCESS - ADVANCED OPERATORS ONLY ]</div>
+                        <div class="terminal-subtitle">
+                            This section contains advanced tactics reserved for experienced Zryachiy hunters.<br>
+                            Prove your knowledge and skill to gain access to the Night Method protocols.
+                        </div>
+                    </div>
+
+                    <div id="quiz-content">
+                        <!-- Question will be dynamically inserted here -->
+                    </div>
+
+                    <div id="quiz-message"></div>
                 </div>
             </div>
-            <div class="scenarios-section hidden-content">
+            <div class="scenarios-section hidden-content" id="night-method-content">
                 <h2>Combat Scenarios - Night Method</h2>
                 <p class="scenario-note">Scope ZEROING VALUES<br>
                 Zryachiy ~450m<br>
@@ -1207,6 +1392,303 @@
                 positionIndicator(activeIndex);
             });
         });
+
+        // Terminal Quiz System
+        (function() {
+            const questions = [
+                {
+                    id: 1,
+                    type: 'text',
+                    question: 'Question 1: Spell the name of the boss',
+                    answers: ['zryachiy', 'zryiachy'],
+                    prompt: '> INPUT BOSS NAME:'
+                },
+                {
+                    id: 2,
+                    type: 'text',
+                    question: 'Question 2: "Two shadows guard the light. Strike them down, and they shall rise again. Strike me down, and they stay in their graves. Who must die first?"',
+                    answers: ['light', 'zryachiy', 'zryiachy'],
+                    prompt: '> INPUT ANSWER:'
+                },
+                {
+                    id: 3,
+                    type: 'text',
+                    question: 'Question 3: What is the name of the Achievement unlocked by killing Zryachiy 15 times?',
+                    answers: ['now that\'s a good shot', 'now thats a good shot', 'now that is a good shot'],
+                    prompt: '> INPUT ACHIEVEMENT NAME:'
+                },
+                {
+                    id: 4,
+                    type: 'text',
+                    question: 'Question 4: What is the original name of the Lighthouse Peninsula?',
+                    answers: ['cape dalniy'],
+                    prompt: '> INPUT LOCATION NAME:'
+                },
+                {
+                    id: 5,
+                    type: 'text',
+                    question: 'Question 5: What is the first word on the blue sign at the entrance to the bridge?',
+                    answers: ['zone', 'area', 'зона', 'zona'],
+                    prompt: '> INPUT WORD:'
+                },
+                {
+                    id: 6,
+                    type: 'minefield',
+                    question: 'Question 6: Navigate through the minefield',
+                    prompt: ''
+                }
+            ];
+
+            let currentQuestion = 0;
+            let lives = 3;
+            let playerPos = { x: 0, y: 0 };
+            let minefieldActive = false;
+
+            // Minefield path: 1 forward, 1 right, 1 right, 3 forward, 1 right, 1 forward, 1 left, 3 forward, 2 left, 2 forward
+            const correctPath = [
+                {x: 0, y: 1},  // 1 forward (down)
+                {x: 1, y: 1},  // 1 right
+                {x: 2, y: 1},  // 1 right
+                {x: 2, y: 2},  // 1 forward
+                {x: 2, y: 3},  // 1 forward
+                {x: 2, y: 4},  // 1 forward
+                {x: 3, y: 4},  // 1 right
+                {x: 3, y: 5},  // 1 forward
+                {x: 2, y: 5},  // 1 left
+                {x: 2, y: 6},  // 1 forward
+                {x: 2, y: 7},  // 1 forward
+                {x: 2, y: 8},  // 1 forward
+                {x: 1, y: 8},  // 1 left
+                {x: 0, y: 8},  // 1 left
+                {x: 0, y: 9}   // 1 forward (goal)
+            ];
+
+            function isPositionSafe(x, y) {
+                return correctPath.some(pos => pos.x === x && pos.y === y);
+            }
+
+            function showMessage(text, type) {
+                const messageDiv = document.getElementById('quiz-message');
+                messageDiv.innerHTML = `<div class="terminal-message terminal-${type}">${text}</div>`;
+            }
+
+            function clearMessage() {
+                document.getElementById('quiz-message').innerHTML = '';
+            }
+
+            function resetQuiz() {
+                currentQuestion = 0;
+                lives = 3;
+                showMessage('> ACCESS DENIED. CLAYMORE DETONATED.<br>> QUIZ RESET. TRY AGAIN.', 'error');
+                setTimeout(() => {
+                    clearMessage();
+                    showQuestion();
+                }, 3000);
+            }
+
+            function unlockContent() {
+                showMessage('> DSP DECODED. WELCOME, OPERATOR.<br>> ACCESS GRANTED TO NIGHT METHOD PROTOCOLS.', 'success');
+                setTimeout(() => {
+                    document.getElementById('terminal-quiz-overlay').style.display = 'none';
+                    document.getElementById('night-method-content').classList.remove('hidden-content');
+                }, 2000);
+            }
+
+            function renderMinefield() {
+                let html = `
+                    <div class="minefield-container">
+                        <div class="quiz-question">${questions[5].question}</div>
+                        <div class="minefield-instructions">
+                            Use arrow keys (↑ ↓ ← →) to navigate through the minefield.<br>
+                            Find the safe path to reach the goal. One wrong step will detonate a mine!
+                        </div>
+                        <div class="lives-counter">Lives Remaining: ${lives}/3</div>
+                        <div class="minefield-grid" id="minefield-grid">
+                `;
+
+                for (let y = 0; y < 10; y++) {
+                    for (let x = 0; x < 10; x++) {
+                        let cellClass = 'minefield-cell';
+                        let cellContent = '';
+
+                        if (x === playerPos.x && y === playerPos.y) {
+                            cellClass += ' minefield-player';
+                            cellContent = '█';
+                        } else if (x === 0 && y === 9) {
+                            cellClass += ' minefield-goal';
+                            cellContent = '⚑';
+                        }
+
+                        html += `<div class="${cellClass}" data-x="${x}" data-y="${y}">${cellContent}</div>`;
+                    }
+                }
+
+                html += `</div></div>`;
+                document.getElementById('quiz-content').innerHTML = html;
+                minefieldActive = true;
+            }
+
+            function movePlayer(dx, dy) {
+                if (!minefieldActive) return;
+
+                const newX = playerPos.x + dx;
+                const newY = playerPos.y + dy;
+
+                // Check bounds
+                if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10) {
+                    return;
+                }
+
+                // Check if reached goal
+                if (newX === 0 && newY === 9) {
+                    minefieldActive = false;
+                    showMessage('> MINEFIELD CLEARED SUCCESSFULLY!', 'success');
+                    setTimeout(() => {
+                        unlockContent();
+                    }, 2000);
+                    return;
+                }
+
+                // Check if position is safe
+                if (!isPositionSafe(newX, newY)) {
+                    lives--;
+                    showMessage(`> MINE DETONATED! Lives remaining: ${lives}`, 'error');
+                    
+                    // Show explosion
+                    const cell = document.querySelector(`[data-x="${newX}"][data-y="${newY}"]`);
+                    if (cell) {
+                        cell.classList.add('minefield-mine');
+                        cell.textContent = '💥';
+                    }
+
+                    if (lives <= 0) {
+                        minefieldActive = false;
+                        setTimeout(resetQuiz, 2000);
+                    } else {
+                        // Reset position
+                        setTimeout(() => {
+                            playerPos = { x: 0, y: 0 };
+                            clearMessage();
+                            renderMinefield();
+                        }, 1500);
+                    }
+                    return;
+                }
+
+                // Move player
+                playerPos.x = newX;
+                playerPos.y = newY;
+                renderMinefield();
+            }
+
+            function showQuestion() {
+                const q = questions[currentQuestion];
+                
+                if (q.type === 'minefield') {
+                    playerPos = { x: 0, y: 0 };
+                    renderMinefield();
+                } else {
+                    let html = `
+                        <div class="quiz-question">${q.question}</div>
+                        <div class="quiz-prompt">${q.prompt}</div>
+                        <input type="text" id="quiz-input" class="quiz-input" placeholder="Type your answer here..." autocomplete="off">
+                        <button id="submit-btn" class="quiz-button">SUBMIT</button>
+                    `;
+                    document.getElementById('quiz-content').innerHTML = html;
+
+                    const input = document.getElementById('quiz-input');
+                    const submitBtn = document.getElementById('submit-btn');
+
+                    input.focus();
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            submitBtn.click();
+                        }
+                    });
+
+                    submitBtn.addEventListener('click', function() {
+                        checkAnswer(input.value.toLowerCase().trim());
+                    });
+                }
+            }
+
+            function checkAnswer(answer) {
+                const q = questions[currentQuestion];
+                const isCorrect = q.answers.some(validAnswer => 
+                    answer === validAnswer.toLowerCase()
+                );
+
+                if (isCorrect) {
+                    showMessage('> CORRECT. PROCEEDING TO NEXT VERIFICATION...', 'success');
+                    currentQuestion++;
+                    
+                    if (currentQuestion >= questions.length) {
+                        unlockContent();
+                    } else {
+                        setTimeout(() => {
+                            clearMessage();
+                            showQuestion();
+                        }, 1500);
+                    }
+                } else {
+                    lives--;
+                    if (lives <= 0) {
+                        resetQuiz();
+                    } else {
+                        showMessage(`> INCORRECT. ${lives} ATTEMPT(S) REMAINING. TRY AGAIN.`, 'error');
+                        setTimeout(() => {
+                            clearMessage();
+                        }, 2000);
+                    }
+                }
+            }
+
+            // Keyboard controls for minefield
+            document.addEventListener('keydown', function(e) {
+                if (!minefieldActive) return;
+
+                switch(e.key) {
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        movePlayer(0, -1);
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        movePlayer(0, 1);
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        movePlayer(-1, 0);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        movePlayer(1, 0);
+                        break;
+                }
+            });
+
+            // Initialize quiz when night method tab is clicked
+            const nighttimeBtn = document.getElementById('nighttime-btn');
+            let quizInitialized = false;
+
+            if (nighttimeBtn) {
+                nighttimeBtn.addEventListener('click', function() {
+                    if (!quizInitialized) {
+                        showQuestion();
+                        quizInitialized = true;
+                    }
+                });
+            }
+
+            // Also initialize on page load if night method is active
+            document.addEventListener('DOMContentLoaded', function() {
+                const nightContent = document.getElementById('nighttime-content');
+                if (nightContent && nightContent.classList.contains('active')) {
+                    showQuestion();
+                    quizInitialized = true;
+                }
+            });
+        })();
     </script>
 
 </body>
