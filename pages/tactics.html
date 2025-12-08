@@ -552,8 +552,8 @@
 
         .minefield-grid {
             display: grid;
-            grid-template-columns: repeat(10, 30px);
-            grid-template-rows: repeat(10, 30px);
+            grid-template-columns: repeat(5, 30px);
+            grid-template-rows: repeat(5, 30px);
             gap: 2px;
             margin: 15px auto;
             width: fit-content;
@@ -1406,7 +1406,7 @@
                 {
                     id: 2,
                     type: 'text',
-                    question: 'Question 2: "Two shadows guard the light. Strike them down, and they shall rise again. Strike me down, and they stay in their graves. Who must die first?"',
+                    question: 'Question 2: Two shadows guard the light. Strike them down, and they shall rise again. Strike me down, and they stay in their graves. Who must die first?',
                     answers: ['light', 'zryachiy', 'zryiachy'],
                     prompt: '> INPUT ANSWER:'
                 },
@@ -1441,26 +1441,17 @@
 
             let currentQuestion = 0;
             let lives = 3;
-            let playerPos = { x: 0, y: 0 };
+            let playerPos = { x: 2, y: 4 };
             let minefieldActive = false;
 
-            // Minefield path: 1 forward, 1 right, 1 right, 3 forward, 1 right, 1 forward, 1 left, 3 forward, 2 left, 2 forward
+            // Minefield path: Simple path from bottom middle (2,4) to top middle (2,0)
+            // Player starts at bottom middle and goes straight up
             const correctPath = [
-                {x: 0, y: 1},  // 1 forward (down)
-                {x: 1, y: 1},  // 1 right
-                {x: 2, y: 1},  // 1 right
-                {x: 2, y: 2},  // 1 forward
-                {x: 2, y: 3},  // 1 forward
-                {x: 2, y: 4},  // 1 forward
-                {x: 3, y: 4},  // 1 right
-                {x: 3, y: 5},  // 1 forward
-                {x: 2, y: 5},  // 1 left
-                {x: 2, y: 6},  // 1 forward
-                {x: 2, y: 7},  // 1 forward
-                {x: 2, y: 8},  // 1 forward
-                {x: 1, y: 8},  // 1 left
-                {x: 0, y: 8},  // 1 left
-                {x: 0, y: 9}   // 1 forward (goal)
+                {x: 2, y: 4},  // Start position (bottom middle)
+                {x: 2, y: 3},  // 1 up
+                {x: 2, y: 2},  // 1 up
+                {x: 2, y: 1},  // 1 up
+                {x: 2, y: 0}   // Goal (top middle)
             ];
 
             function isPositionSafe(x, y) {
@@ -1500,21 +1491,21 @@
                         <div class="quiz-question">${questions[5].question}</div>
                         <div class="minefield-instructions">
                             Use arrow keys (↑ ↓ ← →) to navigate through the minefield.<br>
-                            Find the safe path to reach the goal. One wrong step will detonate a mine!
+                            Start at the bottom middle and reach the goal at the top. One wrong step will detonate a mine!
                         </div>
                         <div class="lives-counter">Lives Remaining: ${lives}/3</div>
                         <div class="minefield-grid" id="minefield-grid">
                 `;
 
-                for (let y = 0; y < 10; y++) {
-                    for (let x = 0; x < 10; x++) {
+                for (let y = 0; y < 5; y++) {
+                    for (let x = 0; x < 5; x++) {
                         let cellClass = 'minefield-cell';
                         let cellContent = '';
 
                         if (x === playerPos.x && y === playerPos.y) {
                             cellClass += ' minefield-player';
                             cellContent = '█';
-                        } else if (x === 0 && y === 9) {
+                        } else if (x === 2 && y === 0) {
                             cellClass += ' minefield-goal';
                             cellContent = '⚑';
                         }
@@ -1523,7 +1514,11 @@
                     }
                 }
 
-                html += `</div></div>`;
+                html += `</div>
+                    <div class="terminal-info" style="margin-top: 15px; padding: 10px;">
+                        Need help with the quiz? Join our Discord: <a href="https://discord.gg/8cAB9SjK" target="_blank" style="color: #587154; font-weight: bold;">https://discord.gg/8cAB9SjK</a>
+                    </div>
+                </div>`;
                 document.getElementById('quiz-content').innerHTML = html;
                 minefieldActive = true;
             }
@@ -1535,12 +1530,12 @@
                 const newY = playerPos.y + dy;
 
                 // Check bounds
-                if (newX < 0 || newX >= 10 || newY < 0 || newY >= 10) {
+                if (newX < 0 || newX >= 5 || newY < 0 || newY >= 5) {
                     return;
                 }
 
                 // Check if reached goal
-                if (newX === 0 && newY === 9) {
+                if (newX === 2 && newY === 0) {
                     minefieldActive = false;
                     showMessage('> MINEFIELD CLEARED SUCCESSFULLY!', 'success');
                     setTimeout(() => {
@@ -1565,9 +1560,9 @@
                         minefieldActive = false;
                         setTimeout(resetQuiz, 2000);
                     } else {
-                        // Reset position
+                        // Reset position to start
                         setTimeout(() => {
-                            playerPos = { x: 0, y: 0 };
+                            playerPos = { x: 2, y: 4 };
                             clearMessage();
                             renderMinefield();
                         }, 1500);
@@ -1585,7 +1580,7 @@
                 const q = questions[currentQuestion];
                 
                 if (q.type === 'minefield') {
-                    playerPos = { x: 0, y: 0 };
+                    playerPos = { x: 2, y: 4 };
                     renderMinefield();
                 } else {
                     let html = `
@@ -1593,6 +1588,9 @@
                         <div class="quiz-prompt">${q.prompt}</div>
                         <input type="text" id="quiz-input" class="quiz-input" placeholder="Type your answer here..." autocomplete="off">
                         <button id="submit-btn" class="quiz-button">SUBMIT</button>
+                        <div class="terminal-info" style="margin-top: 15px; padding: 10px;">
+                            Need help with the quiz? Join our Discord: <a href="https://discord.gg/8cAB9SjK" target="_blank" style="color: #587154; font-weight: bold;">https://discord.gg/8cAB9SjK</a>
+                        </div>
                     `;
                     document.getElementById('quiz-content').innerHTML = html;
 
@@ -1607,16 +1605,26 @@
                     });
 
                     submitBtn.addEventListener('click', function() {
-                        checkAnswer(input.value.toLowerCase().trim());
+                        checkAnswer(input.value.trim());
                     });
                 }
             }
 
             function checkAnswer(answer) {
                 const q = questions[currentQuestion];
-                const isCorrect = q.answers.some(validAnswer => 
-                    answer === validAnswer.toLowerCase()
-                );
+                
+                // Normalize answer - remove apostrophes and convert to lowercase for question 3
+                let normalizedAnswer = answer.toLowerCase().trim();
+                
+                const isCorrect = q.answers.some(validAnswer => {
+                    let normalizedValid = validAnswer.toLowerCase();
+                    // For question 3, also check without apostrophes
+                    if (q.id === 3) {
+                        return normalizedAnswer === normalizedValid || 
+                               normalizedAnswer.replace(/'/g, '') === normalizedValid.replace(/'/g, '');
+                    }
+                    return normalizedAnswer === normalizedValid;
+                });
 
                 if (isCorrect) {
                     showMessage('> CORRECT. PROCEEDING TO NEXT VERIFICATION...', 'success');
