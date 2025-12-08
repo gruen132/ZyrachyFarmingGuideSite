@@ -394,6 +394,47 @@
             font-weight: bold;
             color: var(--text-primary);
         }
+        
+        /* Maintenance Overlay Styles */
+        .maintenance-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            padding: 40px 20px;
+        }
+        
+        .maintenance-message {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .maintenance-message h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .maintenance-message p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        
+        .maintenance-message .disclaimer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .hidden-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -790,7 +831,16 @@
 
         <!-- Combat Scenarios Section - Night Time -->
         <section id="nighttime-content" class="view-content">
-            <div class="scenarios-section">
+            <!-- Maintenance Overlay -->
+            <div class="maintenance-overlay">
+                <div class="maintenance-message">
+                    <h2>🔧 Currently Under Maintenance</h2>
+                    <p>The Night Method section is currently undergoing updates and improvements.</p>
+                    <p>Please check back later or use the Day Method or Advanced Day Method in the meantime.</p>
+                    <p class="disclaimer">We apologize for any inconvenience.</p>
+                </div>
+            </div>
+            <div class="scenarios-section hidden-content">
                 <h2>Combat Scenarios - Night Method</h2>
                 <p class="scenario-note">Scope ZEROING VALUES<br>
                 Zryachiy ~450m<br>
