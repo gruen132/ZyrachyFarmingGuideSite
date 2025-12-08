@@ -1444,13 +1444,19 @@
             let playerPos = { x: 2, y: 4 };
             let minefieldActive = false;
 
-            // Minefield path: Simple path from bottom middle (2,4) to top middle (2,0)
-            // Player starts at bottom middle and goes straight up
+            // Minefield path: Complex zigzag path from bottom middle (2,4) to top middle (2,0)
+            // Player starts at bottom middle and must navigate around mines
             const correctPath = [
                 {x: 2, y: 4},  // Start position (bottom middle)
-                {x: 2, y: 3},  // 1 up
-                {x: 2, y: 2},  // 1 up
-                {x: 2, y: 1},  // 1 up
+                {x: 1, y: 4},  // 1 left
+                {x: 1, y: 3},  // 1 up
+                {x: 2, y: 3},  // 1 right
+                {x: 3, y: 3},  // 1 right
+                {x: 3, y: 2},  // 1 up
+                {x: 2, y: 2},  // 1 left
+                {x: 1, y: 2},  // 1 left
+                {x: 1, y: 1},  // 1 up
+                {x: 2, y: 1},  // 1 right
                 {x: 2, y: 0}   // Goal (top middle)
             ];
 
@@ -1515,9 +1521,6 @@
                 }
 
                 html += `</div>
-                    <div class="terminal-info" style="margin-top: 15px; padding: 10px;">
-                        Need help with the quiz? Join our Discord: <a href="https://discord.gg/8cAB9SjK" target="_blank" style="color: #587154; font-weight: bold;">https://discord.gg/8cAB9SjK</a>
-                    </div>
                 </div>`;
                 document.getElementById('quiz-content').innerHTML = html;
                 minefieldActive = true;
@@ -1588,9 +1591,6 @@
                         <div class="quiz-prompt">${q.prompt}</div>
                         <input type="text" id="quiz-input" class="quiz-input" placeholder="Type your answer here..." autocomplete="off">
                         <button id="submit-btn" class="quiz-button">SUBMIT</button>
-                        <div class="terminal-info" style="margin-top: 15px; padding: 10px;">
-                            Need help with the quiz? Join our Discord: <a href="https://discord.gg/8cAB9SjK" target="_blank" style="color: #587154; font-weight: bold;">https://discord.gg/8cAB9SjK</a>
-                        </div>
                     `;
                     document.getElementById('quiz-content').innerHTML = html;
 
