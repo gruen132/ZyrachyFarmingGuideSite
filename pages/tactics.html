@@ -1444,20 +1444,24 @@
             let playerPos = { x: 2, y: 4 };
             let minefieldActive = false;
 
-            // Minefield path: Complex zigzag path from bottom middle (2,4) to top middle (2,0)
-            // Player starts at bottom middle and must navigate around mines
+            // Minefield path: Complex zigzag path that CANNOT be solved by moving straight forward
+            // Player starts at bottom middle (2,4) and must reach top left (1,0)
+            // The path requires multiple direction changes and prevents straight-line movement
             const correctPath = [
                 {x: 2, y: 4},  // Start position (bottom middle)
-                {x: 1, y: 4},  // 1 left
-                {x: 1, y: 3},  // 1 up
-                {x: 2, y: 3},  // 1 right
-                {x: 3, y: 3},  // 1 right
-                {x: 3, y: 2},  // 1 up
-                {x: 2, y: 2},  // 1 left
-                {x: 1, y: 2},  // 1 left
-                {x: 1, y: 1},  // 1 up
-                {x: 2, y: 1},  // 1 right
-                {x: 2, y: 0}   // Goal (top middle)
+                {x: 1, y: 4},  // Move left
+                {x: 0, y: 4},  // Move left to edge
+                {x: 0, y: 3},  // Move up
+                {x: 1, y: 3},  // Move right
+                {x: 2, y: 3},  // Move right
+                {x: 3, y: 3},  // Move right to edge
+                {x: 3, y: 2},  // Move up
+                {x: 2, y: 2},  // Move left
+                {x: 1, y: 2},  // Move left
+                {x: 0, y: 2},  // Move left to edge
+                {x: 0, y: 1},  // Move up
+                {x: 1, y: 1},  // Move right
+                {x: 1, y: 0}   // Move up to goal (top left)
             ];
 
             function isPositionSafe(x, y) {
@@ -1497,7 +1501,8 @@
                         <div class="quiz-question">${questions[5].question}</div>
                         <div class="minefield-instructions">
                             Use arrow keys (↑ ↓ ← →) to navigate through the minefield.<br>
-                            Start at the bottom middle and reach the goal at the top. One wrong step will detonate a mine!
+                            Start at the bottom middle and reach the goal flag. One wrong step will detonate a mine!<br>
+                            <strong>Warning:</strong> Moving straight forward will trigger mines. You must find the correct zigzag path!
                         </div>
                         <div class="lives-counter">Lives Remaining: ${lives}/3</div>
                         <div class="minefield-grid" id="minefield-grid">
@@ -1511,7 +1516,7 @@
                         if (x === playerPos.x && y === playerPos.y) {
                             cellClass += ' minefield-player';
                             cellContent = '█';
-                        } else if (x === 2 && y === 0) {
+                        } else if (x === 1 && y === 0) {
                             cellClass += ' minefield-goal';
                             cellContent = '⚑';
                         }
@@ -1538,7 +1543,7 @@
                 }
 
                 // Check if reached goal
-                if (newX === 2 && newY === 0) {
+                if (newX === 1 && newY === 0) {
                     minefieldActive = false;
                     showMessage('> MINEFIELD CLEARED SUCCESSFULLY!', 'success');
                     setTimeout(() => {
