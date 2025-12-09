@@ -1196,6 +1196,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Support and Help -->
+            <div class="info-container">
+                <button type="button" class="collapsible">Support & Help</button>
+                <div class="scenario-content">
+                    <div class="info-box">
+                        <h3>Need Help?</h3>
+                        <p>If you need help solving any riddles or have questions about the tactics, join our Discord community:</p>
+                        <p><a href="https://discord.gg/8cAB9SjK" target="_blank" style="color: var(--accent-color); text-decoration: underline;">Join Discord Server</a></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -1433,8 +1445,15 @@
                 },
                 {
                     id: 6,
+                    type: 'text',
+                    question: 'Question 6: How many Candles are at the Cultist Circle on the Lighthouse Peninsula?',
+                    answers: ['11', 'eleven'],
+                    prompt: '> INPUT NUMBER:'
+                },
+                {
+                    id: 7,
                     type: 'minefield',
-                    question: 'Question 6: Navigate through the minefield',
+                    question: 'Question 7: Navigate through the minefield',
                     prompt: ''
                 }
             ];
@@ -1445,18 +1464,18 @@
             let minefieldActive = false;
 
             // Minefield path: Complex zigzag path from bottom middle (2,4) to top middle (2,0)
-            // Player starts at bottom middle and must navigate around mines
+            // Player starts at bottom middle and must navigate around mines - NO STRAIGHT PATH
             const correctPath = [
                 {x: 2, y: 4},  // Start position (bottom middle)
                 {x: 1, y: 4},  // 1 left
-                {x: 1, y: 3},  // 1 up
-                {x: 2, y: 3},  // 1 right
-                {x: 3, y: 3},  // 1 right
-                {x: 3, y: 2},  // 1 up
-                {x: 2, y: 2},  // 1 left
-                {x: 1, y: 2},  // 1 left
+                {x: 0, y: 4},  // 1 left
+                {x: 0, y: 3},  // 1 up
+                {x: 0, y: 2},  // 1 up
+                {x: 1, y: 2},  // 1 right
                 {x: 1, y: 1},  // 1 up
-                {x: 2, y: 1},  // 1 right
+                {x: 0, y: 1},  // 1 left
+                {x: 0, y: 0},  // 1 up
+                {x: 1, y: 0},  // 1 right
                 {x: 2, y: 0}   // Goal (top middle)
             ];
 
@@ -1494,7 +1513,7 @@
             function renderMinefield() {
                 let html = `
                     <div class="minefield-container">
-                        <div class="quiz-question">${questions[5].question}</div>
+                        <div class="quiz-question">${questions[6].question}</div>
                         <div class="minefield-instructions">
                             Use arrow keys (↑ ↓ ← →) to navigate through the minefield.<br>
                             Start at the bottom middle and reach the goal at the top. One wrong step will detonate a mine!
