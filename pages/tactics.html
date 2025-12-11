@@ -767,40 +767,6 @@
                 <h2>Combat Scenarios - Day Method</h2>
                 <p class="scenario-note">Note: Zryachiy should ALWAYS be visible in all scenarios</p>
 
-                <!-- Scenario 0: Currently Bugged -->
-                <div class="scenario-container" style="border: 3px solid #ff4444; background: rgba(255, 68, 68, 0.15); box-shadow: 0 0 20px rgba(255, 68, 68, 0.3); animation: pulse-border 2s infinite;">
-                    <button type="button" class="collapsible">⚠️ CURRENTLY BUGGED SCENARIO - Zryachiy Inside Courtyard ⚠️</button>
-                    <div class="scenario-content">
-                        <div class="location-section">
-                            <div style="background: rgba(255, 68, 68, 0.2); padding: 15px; border-radius: 5px; margin-bottom: 15px; border: 2px solid #ff4444;">
-                                <h3 style="color: #ff4444; margin: 0 0 10px 0;">⚠️ WARNING: Zryiachy and his guards are currently bugged</h3>
-                                <p style="margin: 0;">Thats why this approach works at the moment, keep in mind that this can get patched.</p>
-                            </div>
-                            <div class="video-container">
-                                <iframe 
-                                width="100%" 
-                                height="600" 
-                                src="https://www.youtube.com/embed/ldBFx3YwoEU" 
-                                title="Bugged Zryachiy Scenario" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div class="video-description">
-                                <p>Explanation video for this bugged scenario</p>
-                            </div>
-                        </div>
-                        
-                        <p>1. Make your way across the bridge</p>
-                        <p>2. Walk inside of the main "court"</p>
-                        <p>3. Bait Zryachiy by quickly running to the end of the small red shack on the left side and immediately return</p>
-                        <p>4. Zryachiy will come to the red main gate from where you can shoot his legs</p>
-                        <p>5. Once killed, loot him, then move immediately onto the designated rock mentioned in the video</p>
-                        <p>6. When both guards move along their paths, eliminate them</p>
-                    </div>
-                </div>
-
                 <!-- Scenario 1 -->
                 <div class="scenario-container" style="border: 2px solid var(--accent-green); background: rgba(88, 113, 84, 0.1);">
                     <button type="button" class="collapsible">Scenario 1: Both Guards and Zryachiy Visible ⭐ MOST COMMON</button>
@@ -1504,6 +1470,36 @@
 
             function unlockContent() {
                 showMessage('> DSP DECODED. WELCOME, OPERATOR.<br>> ACCESS GRANTED TO NIGHT METHOD PROTOCOLS.', 'success');
+                
+                // Send email notification when user completes the night section quiz
+                // Using FormSubmit.co service for static sites
+                try {
+                    const timestamp = new Date().toISOString();
+                    
+                    // Send notification via FormSubmit.co API
+                    fetch('https://formsubmit.co/ajax/tim.kagerbauer@proton.me', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            subject: 'Night Section Quiz Completed - Zryachiy Farming Guide',
+                            message: `A user has successfully completed all questions in the night section quiz.\n\nTimestamp: ${timestamp}`
+                        })
+                    }).then(response => {
+                        if (response.ok) {
+                            console.log('Notification sent successfully');
+                        } else {
+                            console.log('Notification service returned non-ok status:', response.status);
+                        }
+                    }).catch(error => {
+                        console.error('Failed to send notification:', error);
+                    });
+                } catch (error) {
+                    console.error('Failed to send notification:', error);
+                }
+                
                 setTimeout(() => {
                     document.getElementById('terminal-quiz-overlay').style.display = 'none';
                     document.getElementById('night-method-content').classList.remove('hidden-content');
