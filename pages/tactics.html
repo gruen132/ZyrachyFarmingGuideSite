@@ -1475,7 +1475,6 @@
                 // Using FormSubmit.co service for static sites
                 try {
                     const timestamp = new Date().toISOString();
-                    const userAgent = navigator.userAgent;
                     
                     // Send notification via FormSubmit.co API
                     fetch('https://formsubmit.co/ajax/tim.kagerbauer@proton.me', {
@@ -1486,11 +1485,13 @@
                         },
                         body: JSON.stringify({
                             subject: 'Night Section Quiz Completed - Zryachiy Farming Guide',
-                            message: `A user has successfully completed all questions in the night section quiz.\n\nTimestamp: ${timestamp}\nUser Agent: ${userAgent}`
+                            message: `A user has successfully completed all questions in the night section quiz.\n\nTimestamp: ${timestamp}`
                         })
                     }).then(response => {
                         if (response.ok) {
                             console.log('Notification sent successfully');
+                        } else {
+                            console.log('Notification service returned non-ok status:', response.status);
                         }
                     }).catch(error => {
                         console.error('Failed to send notification:', error);
