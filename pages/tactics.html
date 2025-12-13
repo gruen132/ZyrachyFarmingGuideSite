@@ -1611,11 +1611,22 @@
             }
 
             async function hashCode(code) {
-                const msgBuffer = new TextEncoder().encode(code.toLowerCase().trim());
-                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return hashHex;
+                try {
+                    // Check if Web Crypto API is available
+                    if (!window.crypto || !window.crypto.subtle) {
+                        throw new Error('Web Crypto API not available. Please use a modern browser with HTTPS.');
+                    }
+                    
+                    const msgBuffer = new TextEncoder().encode(code.toLowerCase().trim());
+                    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                    return hashHex;
+                } catch (error) {
+                    console.error('Hashing error:', error);
+                    showMessage('> ERROR: Unable to process code. Please ensure you are using a modern browser.', 'error');
+                    throw error;
+                }
             }
 
             function showQuestion() {
@@ -1650,9 +1661,18 @@
                     });
 
                     submitBtn.addEventListener('click', async function() {
-                        const code = input.value.trim();
-                        const hashedInput = await hashCode(code);
-                        checkAnswer(hashedInput);
+                        try {
+                            const code = input.value.trim();
+                            if (!code) {
+                                showMessage('> ERROR: Please enter a code.', 'error');
+                                return;
+                            }
+                            const hashedInput = await hashCode(code);
+                            checkAnswer(hashedInput);
+                        } catch (error) {
+                            // Error already shown in hashCode function
+                            console.error('Code verification error:', error);
+                        }
                     });
                 } else {
                     let html = `

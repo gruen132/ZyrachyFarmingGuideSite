@@ -18,7 +18,7 @@ Run the following command in your terminal (Linux/Mac) to generate the hash:
 echo -n "yournewcode" | sha256sum
 ```
 
-Replace `yournewcode` with your actual code (use lowercase letters).
+Replace `yournewcode` with your actual code. **Important:** The code you enter here should be in lowercase because the system automatically converts all codes to lowercase before hashing for case-insensitive comparison.
 
 **Example:**
 ```bash
@@ -57,9 +57,14 @@ Share the new access code with users via Discord direct messages when they conta
 ## Security Notes
 - The code is case-insensitive (converted to lowercase before hashing)
 - Users cannot see the actual code by inspecting the source (only the hash is visible)
-- Determined users could potentially brute-force the hash, but this provides protection against casual F12 users
+- **Security Trade-off:** Determined users could potentially brute-force the hash since it's client-side. This solution protects against casual F12 users but not against sophisticated attacks.
+- **Recommendations for better security:**
+  - Use complex, long codes (e.g., "NightOps2025-Alpha-Secure-7X9K")
+  - Rotate the code regularly (weekly/monthly)
+  - Consider this a temporary gatekeeping mechanism, not production security
 - You can rotate the code periodically for additional security
 - This is a temporary solution - consider implementing server-side validation for production
+- Requires HTTPS or localhost for Web Crypto API to function
 
 ## Troubleshooting
 
