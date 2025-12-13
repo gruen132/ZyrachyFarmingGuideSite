@@ -1430,7 +1430,10 @@
                     instruction: 'To access the Night Method section, you need a special access code. Please message <strong>gruen132</strong> on Discord to obtain the code.',
                     prompt: '> ENTER ACCESS CODE:',
                     // SHA-256 hash of the correct access code (case-insensitive)
-                    // To change the code: echo -n "yournewcode" | sha256sum
+                    // Note: This is a temporary gatekeeping solution. The hash can be updated
+                    // periodically by regenerating with: echo -n "yournewcode" | sha256sum
+                    // This prevents casual F12 users from seeing the code directly while allowing
+                    // the site owner to easily rotate codes via Discord distribution
                     answerHash: 'f5934e1ff34d352bf67df7661cd57e8a2bb09d97fb2abb6f7b3d2d7d322da0d9'
                 }
             ];
@@ -1649,7 +1652,7 @@
                     submitBtn.addEventListener('click', async function() {
                         const code = input.value.trim();
                         const hashedInput = await hashCode(code);
-                        checkAnswer(hashedInput, true);
+                        checkAnswer(hashedInput);
                     });
                 } else {
                     let html = `
@@ -1676,7 +1679,7 @@
                 }
             }
 
-            function checkAnswer(answer, isHashed = false) {
+            function checkAnswer(answer) {
                 const q = questions[currentQuestion];
                 
                 let isCorrect = false;
