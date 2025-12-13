@@ -1421,6 +1421,17 @@
                     type: 'minefield',
                     question: 'Question 7: Navigate through the minefield',
                     prompt: ''
+                },
+                {
+                    id: 8,
+                    type: 'code',
+                    question: 'Question 8: Final Verification',
+                    disclaimer: '⚠️ TEMPORARY SOLUTION UNTIL WEBSITE IS COMPLETED',
+                    instruction: 'To access the Night Method section, you need a special access code. Please message <strong>gruen132</strong> on Discord to obtain the code.',
+                    prompt: '> ENTER ACCESS CODE:',
+                    // SHA-256 hash of the correct access code (case-insensitive)
+                    // To change the code: echo -n "yournewcode" | sha256sum
+                    answerHash: 'f5934e1ff34d352bf67df7661cd57e8a2bb09d97fb2abb6f7b3d2d7d322da0d9'
                 }
             ];
 
@@ -1557,7 +1568,9 @@
                     minefieldActive = false;
                     showMessage('> MINEFIELD CLEARED SUCCESSFULLY!', 'success');
                     setTimeout(() => {
-                        unlockContent();
+                        currentQuestion++;
+                        clearMessage();
+                        showQuestion();
                     }, 2000);
                     return;
                 }
@@ -1594,12 +1607,50 @@
                 renderMinefield();
             }
 
+            async function hashCode(code) {
+                const msgBuffer = new TextEncoder().encode(code.toLowerCase().trim());
+                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            }
+
             function showQuestion() {
                 const q = questions[currentQuestion];
                 
                 if (q.type === 'minefield') {
                     playerPos = { x: 2, y: 4 };
                     renderMinefield();
+                } else if (q.type === 'code') {
+                    let html = `
+                        <div class="terminal-info" style="margin-bottom: 20px;">
+                            <div style="text-align: center; font-size: 16px; margin-bottom: 10px;">${q.disclaimer}</div>
+                        </div>
+                        <div class="quiz-question">${q.question}</div>
+                        <div style="margin: 15px 0; padding: 15px; background: rgba(88, 113, 84, 0.2); border: 1px solid #587154; border-radius: 4px; line-height: 1.6;">
+                            ${q.instruction}
+                        </div>
+                        <div class="quiz-prompt">${q.prompt}</div>
+                        <input type="text" id="quiz-input" class="quiz-input" placeholder="Enter the code you received..." autocomplete="off">
+                        <button id="submit-btn" class="quiz-button">SUBMIT CODE</button>
+                    `;
+                    document.getElementById('quiz-content').innerHTML = html;
+
+                    const input = document.getElementById('quiz-input');
+                    const submitBtn = document.getElementById('submit-btn');
+
+                    input.focus();
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            submitBtn.click();
+                        }
+                    });
+
+                    submitBtn.addEventListener('click', async function() {
+                        const code = input.value.trim();
+                        const hashedInput = await hashCode(code);
+                        checkAnswer(hashedInput, true);
+                    });
                 } else {
                     let html = `
                         <div class="quiz-question">${q.question}</div>
@@ -1625,21 +1676,28 @@
                 }
             }
 
-            function checkAnswer(answer) {
+            function checkAnswer(answer, isHashed = false) {
                 const q = questions[currentQuestion];
                 
-                // Normalize answer - remove apostrophes and convert to lowercase for question 3
-                let normalizedAnswer = answer.toLowerCase().trim();
+                let isCorrect = false;
                 
-                const isCorrect = q.answers.some(validAnswer => {
-                    let normalizedValid = validAnswer.toLowerCase();
-                    // For question 3, also check without apostrophes
-                    if (q.id === 3) {
-                        return normalizedAnswer === normalizedValid || 
-                               normalizedAnswer.replace(/'/g, '') === normalizedValid.replace(/'/g, '');
-                    }
-                    return normalizedAnswer === normalizedValid;
-                });
+                if (q.type === 'code') {
+                    // For code type, answer is already hashed, compare with stored hash
+                    isCorrect = answer === q.answerHash;
+                } else {
+                    // Normalize answer - remove apostrophes and convert to lowercase for question 3
+                    let normalizedAnswer = answer.toLowerCase().trim();
+                    
+                    isCorrect = q.answers.some(validAnswer => {
+                        let normalizedValid = validAnswer.toLowerCase();
+                        // For question 3, also check without apostrophes
+                        if (q.id === 3) {
+                            return normalizedAnswer === normalizedValid || 
+                                   normalizedAnswer.replace(/'/g, '') === normalizedValid.replace(/'/g, '');
+                        }
+                        return normalizedAnswer === normalizedValid;
+                    });
+                }
 
                 if (isCorrect) {
                     showMessage('> CORRECT. PROCEEDING TO NEXT VERIFICATION...', 'success');
