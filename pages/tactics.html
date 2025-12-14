@@ -1804,8 +1804,11 @@
                 const nightMethodContent = document.getElementById('night-method-content');
                 
                 // Only trigger reset if quiz overlay is visible (content not unlocked)
-                if (quizOverlay && quizOverlay.style.display !== 'none' && 
-                    nightMethodContent && nightMethodContent.classList.contains('hidden-content')) {
+                // Quiz is active when overlay display is not 'none' and night method content is still hidden
+                if (quizOverlay && 
+                    quizOverlay.style.display !== 'none' && 
+                    nightMethodContent && 
+                    nightMethodContent.classList.contains('hidden-content')) {
                     
                     // Reset the quiz
                     currentQuestion = 0;
