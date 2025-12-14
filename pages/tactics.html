@@ -1439,7 +1439,7 @@
             ];
 
             let currentQuestion = 0;
-            let lives = 3;
+            let lives = 1;
             let playerPos = { x: 2, y: 4 };
             let minefieldActive = false;
 
@@ -1528,7 +1528,7 @@
                             Use arrow keys (↑ ↓ ← →) to navigate through the minefield.<br>
                             Start at the bottom middle and reach the goal at the top. One wrong step will detonate a mine!
                         </div>
-                        <div class="lives-counter">Lives Remaining: ${lives}/3</div>
+                        <div class="lives-counter">Lives Remaining: ${lives}/1</div>
                         <div class="minefield-grid" id="minefield-grid">
                 `;
 
@@ -1790,6 +1790,33 @@
                 if (nightContent && nightContent.classList.contains('active')) {
                     showQuestion();
                     quizInitialized = true;
+                }
+            });
+
+            // Detect tab switching and reset quiz
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    return; // User switched away from tab
+                }
+                
+                // User came back to tab - check if quiz is active
+                const quizOverlay = document.getElementById('terminal-quiz-overlay');
+                const nightMethodContent = document.getElementById('night-method-content');
+                
+                // Only trigger reset if quiz overlay is visible (content not unlocked)
+                if (quizOverlay && quizOverlay.style.display !== 'none' && 
+                    nightMethodContent && nightMethodContent.classList.contains('hidden-content')) {
+                    
+                    // Reset the quiz
+                    currentQuestion = 0;
+                    lives = 1;
+                    minefieldActive = false;
+                    
+                    showMessage('> ACCESS DENIED. So you really tried to google huh.<br>> QUIZ RESET. TRY AGAIN.', 'error');
+                    setTimeout(() => {
+                        clearMessage();
+                        showQuestion();
+                    }, 3000);
                 }
             });
         })();
